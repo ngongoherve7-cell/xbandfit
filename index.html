@@ -129,15 +129,19 @@
     animation:markIn 1.15s cubic-bezier(.2,.75,.25,1.05) forwards;
     animation-delay:0.25s;
     position:relative;
+    perspective:600px;
   }
   .hero-mark img{width:100%;height:100%;object-fit:contain;}
   .hero-mark{cursor:pointer;}
   .hero-mark.spinning img{
-    animation: spinLoop 1.6s linear infinite !important;
+    animation: rockBackForth 1.8s ease-in-out infinite;
   }
-  @keyframes spinLoop{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
+  @keyframes rockBackForth{
+    0%{transform:rotateY(0deg);}
+    25%{transform:rotateY(30deg);}
+    50%{transform:rotateY(0deg);}
+    75%{transform:rotateY(-30deg);}
+    100%{transform:rotateY(0deg);}
   }
   @keyframes markIn{
     0%{opacity:0;transform:scale(0.2) rotate(-260deg);}
@@ -713,10 +717,14 @@
 </footer>
 
 <script>
-  // X mark: entrée animée puis rotation continue en boucle dès l'ouverture du site
+  // X mark: fixe par défaut, bascule vers l'arrière/l'avant seulement au survol ou au toucher
   const heroMark = document.querySelector('.hero-mark');
   if(heroMark){
-    setTimeout(()=> heroMark.classList.add('spinning'), 1400);
+    heroMark.addEventListener('mouseenter', ()=> heroMark.classList.add('spinning'));
+    heroMark.addEventListener('mouseleave', ()=> heroMark.classList.remove('spinning'));
+    heroMark.addEventListener('touchstart', ()=> heroMark.classList.add('spinning'), {passive:true});
+    heroMark.addEventListener('touchend', ()=> heroMark.classList.remove('spinning'));
+    heroMark.addEventListener('touchcancel', ()=> heroMark.classList.remove('spinning'));
   }
 
   // Envoi générique d'un <form> vers un endpoint Formspree (https://formspree.io)
