@@ -424,7 +424,7 @@
         <div class="stock-panel-inner">
           <h4>Rupture de stock</h4>
           <p>La bande X-Band est en cours de production, en vue du lancement. Laisse ton email : on te préviens dès qu'elle est de nouveau disponible pour finaliser ta commande.</p>
-          <form class="stock-form" id="stockForm" data-endpoint="https://formspree.io/f/VOTRE_ID_FORMSPREE">
+          <form class="stock-form" id="stockForm" data-endpoint="https://formspree.io/f/mnpazynd">
             <input type="hidden" name="_subject" value="XBandFit — Liste d'attente Boutique">
             <input type="email" name="email" required placeholder="ton@email.com" id="stockEmail">
             <button type="submit">Me prévenir</button>
@@ -606,7 +606,7 @@
       <h2>Deviens coach<br>certifié X-Band</h2>
       <p>Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés — que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.</p>
     </div>
-    <form class="reveal" id="formationForm" data-endpoint="https://formspree.io/f/VOTRE_ID_FORMSPREE" style="display:grid;gap:16px;max-width:560px;margin:0 auto;">
+    <form class="reveal" id="formationForm" data-endpoint="https://formspree.io/f/mnpazynd" style="display:grid;gap:16px;max-width:560px;margin:0 auto;">
       <input type="hidden" name="_subject" value="XBandFit — Inscription Formation">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <input type="text" name="prenom" required placeholder="Prénom" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
@@ -675,7 +675,7 @@
       <h2>Nous contacter</h2>
       <p>Une question sur le produit, les formations, ou un partenariat club ? Écris-nous.</p>
     </div>
-    <form class="reveal" id="contactForm" data-endpoint="https://formspree.io/f/VOTRE_ID_FORMSPREE" style="display:grid;gap:16px;">
+    <form class="reveal" id="contactForm" data-endpoint="https://formspree.io/f/mnpazynd" style="display:grid;gap:16px;">
       <input type="hidden" name="_subject" value="XBandFit — Message Contact">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <input type="text" name="nom" required placeholder="Nom" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
@@ -747,7 +747,7 @@
     }
   }
 
-  // Contact form — envoi réel via Formspree (remplace VOTRE_ID_FORMSPREE par ton form ID, une seule fois pour tout le site)
+  // Contact form — envoi réel via Formspree (endpoint mnpazynd, partagé par les 3 formulaires du site)
   const contactForm = document.getElementById('contactForm');
   if(contactForm){
     contactForm.addEventListener('submit', (e)=>{
@@ -765,7 +765,7 @@
   }, {threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 
-  // Stock / waitlist panel — envoi réel via Formspree (même endpoint VOTRE_ID_FORMSPREE que les autres formulaires)
+  // Stock / waitlist panel — envoi réel via Formspree (même endpoint mnpazynd que les autres formulaires)
   const orderBtn = document.getElementById('orderBtn');
   const stockPanel = document.getElementById('stockPanel');
   const stockForm = document.getElementById('stockForm');
