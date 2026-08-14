@@ -713,14 +713,10 @@
 </footer>
 
 <script>
-  // X mark: spin continuously while hovered or touched, static otherwise
+  // X mark: entrée animée puis rotation continue en boucle dès l'ouverture du site
   const heroMark = document.querySelector('.hero-mark');
   if(heroMark){
-    heroMark.addEventListener('mouseenter', ()=> heroMark.classList.add('spinning'));
-    heroMark.addEventListener('mouseleave', ()=> heroMark.classList.remove('spinning'));
-    heroMark.addEventListener('touchstart', ()=> heroMark.classList.add('spinning'), {passive:true});
-    heroMark.addEventListener('touchend', ()=> heroMark.classList.remove('spinning'));
-    heroMark.addEventListener('touchcancel', ()=> heroMark.classList.remove('spinning'));
+    setTimeout(()=> heroMark.classList.add('spinning'), 1400);
   }
 
   // Envoi générique d'un <form> vers un endpoint Formspree (https://formspree.io)
