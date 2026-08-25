@@ -77,16 +77,11 @@ nav{
   background:radial-gradient(circle at 50% -10%, rgba(217,164,65,0.16), transparent 55%), var(--bg);
   border-bottom:1px solid var(--border);
 }
-.concept-hero-icon{
-  width:76px;height:76px;
-  margin:0 auto 26px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:50%;
-  background:var(--card);
-  border:1px solid var(--border);
-  box-shadow:0 0 0 10px rgba(217,164,65,0.05);
+.concept-index{
+  display:inline-block;
+  font-family:'Anton',sans-serif;font-size:13px;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
 }
-.concept-hero-icon svg{width:36px;height:36px;color:var(--gold);}
 .concept-hero h1{font-size:clamp(38px,7vw,72px);}
 .concept-hero h1 .accent{color:var(--red);}
 .concept-hero-tag{
@@ -142,7 +137,6 @@ section{padding:100px 0;position:relative;}
   cursor:default;
   opacity:0.75;
 }
-.store-btn svg{width:28px;height:28px;color:var(--gold);flex-shrink:0;}
 .store-btn .store-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);}
 .store-btn .store-status{display:block;font-size:14px;color:var(--text);font-weight:600;margin-top:2px;}
 

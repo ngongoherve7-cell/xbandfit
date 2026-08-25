@@ -238,6 +238,7 @@
   @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
 
   .btn{
+    position:relative;overflow:hidden;
     display:inline-flex;align-items:center;gap:10px;
     padding:15px 34px;
     background:linear-gradient(180deg,var(--gold-light),var(--gold));
@@ -251,6 +252,12 @@
     transition:transform .25s ease, box-shadow .25s ease;
     box-shadow:0 10px 30px -12px rgba(217,164,65,0.55);
   }
+  .btn::after{
+    content:'';position:absolute;top:0;left:-60%;width:35%;height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+    transform:skewX(-20deg);transition:left .55s ease;
+  }
+  .btn:hover::after{left:130%;}
   .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(217,164,65,0.7);}
   .btn-ghost{
     background:transparent;color:var(--text);
@@ -277,6 +284,50 @@
 
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* ---------- STAT STRIP ---------- */
+  .stat-strip{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:56px;
+    padding:56px 24px;text-align:center;
+  }
+  .stat-num{
+    display:block;font-family:'Anton',sans-serif;font-size:clamp(34px,5vw,52px);
+    background:linear-gradient(180deg,var(--gold-light),var(--gold) 55%,var(--gold-dark));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .stat-label{display:block;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-top:8px;}
+  @media (max-width:640px){.stat-strip{gap:34px;padding:40px 24px;}}
+
+  /* ---------- DECORATIVE GLOWS ---------- */
+  #concepts::before{
+    content:'';position:absolute;top:-100px;right:-140px;width:460px;height:460px;
+    background:radial-gradient(circle, rgba(217,164,65,0.14), transparent 70%);
+    border-radius:50%;pointer-events:none;z-index:0;
+  }
+  #concepts .wrap{position:relative;z-index:1;}
+  #cta-band::before{
+    content:'';position:absolute;top:50%;left:50%;width:640px;height:640px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(217,164,65,0.12), transparent 68%);
+    border-radius:50%;pointer-events:none;z-index:0;
+  }
+  #cta-band .wrap{position:relative;z-index:1;}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    overflow:hidden;
+    background:var(--bg-soft);
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:18px 0;
+  }
+  .marquee-track{display:flex;width:max-content;gap:0;animation:marquee 32s linear infinite;}
+  .marquee-track span{
+    font-family:'Anton',sans-serif;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;
+    white-space:nowrap;padding:0 22px;color:var(--text-dim);
+  }
+  .marquee-track span.dot{color:var(--gold);padding:0 6px;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
 
   /* ---------- PRODUCT ---------- */
   #boutique{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -336,13 +387,26 @@
   @media (max-width:860px){.concepts-grid.cats-5{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:520px){.concepts-grid.cats-5{grid-template-columns:repeat(2,1fr);}}
   .concept-card{
+    position:relative;
+    overflow:hidden;
     background:var(--card);
     padding:38px 30px;
-    transition:background .3s ease;
+    transition:background .3s ease, transform .35s ease, box-shadow .35s ease;
     scroll-margin-top:100px;
   }
-  .concept-card:hover{background:var(--card-2);}
-  .concept-card .icon{width:40px;height:40px;color:var(--gold);margin-bottom:22px;}
+  .concept-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--gold-light),var(--gold));
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+  }
+  .concept-card:hover{background:var(--card-2);transform:translateY(-6px);box-shadow:0 22px 44px -22px rgba(0,0,0,0.65);}
+  .concept-card:hover::before{transform:scaleX(1);}
+  .card-index{
+    display:block;font-family:'Anton',sans-serif;font-size:32px;letter-spacing:0.01em;
+    background:linear-gradient(180deg,var(--gold-light),var(--gold) 55%,var(--gold-dark));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    opacity:0.9;margin-bottom:12px;
+  }
   .concept-card h3{font-size:22px;margin-bottom:6px;}
   .concept-card h3 .accent{color:var(--red);}
   .concept-tagline{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
@@ -473,6 +537,20 @@
   </div>
 </section>
 
+<div class="stat-strip reveal">
+  <div><span class="stat-num">6</span><span class="stat-label">Concepts</span></div>
+  <div><span class="stat-num">1</span><span class="stat-label">Bande</span></div>
+  <div><span class="stat-num">4</span><span class="stat-label">Sangles</span></div>
+  <div><span class="stat-num">&infin;</span><span class="stat-label">Combinaisons</span></div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Hiit X-Band</span><span class="dot">&bull;</span><span>Power X-Band</span><span class="dot">&bull;</span><span>Fight X-Band</span><span class="dot">&bull;</span><span>Core X-Band</span><span class="dot">&bull;</span><span>Mobility X-Band</span><span class="dot">&bull;</span><span>Dance X-Band</span><span class="dot">&bull;</span>
+    <span>Hiit X-Band</span><span class="dot">&bull;</span><span>Power X-Band</span><span class="dot">&bull;</span><span>Fight X-Band</span><span class="dot">&bull;</span><span>Core X-Band</span><span class="dot">&bull;</span><span>Mobility X-Band</span><span class="dot">&bull;</span><span>Dance X-Band</span><span class="dot">&bull;</span>
+  </div>
+</div>
+
 <section id="experience">
   <div class="wrap">
     <div class="section-head reveal">
@@ -484,24 +562,17 @@
   <div class="wrap" style="padding:0;">
     <div class="concepts-grid">
       <div class="concept-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 24L24 10l16 14"/><path d="M12 21v15h9V26h6v10h9V21"/>
-        </svg>
+        <span class="card-index">01</span>
         <h3 style="font-size:20px;" data-i18n="exp.card1.title">À la maison</h3>
         <p data-i18n="exp.card1.desc">Suivez nos exercices et nos séances vidéo et entraînez-vous à votre rythme.</p>
       </div>
       <div class="concept-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 6c6 6 10 11 10 16a10 10 0 01-20 0c0-5 4-10 10-16z"/><path d="M24 26v14"/>
-        </svg>
+        <span class="card-index">02</span>
         <h3 style="font-size:20px;" data-i18n="exp.card2.title">En extérieur</h3>
         <p data-i18n="exp.card2.desc">Emportez votre X-Band partout et transformez presque n'importe quel espace en terrain d'entraînement.</p>
       </div>
       <div class="concept-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="17" cy="15" r="5"/><circle cx="32" cy="17" r="4"/>
-          <path d="M8 38v-4a8 8 0 018-8h3a8 8 0 018 8v4"/><path d="M28 26a7 7 0 017 7v5"/>
-        </svg>
+        <span class="card-index">03</span>
         <h3 style="font-size:20px;" data-i18n="exp.card3.title">En club</h3>
         <p data-i18n="exp.card3.desc">Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l'expérience avec un groupe.</p>
       </div>
@@ -561,41 +632,26 @@
     <div class="concepts-grid cats-5">
 
       <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;">
-          <path d="M16 8l-8 6 4 5 4-2v23h16V17l4 2 4-5-8-6-4 4h-8z"/>
-        </svg>
         <h3 style="font-size:17px;" data-i18n="clothing.hommes">Hommes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
       </div>
 
       <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;">
-          <path d="M17 6l-9 7 4 5 4-3-3 12 6 3v13h6V30l6-3-3-12 4 3 4-5-9-7-5 4z"/>
-        </svg>
         <h3 style="font-size:17px;" data-i18n="clothing.femmes">Femmes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
       </div>
 
       <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;">
-          <path d="M14 6h20l2 8h-6v9c0 8-5 13-10 13S10 31 10 23v-9H8l2-8h4z"/>
-        </svg>
         <h3 style="font-size:17px;" data-i18n="clothing.jogging">Jogging</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
       </div>
 
       <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;">
-          <path d="M6 32h10l4-4 6 4h16v6a2 2 0 01-2 2H8a2 2 0 01-2-2v-6z"/><path d="M6 32V16l8-4 6 6-4 6-4 2"/>
-        </svg>
         <h3 style="font-size:17px;" data-i18n="clothing.chaussures">Chaussures</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
       </div>
 
       <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 18px;">
-          <path d="M19 4h10v6l3 4v26a2 2 0 01-2 2H18a2 2 0 01-2-2V14l3-4V4z"/><path d="M16 22h16"/>
-        </svg>
         <h3 style="font-size:17px;" data-i18n="clothing.gourdes">Gourdes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
       </div>
@@ -616,10 +672,7 @@
     <div class="concepts-grid">
 
       <div class="concept-card reveal" id="concept-hiit">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="29" cy="9" r="4" fill="currentColor" stroke="none"/>
-          <path d="M22 16l6 4 6-3M28 20l-3 8 6 3-2 9M25 28l-8 3-2 9M17 31l-6 5"/>
-        </svg>
+        <span class="card-index">01</span>
         <h3>Hiit <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.hiit.tag">Cardio &amp; intensité</p>
         <p data-i18n="concepts.hiit.desc">Des enchaînements courts et intenses avec la bande pour faire grimper le rythme cardiaque et brûler un maximum en peu de temps.</p>
@@ -627,12 +680,7 @@
       </div>
 
       <div class="concept-card reveal" id="concept-power">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="18" cy="10" r="4" fill="currentColor" stroke="none"/>
-          <path d="M18 15v8"/>
-          <path d="M18 23c3 0 5 2 6 5 1 2 3 3 6 2" stroke-width="5" stroke-linecap="round"/>
-          <path d="M30 28l3-2 3 3"/>
-        </svg>
+        <span class="card-index">02</span>
         <h3>Power <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.power.tag">Force &amp; puissance</p>
         <p data-i18n="concepts.power.desc">Travail de force sous tension constante : la résistance de la bande remplace les haltères pour construire du muscle utile.</p>
@@ -640,12 +688,7 @@
       </div>
 
       <div class="concept-card reveal" id="concept-fight">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="24" cy="9" r="4" fill="currentColor" stroke="none"/>
-          <path d="M16 16l8 3 8-3M24 19v7"/>
-          <path d="M17 26a4 4 0 018 0v3a4 4 0 01-8 0z"/>
-          <path d="M28 24l6-2a3 3 0 013 3v0a3 3 0 01-3 3l-6 1"/>
-        </svg>
+        <span class="card-index">03</span>
         <h3>Fight <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.fight.tag">Boxe &amp; renforcement</p>
         <p data-i18n="concepts.fight.desc">Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d'exécution.</p>
@@ -653,10 +696,7 @@
       </div>
 
       <div class="concept-card reveal" id="concept-core">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="16" y="10" width="16" height="26" rx="8"/>
-          <path d="M16 18h16M16 24h16M16 30h16"/>
-        </svg>
+        <span class="card-index">04</span>
         <h3>Core <span class="accent">X-Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.core.tag">Gainage &amp; stabilité</p>
         <p data-i18n="concepts.core.desc">Un travail ciblé de la sangle abdominale et du gainage profond, pour une posture plus stable dans tous les mouvements du quotidien.</p>
@@ -664,10 +704,7 @@
       </div>
 
       <div class="concept-card reveal" id="concept-mobility">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="20" cy="9" r="4" fill="currentColor" stroke="none"/>
-          <path d="M20 15v10M20 25l-7 9M20 25l9 3 4 8M13 20l7-2 6 4"/>
-        </svg>
+        <span class="card-index">05</span>
         <h3>Mobility <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.mobility.tag">Mobilité &amp; souplesse</p>
         <p data-i18n="concepts.mobility.desc">Des étirements actifs assistés par la bande pour gagner en amplitude, soulager les tensions et prévenir les blessures.</p>
@@ -675,12 +712,7 @@
       </div>
 
       <div class="concept-card reveal" id="concept-dance">
-        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="21" cy="9" r="4" fill="currentColor" stroke="none"/>
-          <path d="M21 15v9l-6 4M21 24l7-2 4 5"/>
-          <path d="M15 31l-3 6M27 31l4 6"/>
-          <path d="M33 12l3 2-2 3" stroke-width="2"/>
-        </svg>
+        <span class="card-index">06</span>
         <h3>Dance <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.dance.tag">Danse &amp; plaisir</p>
         <p data-i18n="concepts.dance.desc">Des chorégraphies simples et rythmées, bande en main, pour transformer la séance en moment de plaisir pur.</p>
