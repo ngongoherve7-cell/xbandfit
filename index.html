@@ -119,7 +119,7 @@
   .mobile-nav-toggle svg{transition:transform .2s ease;flex-shrink:0;color:var(--text-dim);}
   .mobile-nav-group.open .mobile-nav-toggle svg{transform:rotate(180deg);}
   .mobile-nav-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--bg);}
-  .mobile-nav-group.open .mobile-nav-sub{max-height:480px;}
+  .mobile-nav-group.open .mobile-nav-sub{max-height:600px;}
   .mobile-nav-sub a{
     display:block;padding:13px 28px 13px 40px;
     color:var(--text-dim);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
@@ -169,6 +169,42 @@
   }
   .nav-dropdown-sub.open .nav-dropdown-submenu{max-height:120px;}
   .nav-dropdown-submenu a{padding-left:22px;}
+
+  /* ---------- NAV MEGA MENU ---------- */
+  .nav-dropdown-mega{
+    position:absolute;top:calc(100% + 18px);left:50%;
+    transform:translateX(-50%) translateY(-6px);
+    width:max-content;max-width:640px;
+    background:var(--card-2);border:1px solid var(--border);border-radius:6px;
+    padding:34px;
+    display:flex;gap:48px;
+    opacity:0;visibility:hidden;
+    transition:opacity .2s ease, transform .2s ease, visibility .2s;
+    box-shadow:0 24px 60px -20px rgba(0,0,0,0.7);
+    z-index:60;
+  }
+  .nav-dropdown:hover .nav-dropdown-mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  @media (max-width:1100px){
+    .nav-dropdown-mega{left:auto;right:-20px;transform:translateY(-6px);}
+    .nav-dropdown:hover .nav-dropdown-mega{transform:translateY(0);}
+  }
+  .mega-col{min-width:190px;}
+  .mega-eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .mega-col h4{font-family:'Anton',sans-serif;font-size:15px;letter-spacing:0.02em;text-transform:uppercase;color:var(--text);margin-bottom:14px;}
+  .mega-title{font-family:'Anton',sans-serif;font-size:20px;text-transform:uppercase;margin-bottom:10px;line-height:1.1;}
+  .mega-col p{color:var(--text-dim);font-size:13px;line-height:1.6;margin:0 0 4px;max-width:230px;}
+  .mega-links a{display:block;padding:8px 0;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-dim);border-bottom:1px solid var(--border);transition:color .2s ease;}
+  .mega-links a:last-child{border-bottom:none;}
+  .mega-links a:hover{color:var(--gold-light);}
+  .mega-benefit{margin-bottom:16px;}
+  .mega-benefit:last-child{margin-bottom:0;}
+  .mega-benefit .mega-benefit-title{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+  .mega-benefit p{font-size:12px;margin:0;}
+  .mega-explore,.mega-more{
+    display:inline-block;margin-top:16px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color .2s ease,border-color .2s ease;
+  }
+  .mega-explore:hover,.mega-more:hover{color:var(--gold-light);border-color:var(--gold-light);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -465,8 +501,8 @@
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </span>
           <div class="nav-dropdown-submenu">
-            <a href="#boutique"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="#boutique"><span data-i18n="nav.femme">Femme</span></a>
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
           </div>
         </div>
         <div class="nav-dropdown-sub">
@@ -474,43 +510,116 @@
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </span>
           <div class="nav-dropdown-submenu">
-            <a href="#boutique"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="#boutique"><span data-i18n="nav.femme">Femme</span></a>
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
           </div>
         </div>
       </div>
     </div>
-    <div class="nav-dropdown" id="conceptsDropdown">
-      <a href="#concepts" class="nav-dropdown-trigger"><span data-i18n="nav.concepts">Concepts</span>
+    <div class="nav-dropdown" id="entrainementsDropdown">
+      <a href="#concepts" class="nav-dropdown-trigger"><span>Entraînements</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
-      <div class="nav-dropdown-menu">
-        <a href="concept-hiit.html">HiitXBand</a>
-        <a href="concept-power.html">PowerXBand</a>
-        <a href="concept-fight.html">FightXBand</a>
-        <a href="concept-core.html">CoreXBand</a>
-        <a href="concept-mobility.html">MobilityXBand</a>
-        <a href="concept-dance.html">DanceXBand</a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-eyebrow">Nos concepts</p>
+          <h4>Entraînements</h4>
+          <div class="mega-links">
+            <a href="concept-hiit.html">HiitXBand</a>
+            <a href="concept-power.html">PowerXBand</a>
+            <a href="concept-fight.html">FightXBand</a>
+            <a href="concept-core.html">CoreXBand</a>
+            <a href="concept-mobility.html">MobilityXBand</a>
+            <a href="concept-dance.html">DanceXBand</a>
+          </div>
+          <a href="#concepts" class="mega-explore">Explorer tout</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-eyebrow">XBandFit+</p>
+          <p class="mega-title">Nouvelle séance d'entraînement<br>disponible bientôt</p>
+          <p>Sur notre application et sur toutes nos chaînes, YouTube compris.</p>
+          <a href="xbandfit-plus.html" class="mega-explore">Explorez davantage</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown" id="plusDropdown">
+      <a href="xbandfit-plus.html" class="nav-dropdown-trigger"><span>XBandFit+</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-eyebrow">XBandFit+</p>
+          <p class="mega-title">Tes séances en ligne,<br>où que tu sois</p>
+          <p>Achète ou abonne-toi, puis suis tes séances X-Band directement depuis l'application XBandFit+, bientôt disponible.</p>
+          <a href="xbandfit-plus.html" class="mega-explore">Explorez davantage</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown" id="formateursDropdown">
+      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>À l'attention des formateurs</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-title">Rejoindre l'équipe</p>
+          <p>Formation initiale, ta première étape pour devenir instructeur certifié X-Band.</p>
+          <a href="formateurs-rejoindre.html" class="mega-explore">Explorez davantage</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-title">Développer les cours</p>
+          <p>L'entraînement n'est que le début, continue de progresser une fois certifié.</p>
+          <a href="formateurs-developper.html" class="mega-explore">Explorez davantage</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-eyebrow">Ressources</p>
+          <div class="mega-links">
+            <a href="#contact">Contactez-nous</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="nav-dropdown" id="clubsDropdown">
-      <a href="#clubs" class="nav-dropdown-trigger"><span data-i18n="nav.clubs">Clubs</span>
+      <a href="#clubs" class="nav-dropdown-trigger"><span>Pour les clubs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
-      <div class="nav-dropdown-menu">
-        <a href="club-luxembourg.html">Luxembourg</a>
-        <a href="club-france.html">France</a>
-        <a href="club-belgique.html">Belgique</a>
-        <a href="club-allemagne.html">Allemagne</a>
-        <a href="club-uk.html">UK</a>
-        <a href="club-espagne.html">Espagne</a>
-        <a href="club-italie.html">Italie</a>
-        <a href="club-portugal.html">Portugal</a>
-        <a href="club-monaco.html">Monaco</a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-eyebrow">Devenez partenaire avec nous</p>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Soutien aux instructeurs</span>
+            <p>Des coachs certifiés, prêts quand vous l'êtes.</p>
+          </div>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Croissance</span>
+            <p>Attirez et fidélisez vos membres avec un concept nouveau sur le marché.</p>
+          </div>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Gestion des groupes de fitness</span>
+            <p>Un seul équipement, six façons de faire bouger vos adhérents.</p>
+          </div>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Solutions numériques</span>
+            <p>Vos cours en ligne, prolongés au-delà des murs du club.</p>
+          </div>
+          <a href="club-partenariat.html" class="mega-explore">En savoir plus</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-eyebrow">Nos clubs partenaires</p>
+          <div class="mega-links">
+            <a href="club-luxembourg.html">Luxembourg</a>
+            <a href="club-france.html">France</a>
+            <a href="club-belgique.html">Belgique</a>
+            <a href="club-allemagne.html">Allemagne</a>
+            <a href="club-uk.html">UK</a>
+            <a href="club-espagne.html">Espagne</a>
+            <a href="club-italie.html">Italie</a>
+            <a href="club-portugal.html">Portugal</a>
+            <a href="club-monaco.html">Monaco</a>
+          </div>
+        </div>
       </div>
     </div>
-    <a href="#formation" data-i18n="nav.formation">Formation</a>
-    <a href="#apropos" data-i18n="nav.apropos">À propos</a>
+    <a href="evenements.html">Événements</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
     <div class="nav-dropdown lang-dropdown" id="langDropdown">
       <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
@@ -532,7 +641,7 @@
   <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle" data-i18n="nav.concepts">Concepts
+    <button class="mobile-nav-toggle">Entraînements
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -545,11 +654,24 @@
     </div>
   </div>
 
+  <a href="xbandfit-plus.html" class="mobile-nav-link">XBandFit+</a>
+
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle" data-i18n="nav.clubs">Clubs
+    <button class="mobile-nav-toggle">À l'attention des formateurs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
+      <a href="formateurs-rejoindre.html">Rejoindre l'équipe</a>
+      <a href="formateurs-developper.html">Développer les cours</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-group">
+    <button class="mobile-nav-toggle">Pour les clubs
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub">
+      <a href="club-partenariat.html">Pourquoi devenir partenaire</a>
       <a href="club-luxembourg.html">Luxembourg</a>
       <a href="club-france.html">France</a>
       <a href="club-belgique.html">Belgique</a>
@@ -562,8 +684,7 @@
     </div>
   </div>
 
-  <a href="#formation" class="mobile-nav-link" data-i18n="nav.formation">Formation</a>
-  <a href="#apropos" class="mobile-nav-link" data-i18n="nav.apropos">À propos</a>
+  <a href="evenements.html" class="mobile-nav-link">Événements</a>
   <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
 
   <div class="mobile-nav-langs">
