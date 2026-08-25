@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XBANDFIT — We Can Make It</title>
-<meta name="description" content="XBANDFIT — Une bande. Six façons de s'entraîner. HIIT, force, combat, mobilité, gainage, danse.">
+<title>XBANDFIT, We Can Make It</title>
+<meta name="description" content="XBANDFIT, Une bande. Six façons de s'entraîner. HIIT, force, combat, mobilité, gainage, danse.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
     font-weight:400;
     letter-spacing:0.01em;
     text-transform:uppercase;
-    line-height:0.95;
+    line-height:1.1;
     margin:0;
   }
   .eyebrow{
@@ -119,7 +119,7 @@
   .mobile-nav-toggle svg{transition:transform .2s ease;flex-shrink:0;color:var(--text-dim);}
   .mobile-nav-group.open .mobile-nav-toggle svg{transform:rotate(180deg);}
   .mobile-nav-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--bg);}
-  .mobile-nav-group.open .mobile-nav-sub{max-height:480px;}
+  .mobile-nav-group.open .mobile-nav-sub{max-height:600px;}
   .mobile-nav-sub a{
     display:block;padding:13px 28px 13px 40px;
     color:var(--text-dim);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
@@ -169,6 +169,42 @@
   }
   .nav-dropdown-sub.open .nav-dropdown-submenu{max-height:120px;}
   .nav-dropdown-submenu a{padding-left:22px;}
+
+  /* ---------- NAV MEGA MENU ---------- */
+  .nav-dropdown-mega{
+    position:absolute;top:calc(100% + 18px);left:50%;
+    transform:translateX(-50%) translateY(-6px);
+    width:max-content;max-width:640px;
+    background:var(--card-2);border:1px solid var(--border);border-radius:6px;
+    padding:34px;
+    display:flex;gap:48px;
+    opacity:0;visibility:hidden;
+    transition:opacity .2s ease, transform .2s ease, visibility .2s;
+    box-shadow:0 24px 60px -20px rgba(0,0,0,0.7);
+    z-index:60;
+  }
+  .nav-dropdown:hover .nav-dropdown-mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  @media (max-width:1100px){
+    .nav-dropdown-mega{left:auto;right:-20px;transform:translateY(-6px);}
+    .nav-dropdown:hover .nav-dropdown-mega{transform:translateY(0);}
+  }
+  .mega-col{min-width:190px;}
+  .mega-eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .mega-col h4{font-family:'Anton',sans-serif;font-size:15px;letter-spacing:0.02em;text-transform:uppercase;color:var(--text);margin-bottom:14px;}
+  .mega-title{font-family:'Anton',sans-serif;font-size:20px;text-transform:uppercase;margin-bottom:10px;line-height:1.1;}
+  .mega-col p{color:var(--text-dim);font-size:13px;line-height:1.6;margin:0 0 4px;max-width:230px;}
+  .mega-links a{display:block;padding:8px 0;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-dim);border-bottom:1px solid var(--border);transition:color .2s ease;}
+  .mega-links a:last-child{border-bottom:none;}
+  .mega-links a:hover{color:var(--gold-light);}
+  .mega-benefit{margin-bottom:16px;}
+  .mega-benefit:last-child{margin-bottom:0;}
+  .mega-benefit .mega-benefit-title{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+  .mega-benefit p{font-size:12px;margin:0;}
+  .mega-explore,.mega-more{
+    display:inline-block;margin-top:16px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color .2s ease,border-color .2s ease;
+  }
+  .mega-explore:hover,.mega-more:hover{color:var(--gold-light);border-color:var(--gold-light);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -337,19 +373,6 @@
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.is-visible{opacity:1;transform:translateY(0);}
 
-  /* ---------- STAT STRIP ---------- */
-  .stat-strip{
-    display:flex;justify-content:center;flex-wrap:wrap;gap:56px;
-    padding:56px 24px;text-align:center;
-  }
-  .stat-num{
-    display:block;font-family:'Anton',sans-serif;font-size:clamp(34px,5vw,52px);
-    background:linear-gradient(180deg,var(--gold-light),var(--gold) 55%,var(--gold-dark));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .stat-label{display:block;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-top:8px;}
-  @media (max-width:640px){.stat-strip{gap:34px;padding:40px 24px;}}
-
   /* ---------- DECORATIVE GLOWS ---------- */
   #concepts::before{
     content:'';position:absolute;top:-100px;right:-140px;width:460px;height:460px;
@@ -478,8 +501,8 @@
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </span>
           <div class="nav-dropdown-submenu">
-            <a href="#boutique"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="#boutique"><span data-i18n="nav.femme">Femme</span></a>
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
           </div>
         </div>
         <div class="nav-dropdown-sub">
@@ -487,44 +510,118 @@
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </span>
           <div class="nav-dropdown-submenu">
-            <a href="#boutique"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="#boutique"><span data-i18n="nav.femme">Femme</span></a>
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
           </div>
         </div>
       </div>
     </div>
-    <div class="nav-dropdown" id="conceptsDropdown">
-      <a href="#concepts" class="nav-dropdown-trigger"><span data-i18n="nav.concepts">Concepts</span>
+    <div class="nav-dropdown" id="entrainementsDropdown">
+      <a href="#concepts" class="nav-dropdown-trigger"><span>Entraînements</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
-      <div class="nav-dropdown-menu">
-        <a href="concept-hiit.html">HiitXBand</a>
-        <a href="concept-power.html">PowerXBand</a>
-        <a href="concept-fight.html">FightXBand</a>
-        <a href="concept-core.html">CoreXBand</a>
-        <a href="concept-mobility.html">MobilityXBand</a>
-        <a href="concept-dance.html">DanceXBand</a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-eyebrow">Nos concepts</p>
+          <h4>Entraînements</h4>
+          <div class="mega-links">
+            <a href="concept-hiit.html">HiitXBand</a>
+            <a href="concept-power.html">PowerXBand</a>
+            <a href="concept-fight.html">FightXBand</a>
+            <a href="concept-core.html">CoreXBand</a>
+            <a href="concept-mobility.html">MobilityXBand</a>
+            <a href="concept-dance.html">DanceXBand</a>
+          </div>
+          <a href="#concepts" class="mega-explore">Explorer tout</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-eyebrow">XBandFit+</p>
+          <p class="mega-title">Nouvelle séance d'entraînement<br>disponible bientôt</p>
+          <p>Sur notre application et sur toutes nos chaînes, YouTube compris.</p>
+          <a href="xbandfit-plus.html" class="mega-explore">Explorez davantage</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown" id="plusDropdown">
+      <a href="xbandfit-plus.html" class="nav-dropdown-trigger"><span>XBandFit+</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-eyebrow">XBandFit+</p>
+          <p class="mega-title">Tes séances en ligne,<br>où que tu sois</p>
+          <p>Achète ou abonne-toi, puis suis tes séances X-Band directement depuis l'application XBandFit+, bientôt disponible.</p>
+          <a href="xbandfit-plus.html" class="mega-explore">Explorez davantage</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-dropdown" id="formateursDropdown">
+      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>À l'attention des formateurs</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-title">Rejoindre l'équipe</p>
+          <p>Formation initiale, ta première étape pour devenir instructeur certifié X-Band.</p>
+          <a href="formateurs-rejoindre.html" class="mega-explore">Explorez davantage</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-title">Développer les cours</p>
+          <p>L'entraînement n'est que le début, continue de progresser une fois certifié.</p>
+          <a href="formateurs-developper.html" class="mega-explore">Explorez davantage</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-eyebrow">Ressources</p>
+          <div class="mega-links">
+            <a href="#contact">Contactez-nous</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="nav-dropdown" id="clubsDropdown">
-      <a href="#clubs" class="nav-dropdown-trigger"><span data-i18n="nav.clubs">Clubs</span>
+      <a href="#clubs" class="nav-dropdown-trigger"><span>Pour les clubs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
-      <div class="nav-dropdown-menu">
-        <a href="club-luxembourg.html">Luxembourg</a>
-        <a href="club-france.html">France</a>
-        <a href="club-belgique.html">Belgique</a>
-        <a href="club-allemagne.html">Allemagne</a>
-        <a href="club-uk.html">UK</a>
-        <a href="club-espagne.html">Espagne</a>
-        <a href="club-italie.html">Italie</a>
-        <a href="club-portugal.html">Portugal</a>
-        <a href="club-monaco.html">Monaco</a>
+      <div class="nav-dropdown-mega">
+        <div class="mega-col">
+          <p class="mega-eyebrow">Devenez partenaire avec nous</p>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Soutien aux instructeurs</span>
+            <p>Des coachs certifiés, prêts quand vous l'êtes.</p>
+          </div>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Croissance</span>
+            <p>Attirez et fidélisez vos membres avec un concept nouveau sur le marché.</p>
+          </div>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Gestion des groupes de fitness</span>
+            <p>Un seul équipement, six façons de faire bouger vos adhérents.</p>
+          </div>
+          <div class="mega-benefit">
+            <span class="mega-benefit-title">Solutions numériques</span>
+            <p>Vos cours en ligne, prolongés au-delà des murs du club.</p>
+          </div>
+          <a href="club-partenariat.html" class="mega-explore">En savoir plus</a>
+        </div>
+        <div class="mega-col">
+          <p class="mega-eyebrow">Nos clubs partenaires</p>
+          <div class="mega-links">
+            <a href="club-luxembourg.html">Luxembourg</a>
+            <a href="club-france.html">France</a>
+            <a href="club-belgique.html">Belgique</a>
+            <a href="club-allemagne.html">Allemagne</a>
+            <a href="club-uk.html">UK</a>
+            <a href="club-espagne.html">Espagne</a>
+            <a href="club-italie.html">Italie</a>
+            <a href="club-portugal.html">Portugal</a>
+            <a href="club-monaco.html">Monaco</a>
+          </div>
+        </div>
       </div>
     </div>
-    <a href="#formation" data-i18n="nav.formation">Formation</a>
-    <a href="#apropos" data-i18n="nav.apropos">À propos</a>
+    <a href="evenements.html">Événements</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <a href="https://xbandfit-compte.vercel.app/" target="_blank" rel="noopener">Se connecter</a>
     <div class="nav-dropdown lang-dropdown" id="langDropdown">
       <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -545,7 +642,7 @@
   <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle" data-i18n="nav.concepts">Concepts
+    <button class="mobile-nav-toggle">Entraînements
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -558,11 +655,24 @@
     </div>
   </div>
 
+  <a href="xbandfit-plus.html" class="mobile-nav-link">XBandFit+</a>
+
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle" data-i18n="nav.clubs">Clubs
+    <button class="mobile-nav-toggle">À l'attention des formateurs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
+      <a href="formateurs-rejoindre.html">Rejoindre l'équipe</a>
+      <a href="formateurs-developper.html">Développer les cours</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-group">
+    <button class="mobile-nav-toggle">Pour les clubs
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub">
+      <a href="club-partenariat.html">Pourquoi devenir partenaire</a>
       <a href="club-luxembourg.html">Luxembourg</a>
       <a href="club-france.html">France</a>
       <a href="club-belgique.html">Belgique</a>
@@ -575,9 +685,9 @@
     </div>
   </div>
 
-  <a href="#formation" class="mobile-nav-link" data-i18n="nav.formation">Formation</a>
-  <a href="#apropos" class="mobile-nav-link" data-i18n="nav.apropos">À propos</a>
+  <a href="evenements.html" class="mobile-nav-link">Événements</a>
   <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+  <a href="https://xbandfit-compte.vercel.app/" class="mobile-nav-link" target="_blank" rel="noopener">Se connecter</a>
 
   <div class="mobile-nav-langs">
     <button class="lang-option" data-lang="fr">FR</button>
@@ -604,13 +714,6 @@
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
   </div>
 </section>
-
-<div class="stat-strip reveal">
-  <div><span class="stat-num">6</span><span class="stat-label">Concepts</span></div>
-  <div><span class="stat-num">1</span><span class="stat-label">Bande</span></div>
-  <div><span class="stat-num">4</span><span class="stat-label">Sangles</span></div>
-  <div><span class="stat-num">&infin;</span><span class="stat-label">Combinaisons</span></div>
-</div>
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
@@ -654,10 +757,10 @@
       <img src="data:image/webp;base64,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" alt="Bande de résistance X-Band">
     </div>
     <div class="reveal">
-      <p class="eyebrow" data-i18n="boutique.eyebrow">Boutique — X-Band</p>
+      <p class="eyebrow" data-i18n="boutique.eyebrow">Boutique, X-Band</p>
       <h2 style="font-size:clamp(28px,4vw,44px);margin-bottom:18px;" data-i18n-html="boutique.title">La bande <span class="gold-grad">X-Band</span></h2>
       <p style="color:var(--text-dim);font-size:16px;line-height:1.65;max-width:460px;" data-i18n="boutique.desc">
-        Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l'intégralité de nos six concepts d'entraînement — chez toi, en salle, ou en extérieur.
+        Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l'intégralité de nos six concepts d'entraînement, chez toi, en salle, ou en extérieur.
       </p>
       <div style="display:flex;align-items:baseline;gap:12px;margin-top:26px;flex-wrap:wrap;">
         <span style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);">49,99&nbsp;€</span>
@@ -679,7 +782,7 @@
     <div class="section-head reveal" style="margin-bottom:40px;">
       <p class="eyebrow" data-i18n="clothing.eyebrow">Vêtements & accessoires</p>
       <h2 style="font-size:clamp(24px,3.4vw,36px);" data-i18n="clothing.title">La marque à porter</h2>
-      <p data-i18n="clothing.desc">La collection XBANDFIT arrive bientôt — sélectionne une catégorie pour être prévenu dès son ouverture.</p>
+      <p data-i18n="clothing.desc">La collection XBANDFIT arrive bientôt, sélectionne une catégorie pour être prévenu dès son ouverture.</p>
     </div>
   </div>
   <div class="wrap" style="padding:0;">
@@ -782,10 +885,10 @@
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="clubs.eyebrow">Clubs & Coachs</p>
       <h2 data-i18n-html="clubs.title">Bientôt près<br>de chez toi</h2>
-      <p data-i18n="clubs.desc">Dès qu'un club partenaire rejoint XBandfit, son adresse est ajoutée sur la carte ci-dessous — avec ses coachs certifiés à la méthode X-Band.</p>
+      <p data-i18n="clubs.desc">Dès qu'un club partenaire rejoint XBandfit, son adresse est ajoutée sur la carte ci-dessous, avec ses coachs certifiés à la méthode X-Band.</p>
     </div>
     <!--
-      Carte "monde" sans clé API — s'affiche déjà, zéro configuration.
+      Carte "monde" sans clé API, s'affiche déjà, zéro configuration.
       Pour ajouter des clubs plus tard, deux options :
       1) Simple : créer une carte gratuite sur https://mymaps.google.com, y placer un repère
          par adresse de club, puis remplacer le src de l'iframe ci-dessous par le lien
@@ -801,7 +904,7 @@
         width="100%" height="420" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         style="border:0;display:block;filter:grayscale(1) invert(0.9) contrast(0.85);"></iframe>
     </div>
-    <p class="reveal" style="color:var(--text-dim);font-size:13px;max-width:420px;margin:16px auto 0;text-align:center;" data-i18n="clubs.mapCaption">Aucun club partenaire pour le moment — la carte se remplit dès le premier partenariat signé.</p>
+    <p class="reveal" style="color:var(--text-dim);font-size:13px;max-width:420px;margin:16px auto 0;text-align:center;" data-i18n="clubs.mapCaption">Aucun club partenaire pour le moment, la carte se remplit dès le premier partenariat signé.</p>
   </div>
 </section>
 
@@ -810,7 +913,7 @@
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="formation.eyebrow">Formation</p>
       <h2 data-i18n-html="formation.title">Deviens coach<br>certifié X-Band</h2>
-      <p data-i18n="formation.desc">Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés — que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.</p>
+      <p data-i18n="formation.desc">Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés, que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.</p>
     </div>
     <div class="reveal" style="text-align:center;">
       <a href="https://xbandfit-admin.lovable.app/formation" class="btn" target="_blank" rel="noopener" data-i18n="formation.submitBtn">S'inscrire</a>
@@ -837,9 +940,9 @@
     </div>
     <div class="about-box reveal">
       <span class="tag" data-i18n="about.tag">Notre vision</span>
-      <p data-i18n="about.p1">HX Fitness n'est pas une énième marque de fitness. Le secteur est saturé de concepts qui se ressemblent, de cours interchangeables et de promesses creuses — nous avons voulu construire autre chose : un fitness hybride, portable et connecté, qui ne dépend ni d'un lieu ni d'un équipement lourd.</p>
-      <p style="margin-top:16px;" data-i18n="about.p2">Le X-Band est né de cette vision : une seule bande, six concepts d'entraînement, une méthode pensée pour suivre le corps partout — à la maison, en extérieur, en club. Nous ne vendons pas un simple accessoire, nous construisons un écosystème où coachs, clubs et pratiquants trouvent chacun leur place.</p>
-      <p style="margin-top:16px;color:var(--gold-light);font-weight:600;" data-i18n="about.signature">— Hervé-Ngongo, fondateur & créateur du concept</p>
+      <p data-i18n="about.p1">HX Fitness n'est pas une énième marque de fitness. Le secteur est saturé de concepts qui se ressemblent, de cours interchangeables et de promesses creuses, nous avons voulu construire autre chose : un fitness hybride, portable et connecté, qui ne dépend ni d'un lieu ni d'un équipement lourd.</p>
+      <p style="margin-top:16px;" data-i18n="about.p2">Le X-Band est né de cette vision : une seule bande, six concepts d'entraînement, une méthode pensée pour suivre le corps partout, à la maison, en extérieur, en club. Nous ne vendons pas un simple accessoire, nous construisons un écosystème où coachs, clubs et pratiquants trouvent chacun leur place.</p>
+      <p style="margin-top:16px;color:var(--gold-light);font-weight:600;" data-i18n="about.signature">Hervé-Ngongo, fondateur & créateur du concept</p>
     </div>
   </div>
 </section>
@@ -852,15 +955,15 @@
       <p data-i18n="contact.desc">Une question sur le produit, les formations, ou un partenariat club ? Écris-nous.</p>
     </div>
     <form class="reveal" id="contactForm" data-endpoint="https://formspree.io/f/mnpazynd" style="display:grid;gap:16px;">
-      <input type="hidden" name="_subject" value="XBandFit — Message Contact">
+      <input type="hidden" name="_subject" value="XBandFit, Message Contact">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <input type="text" name="nom" required placeholder="Nom" data-i18n-placeholder="contact.nom" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
         <input type="email" name="email" required placeholder="Email" data-i18n-placeholder="contact.email" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
       </div>
       <textarea name="message" required placeholder="Message" rows="5" data-i18n-placeholder="contact.message" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;resize:vertical;"></textarea>
       <button type="submit" class="btn" style="justify-self:start;" data-i18n="contact.submitBtn">Envoyer</button>
-      <p class="stock-confirm" id="contactConfirm" style="padding-top:0;" data-i18n="contact.confirm">Merci, ton message est bien noté — on te répond rapidement.</p>
-      <p class="stock-error" id="contactError" style="display:none;color:var(--red);font-size:12px;"><span data-i18n="contact.error">Une erreur est survenue — réessaie, ou écris-nous directement à</span> <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
+      <p class="stock-confirm" id="contactConfirm" style="padding-top:0;" data-i18n="contact.confirm">Merci, ton message est bien noté, on te répond rapidement.</p>
+      <p class="stock-error" id="contactError" style="display:none;color:var(--red);font-size:12px;"><span data-i18n="contact.error">Une erreur est survenue, réessaie, ou écris-nous directement à</span> <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
     </form>
   </div>
 </section>
@@ -879,10 +982,11 @@
         <a href="#formation" data-i18n="nav.formation">Formation</a>
         <a href="#apropos" data-i18n="nav.apropos">À propos</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="https://xbandfit-compte.vercel.app/" target="_blank" rel="noopener">Mon compte</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 X-Band Fit — xbandfit.com</span>
+      <span>© 2026 X-Band Fit, xbandfit.com</span>
       <span data-i18n="footer.rights">Tous droits réservés</span>
     </div>
   </div>
@@ -901,15 +1005,15 @@
       'exp.card1.title':'À la maison','exp.card1.desc':'Suivez nos exercices et nos séances vidéo et entraînez-vous à votre rythme.',
       'exp.card2.title':'En extérieur','exp.card2.desc':'Emportez votre X-Band partout et transformez presque n\'importe quel espace en terrain d\'entraînement.',
       'exp.card3.title':'En club','exp.card3.desc':'Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l\'expérience avec un groupe.',
-      'boutique.eyebrow':'Boutique — X-Band','boutique.title':'La bande <span class="gold-grad">X-Band</span>',
-      'boutique.desc':'Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l\'intégralité de nos six concepts d\'entraînement — chez toi, en salle, ou en extérieur.',
+      'boutique.eyebrow':'Boutique, X-Band','boutique.title':'La bande <span class="gold-grad">X-Band</span>',
+      'boutique.desc':'Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l\'intégralité de nos six concepts d\'entraînement, chez toi, en salle, ou en extérieur.',
       'boutique.vat':'TVA/TTC','boutique.feature1':'Full body workout','boutique.feature2':'Portable & léger','boutique.feature3':'Durable & résistant','boutique.feature4':'Exercices illimités',
       'boutique.orderBtn':'Commander','boutique.stockTitle':'Rupture de stock',
       'boutique.stockDesc':'La bande X-Band est en cours de production, en vue du lancement. Laisse ton email : on te préviens dès qu\'elle est de nouveau disponible pour finaliser ta commande.',
       'boutique.stockPlaceholder':'ton@email.com','boutique.stockBtn':'Me prévenir','boutique.stockConfirm':'Merci ! On te recontacte dès la réouverture du stock.',
-      'boutique.stockError':'Une erreur est survenue — réessaie, ou écris-nous à',
+      'boutique.stockError':'Une erreur est survenue, réessaie, ou écris-nous à',
       'clothing.eyebrow':'Vêtements & accessoires','clothing.title':'La marque à porter',
-      'clothing.desc':'La collection XBANDFIT arrive bientôt — sélectionne une catégorie pour être prévenu dès son ouverture.',
+      'clothing.desc':'La collection XBANDFIT arrive bientôt, sélectionne une catégorie pour être prévenu dès son ouverture.',
       'clothing.hommes':'Hommes','clothing.femmes':'Femmes','clothing.jogging':'Jogging','clothing.chaussures':'Chaussures','clothing.gourdes':'Gourdes',
       'shared.comingSoon':'Bientôt disponible',
       'concepts.eyebrow':'Nos concepts','concepts.title':'Un band.<br>Six disciplines.',
@@ -921,24 +1025,24 @@
       'concepts.mobility.tag':'Mobilité & souplesse','concepts.mobility.desc':'Des étirements actifs assistés par la bande pour gagner en amplitude, soulager les tensions et prévenir les blessures.',
       'concepts.dance.tag':'Danse & plaisir','concepts.dance.desc':'Des chorégraphies simples et rythmées, bande en main, pour transformer la séance en moment de plaisir pur.',
       'clubs.eyebrow':'Clubs & Coachs','clubs.title':'Bientôt près<br>de chez toi',
-      'clubs.desc':'Dès qu\'un club partenaire rejoint XBandfit, son adresse est ajoutée sur la carte ci-dessous — avec ses coachs certifiés à la méthode X-Band.',
-      'clubs.mapCaption':'Aucun club partenaire pour le moment — la carte se remplit dès le premier partenariat signé.',
+      'clubs.desc':'Dès qu\'un club partenaire rejoint XBandfit, son adresse est ajoutée sur la carte ci-dessous, avec ses coachs certifiés à la méthode X-Band.',
+      'clubs.mapCaption':'Aucun club partenaire pour le moment, la carte se remplit dès le premier partenariat signé.',
       'formation.eyebrow':'Formation','formation.title':'Deviens coach<br>certifié X-Band',
-      'formation.desc':'Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés — que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.',
+      'formation.desc':'Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés, que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.',
       'formation.prenom':'Prénom','formation.nom':'Nom','formation.email':'Email','formation.dejaCoach':'Es-tu déjà coach ?','formation.oui':'Oui','formation.non':'Non',
       'formation.conceptsInterest':'Quel(s) concept(s) t\'intéresse(nt) ?','formation.conceptsCoach':'Quel(s) concept(s) enseignes-tu déjà ?',
       'formation.submitBtn':'S\'inscrire','formation.confirm':'Merci ! On revient vers toi par email avec les tarifs et le fonctionnement des formations.',
-      'formation.error':'Une erreur est survenue — réessaie, ou écris-nous à',
+      'formation.error':'Une erreur est survenue, réessaie, ou écris-nous à',
       'cta.eyebrow':'Plus qu\'un élastique','cta.title':'Une nouvelle<br>expérience <span class="gold-grad">fitness</span>.',
       'cta.desc':'XBandfit associe mouvement, résistance, rythme et énergie collective autour d\'un équipement simple et polyvalent. Découvrez nos différents programmes et trouvez l\'expérience qui vous correspond.',
       'cta.subtitle':'Prêt à bouger autrement ?','cta.btn':'Acheter mon X-Band',
       'about.eyebrow':'Qui sommes-nous','about.title':'Les créateurs de X-Band Fit','about.tag':'Notre vision',
-      'about.p1':'HX Fitness n\'est pas une énième marque de fitness. Le secteur est saturé de concepts qui se ressemblent, de cours interchangeables et de promesses creuses — nous avons voulu construire autre chose : un fitness hybride, portable et connecté, qui ne dépend ni d\'un lieu ni d\'un équipement lourd.',
-      'about.p2':'Le X-Band est né de cette vision : une seule bande, six concepts d\'entraînement, une méthode pensée pour suivre le corps partout — à la maison, en extérieur, en club. Nous ne vendons pas un simple accessoire, nous construisons un écosystème où coachs, clubs et pratiquants trouvent chacun leur place.',
-      'about.signature':'— Hervé-Ngongo, fondateur & créateur du concept',
+      'about.p1':'HX Fitness n\'est pas une énième marque de fitness. Le secteur est saturé de concepts qui se ressemblent, de cours interchangeables et de promesses creuses, nous avons voulu construire autre chose : un fitness hybride, portable et connecté, qui ne dépend ni d\'un lieu ni d\'un équipement lourd.',
+      'about.p2':'Le X-Band est né de cette vision : une seule bande, six concepts d\'entraînement, une méthode pensée pour suivre le corps partout, à la maison, en extérieur, en club. Nous ne vendons pas un simple accessoire, nous construisons un écosystème où coachs, clubs et pratiquants trouvent chacun leur place.',
+      'about.signature':'Hervé-Ngongo, fondateur & créateur du concept',
       'contact.eyebrow':'Contact','contact.title':'Nous contacter','contact.desc':'Une question sur le produit, les formations, ou un partenariat club ? Écris-nous.',
       'contact.nom':'Nom','contact.email':'Email','contact.message':'Message','contact.submitBtn':'Envoyer',
-      'contact.confirm':'Merci, ton message est bien noté — on te répond rapidement.','contact.error':'Une erreur est survenue — réessaie, ou écris-nous directement à',
+      'contact.confirm':'Merci, ton message est bien noté, on te répond rapidement.','contact.error':'Une erreur est survenue, réessaie, ou écris-nous directement à',
       'footer.rights':'Tous droits réservés'
     },
     en: {
@@ -951,15 +1055,15 @@
       'exp.card1.title':'At home','exp.card1.desc':'Follow our exercises and video sessions and train at your own pace.',
       'exp.card2.title':'Outdoors','exp.card2.desc':'Take your X-Band anywhere and turn almost any space into a training ground.',
       'exp.card3.title':'In a club','exp.card3.desc':'Discover XBandfit group classes with trained coaches and live the experience with a group.',
-      'boutique.eyebrow':'Shop — X-Band','boutique.title':'The <span class="gold-grad">X-Band</span> band',
-      'boutique.desc':'One resistance band, four straps, one central ring. Enough to cover all six of our training concepts — at home, at the gym, or outdoors.',
+      'boutique.eyebrow':'Shop, X-Band','boutique.title':'The <span class="gold-grad">X-Band</span> band',
+      'boutique.desc':'One resistance band, four straps, one central ring. Enough to cover all six of our training concepts, at home, at the gym, or outdoors.',
       'boutique.vat':'VAT incl.','boutique.feature1':'Full body workout','boutique.feature2':'Portable & lightweight','boutique.feature3':'Durable & resistant','boutique.feature4':'Unlimited exercises',
       'boutique.orderBtn':'Order now','boutique.stockTitle':'Out of stock',
       'boutique.stockDesc':'The X-Band is currently in production ahead of launch. Leave your email and we\'ll let you know as soon as it\'s back in stock to complete your order.',
       'boutique.stockPlaceholder':'you@email.com','boutique.stockBtn':'Notify me','boutique.stockConfirm':'Thanks! We\'ll get back to you as soon as it\'s back in stock.',
-      'boutique.stockError':'Something went wrong — try again, or email us at',
+      'boutique.stockError':'Something went wrong, try again, or email us at',
       'clothing.eyebrow':'Apparel & accessories','clothing.title':'The brand to wear',
-      'clothing.desc':'The XBANDFIT collection is coming soon — pick a category to be notified as soon as it opens.',
+      'clothing.desc':'The XBANDFIT collection is coming soon, pick a category to be notified as soon as it opens.',
       'clothing.hommes':'Men','clothing.femmes':'Women','clothing.jogging':'Sweatpants','clothing.chaussures':'Shoes','clothing.gourdes':'Bottles',
       'shared.comingSoon':'Coming soon',
       'concepts.eyebrow':'Our concepts','concepts.title':'One band.<br>Six disciplines.',
@@ -971,24 +1075,24 @@
       'concepts.mobility.tag':'Mobility & flexibility','concepts.mobility.desc':'Active stretches assisted by the band to gain range of motion, relieve tension and prevent injury.',
       'concepts.dance.tag':'Dance & fun','concepts.dance.desc':'Simple, rhythmic choreography, band in hand, turning the session into a moment of pure fun.',
       'clubs.eyebrow':'Clubs & Coaches','clubs.title':'Coming soon<br>near you',
-      'clubs.desc':'As soon as a partner club joins XBandfit, its address is added to the map below — along with its X-Band certified coaches.',
-      'clubs.mapCaption':'No partner clubs yet — the map fills in as soon as the first partnership is signed.',
+      'clubs.desc':'As soon as a partner club joins XBandfit, its address is added to the map below, along with its X-Band certified coaches.',
+      'clubs.mapCaption':'No partner clubs yet, the map fills in as soon as the first partnership is signed.',
       'formation.eyebrow':'Coaching','formation.title':'Become a certified<br>X-Band coach',
-      'formation.desc':'Train in all 6 X-Band concepts and join the network of certified coaches — whether you want to teach in a club, as a freelancer, or simply master the method inside out. Leave your details: we\'ll get back to you by email with pricing and how it works.',
+      'formation.desc':'Train in all 6 X-Band concepts and join the network of certified coaches, whether you want to teach in a club, as a freelancer, or simply master the method inside out. Leave your details: we\'ll get back to you by email with pricing and how it works.',
       'formation.prenom':'First name','formation.nom':'Last name','formation.email':'Email','formation.dejaCoach':'Are you already a coach?','formation.oui':'Yes','formation.non':'No',
       'formation.conceptsInterest':'Which concept(s) are you interested in?','formation.conceptsCoach':'Which concept(s) do you already teach?',
       'formation.submitBtn':'Sign up','formation.confirm':'Thanks! We\'ll get back to you by email with pricing and how coaching works.',
-      'formation.error':'Something went wrong — try again, or email us at',
+      'formation.error':'Something went wrong, try again, or email us at',
       'cta.eyebrow':'More than a band','cta.title':'A new<br>fitness <span class="gold-grad">experience</span>.',
       'cta.desc':'XBandfit combines movement, resistance, rhythm and collective energy around one simple, versatile piece of equipment. Discover our programs and find the experience that suits you.',
       'cta.subtitle':'Ready to move differently?','cta.btn':'Get my X-Band',
       'about.eyebrow':'Who we are','about.title':'The creators of X-Band Fit','about.tag':'Our vision',
-      'about.p1':'HX Fitness isn\'t just another fitness brand. The industry is saturated with concepts that all look alike, interchangeable classes and empty promises — we wanted to build something else: hybrid, portable, connected fitness that depends on neither a place nor heavy equipment.',
-      'about.p2':'The X-Band was born from this vision: one band, six training concepts, a method designed to follow the body everywhere — at home, outdoors, in a club. We don\'t just sell an accessory, we\'re building an ecosystem where coaches, clubs and members each find their place.',
-      'about.signature':'— Hervé-Ngongo, founder & creator of the concept',
+      'about.p1':'HX Fitness isn\'t just another fitness brand. The industry is saturated with concepts that all look alike, interchangeable classes and empty promises, we wanted to build something else: hybrid, portable, connected fitness that depends on neither a place nor heavy equipment.',
+      'about.p2':'The X-Band was born from this vision: one band, six training concepts, a method designed to follow the body everywhere, at home, outdoors, in a club. We don\'t just sell an accessory, we\'re building an ecosystem where coaches, clubs and members each find their place.',
+      'about.signature':'Hervé-Ngongo, founder & creator of the concept',
       'contact.eyebrow':'Contact','contact.title':'Get in touch','contact.desc':'A question about the product, coaching, or a club partnership? Write to us.',
       'contact.nom':'Name','contact.email':'Email','contact.message':'Message','contact.submitBtn':'Send',
-      'contact.confirm':'Thanks, your message has been received — we\'ll get back to you shortly.','contact.error':'Something went wrong — try again, or email us directly at',
+      'contact.confirm':'Thanks, your message has been received, we\'ll get back to you shortly.','contact.error':'Something went wrong, try again, or email us directly at',
       'footer.rights':'All rights reserved'
     },
     de: {
@@ -1001,15 +1105,15 @@
       'exp.card1.title':'Zu Hause','exp.card1.desc':'Folge unseren Übungen und Videosessions und trainiere in deinem eigenen Tempo.',
       'exp.card2.title':'Im Freien','exp.card2.desc':'Nimm dein X-Band überallhin mit und verwandle fast jeden Ort in ein Trainingsgelände.',
       'exp.card3.title':'Im Club','exp.card3.desc':'Entdecke die XBandfit-Gruppenkurse mit ausgebildeten Coaches und erlebe es in der Gruppe.',
-      'boutique.eyebrow':'Shop — X-Band','boutique.title':'Das <span class="gold-grad">X-Band</span>',
-      'boutique.desc':'Ein Widerstandsband, vier Schlaufen, ein zentraler Ring. Genug, um alle sechs unserer Trainingskonzepte abzudecken — zu Hause, im Studio oder im Freien.',
+      'boutique.eyebrow':'Shop, X-Band','boutique.title':'Das <span class="gold-grad">X-Band</span>',
+      'boutique.desc':'Ein Widerstandsband, vier Schlaufen, ein zentraler Ring. Genug, um alle sechs unserer Trainingskonzepte abzudecken, zu Hause, im Studio oder im Freien.',
       'boutique.vat':'inkl. MwSt.','boutique.feature1':'Ganzkörpertraining','boutique.feature2':'Tragbar & leicht','boutique.feature3':'Langlebig & robust','boutique.feature4':'Unbegrenzte Übungen',
       'boutique.orderBtn':'Bestellen','boutique.stockTitle':'Ausverkauft',
       'boutique.stockDesc':'Das X-Band befindet sich aktuell in Produktion für den Launch. Hinterlasse deine E-Mail: wir informieren dich, sobald es wieder verfügbar ist, um deine Bestellung abzuschließen.',
       'boutique.stockPlaceholder':'deine@email.com','boutique.stockBtn':'Benachrichtigen','boutique.stockConfirm':'Danke! Wir melden uns, sobald es wieder verfügbar ist.',
-      'boutique.stockError':'Etwas ist schiefgelaufen — versuch es erneut oder schreib uns an',
+      'boutique.stockError':'Etwas ist schiefgelaufen, versuch es erneut oder schreib uns an',
       'clothing.eyebrow':'Bekleidung & Zubehör','clothing.title':'Die Marke zum Tragen',
-      'clothing.desc':'Die XBANDFIT-Kollektion kommt bald — wähle eine Kategorie, um benachrichtigt zu werden, sobald sie verfügbar ist.',
+      'clothing.desc':'Die XBANDFIT-Kollektion kommt bald, wähle eine Kategorie, um benachrichtigt zu werden, sobald sie verfügbar ist.',
       'clothing.hommes':'Herren','clothing.femmes':'Damen','clothing.jogging':'Jogginghose','clothing.chaussures':'Schuhe','clothing.gourdes':'Trinkflaschen',
       'shared.comingSoon':'Demnächst verfügbar',
       'concepts.eyebrow':'Unsere Konzepte','concepts.title':'Ein Band.<br>Sechs Disziplinen.',
@@ -1021,24 +1125,24 @@
       'concepts.mobility.tag':'Mobilität & Beweglichkeit','concepts.mobility.desc':'Aktive, vom Band unterstützte Dehnungen, um Bewegungsspielraum zu gewinnen, Spannungen zu lösen und Verletzungen vorzubeugen.',
       'concepts.dance.tag':'Tanz & Spaß','concepts.dance.desc':'Einfache, rhythmische Choreografien mit dem Band in der Hand, die das Training in pure Freude verwandeln.',
       'clubs.eyebrow':'Clubs & Coaches','clubs.title':'Bald in<br>deiner Nähe',
-      'clubs.desc':'Sobald ein Partnerclub XBandfit beitritt, wird seine Adresse auf der Karte unten ergänzt — mit seinen X-Band-zertifizierten Coaches.',
-      'clubs.mapCaption':'Noch keine Partnerclubs — die Karte füllt sich, sobald die erste Partnerschaft unterzeichnet ist.',
+      'clubs.desc':'Sobald ein Partnerclub XBandfit beitritt, wird seine Adresse auf der Karte unten ergänzt, mit seinen X-Band-zertifizierten Coaches.',
+      'clubs.mapCaption':'Noch keine Partnerclubs, die Karte füllt sich, sobald die erste Partnerschaft unterzeichnet ist.',
       'formation.eyebrow':'Ausbildung','formation.title':'Werde zertifizierter<br>X-Band Coach',
-      'formation.desc':'Bilde dich in allen 6 X-Band-Konzepten aus und werde Teil des Netzwerks zertifizierter Coaches — ob im Club, selbstständig oder einfach um die Methode voll zu beherrschen. Hinterlasse deine Daten: wir melden uns per E-Mail mit den Preisen und dem Ablauf.',
+      'formation.desc':'Bilde dich in allen 6 X-Band-Konzepten aus und werde Teil des Netzwerks zertifizierter Coaches, ob im Club, selbstständig oder einfach um die Methode voll zu beherrschen. Hinterlasse deine Daten: wir melden uns per E-Mail mit den Preisen und dem Ablauf.',
       'formation.prenom':'Vorname','formation.nom':'Nachname','formation.email':'E-Mail','formation.dejaCoach':'Bist du bereits Coach?','formation.oui':'Ja','formation.non':'Nein',
       'formation.conceptsInterest':'Welche(s) Konzept(e) interessiert dich?','formation.conceptsCoach':'Welche(s) Konzept(e) unterrichtest du bereits?',
       'formation.submitBtn':'Anmelden','formation.confirm':'Danke! Wir melden uns per E-Mail mit den Preisen und dem Ablauf der Ausbildung.',
-      'formation.error':'Etwas ist schiefgelaufen — versuch es erneut oder schreib uns an',
+      'formation.error':'Etwas ist schiefgelaufen, versuch es erneut oder schreib uns an',
       'cta.eyebrow':'Mehr als ein Band','cta.title':'Ein neues<br>Fitness<span class="gold-grad">erlebnis</span>.',
       'cta.desc':'XBandfit verbindet Bewegung, Widerstand, Rhythmus und kollektive Energie rund um ein einfaches, vielseitiges Gerät. Entdecke unsere Programme und finde das Erlebnis, das zu dir passt.',
       'cta.subtitle':'Bereit, dich anders zu bewegen?','cta.btn':'Mein X-Band kaufen',
       'about.eyebrow':'Wer wir sind','about.title':'Die Macher von X-Band Fit','about.tag':'Unsere Vision',
-      'about.p1':'HX Fitness ist nicht noch eine weitere Fitnessmarke. Die Branche ist übersättigt mit Konzepten, die sich alle ähneln, austauschbaren Kursen und leeren Versprechen — wir wollten etwas anderes aufbauen: hybrides, tragbares, vernetztes Fitness, das weder an einen Ort noch an schweres Equipment gebunden ist.',
-      'about.p2':'Das X-Band entstand aus dieser Vision: ein Band, sechs Trainingskonzepte, eine Methode, die den Körper überallhin begleitet — zu Hause, im Freien, im Club. Wir verkaufen kein simples Zubehör, wir bauen ein Ökosystem, in dem Coaches, Clubs und Trainierende ihren Platz finden.',
-      'about.signature':'— Hervé-Ngongo, Gründer & Erfinder des Konzepts',
+      'about.p1':'HX Fitness ist nicht noch eine weitere Fitnessmarke. Die Branche ist übersättigt mit Konzepten, die sich alle ähneln, austauschbaren Kursen und leeren Versprechen, wir wollten etwas anderes aufbauen: hybrides, tragbares, vernetztes Fitness, das weder an einen Ort noch an schweres Equipment gebunden ist.',
+      'about.p2':'Das X-Band entstand aus dieser Vision: ein Band, sechs Trainingskonzepte, eine Methode, die den Körper überallhin begleitet, zu Hause, im Freien, im Club. Wir verkaufen kein simples Zubehör, wir bauen ein Ökosystem, in dem Coaches, Clubs und Trainierende ihren Platz finden.',
+      'about.signature':'Hervé-Ngongo, Gründer & Erfinder des Konzepts',
       'contact.eyebrow':'Kontakt','contact.title':'Kontaktiere uns','contact.desc':'Eine Frage zum Produkt, zur Ausbildung oder zu einer Club-Partnerschaft? Schreib uns.',
       'contact.nom':'Name','contact.email':'E-Mail','contact.message':'Nachricht','contact.submitBtn':'Senden',
-      'contact.confirm':'Danke, deine Nachricht ist angekommen — wir antworten in Kürze.','contact.error':'Etwas ist schiefgelaufen — versuch es erneut oder schreib uns direkt an',
+      'contact.confirm':'Danke, deine Nachricht ist angekommen, wir antworten in Kürze.','contact.error':'Etwas ist schiefgelaufen, versuch es erneut oder schreib uns direkt an',
       'footer.rights':'Alle Rechte vorbehalten'
     }
   };
@@ -1167,7 +1271,7 @@
     }
   }
 
-  // Contact form — envoi réel via Formspree (endpoint mnpazynd, partagé par les 3 formulaires du site)
+  // Contact form, envoi réel via Formspree (endpoint mnpazynd, partagé par les 3 formulaires du site)
   const contactForm = document.getElementById('contactForm');
   if(contactForm){
     contactForm.addEventListener('submit', (e)=>{
