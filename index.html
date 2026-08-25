@@ -344,40 +344,8 @@
   .feature-list li svg{flex:none;width:18px;height:18px;color:var(--gold);}
   .price-note{font-size:13px;color:var(--text-dim);margin-top:14px;}
 
-  /* stock capture panel */
-  .stock-panel{
-    margin-top:22px;
-    max-height:0;overflow:hidden;
-    transition:max-height .5s ease;
-    border-left:2px solid var(--gold);
-  }
-  .stock-panel.open{max-height:320px;}
-  .stock-panel-inner{padding:20px 0 4px 20px;}
-  .stock-panel h4{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--gold-light);margin:0 0 8px;text-transform:none;letter-spacing:0;}
-  .stock-panel p{font-size:14px;color:var(--text-dim);line-height:1.55;margin:0 0 16px;}
-  .stock-form{display:flex;gap:10px;flex-wrap:wrap;}
-  .stock-form input{
-    flex:1;min-width:200px;
-    background:var(--card);
-    border:1px solid var(--border);
-    color:var(--text);
-    padding:12px 14px;
-    font-family:'Inter',sans-serif;
-    font-size:14px;
-    border-radius:2px;
-  }
-  .stock-form input:focus{outline:none;border-color:var(--gold);}
-  .stock-form button{
-    padding:12px 22px;
-    background:var(--gold);
-    color:#151208;
-    border:none;border-radius:2px;
-    font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
-    cursor:pointer;
-  }
   .stock-confirm{display:none;font-size:14px;color:var(--gold-light);padding-top:4px;}
   .stock-confirm.show{display:block;}
-  .stock-form.hide{display:none;}
 
   /* ---------- CONCEPTS ---------- */
   .concepts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
@@ -603,21 +571,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span data-i18n="boutique.feature4">Exercices illimités</span></li>
       </ul>
 
-      <button class="btn" id="orderBtn" data-i18n="boutique.orderBtn">Commander</button>
-
-      <div class="stock-panel" id="stockPanel">
-        <div class="stock-panel-inner">
-          <h4 data-i18n="boutique.stockTitle">Rupture de stock</h4>
-          <p data-i18n="boutique.stockDesc">La bande X-Band est en cours de production, en vue du lancement. Laisse ton email : on te préviens dès qu'elle est de nouveau disponible pour finaliser ta commande.</p>
-          <form class="stock-form" id="stockForm" data-endpoint="https://formspree.io/f/mnpazynd">
-            <input type="hidden" name="_subject" value="XBandFit — Liste d'attente Boutique">
-            <input type="email" name="email" required placeholder="ton@email.com" id="stockEmail" data-i18n-placeholder="boutique.stockPlaceholder">
-            <button type="submit" data-i18n="boutique.stockBtn">Me prévenir</button>
-          </form>
-          <p class="stock-confirm" id="stockConfirm" data-i18n="boutique.stockConfirm">Merci ! On te recontacte dès la réouverture du stock.</p>
-          <p class="stock-error" id="stockError" style="display:none;color:var(--red);font-size:12px;margin-top:10px;"><span data-i18n="boutique.stockError">Une erreur est survenue — réessaie, ou écris-nous à</span> <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
-        </div>
-      </div>
+      <a class="btn" href="https://xbandfit-admin.lovable.app/commander" target="_blank" rel="noopener" data-i18n="boutique.orderBtn">Commander</a>
     </div>
   </div>
 
@@ -758,39 +712,9 @@
       <h2 data-i18n-html="formation.title">Deviens coach<br>certifié X-Band</h2>
       <p data-i18n="formation.desc">Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés — que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.</p>
     </div>
-    <form class="reveal" id="formationForm" data-endpoint="https://formspree.io/f/mnpazynd" style="display:grid;gap:16px;max-width:560px;margin:0 auto;">
-      <input type="hidden" name="_subject" value="XBandFit — Inscription Formation">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <input type="text" name="prenom" required placeholder="Prénom" data-i18n-placeholder="formation.prenom" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
-        <input type="text" name="nom" required placeholder="Nom" data-i18n-placeholder="formation.nom" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <input type="email" name="email" required placeholder="Email" data-i18n-placeholder="formation.email" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
-        <input type="date" name="date_naissance" required aria-label="Date de naissance" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;">
-      </div>
-
-      <div>
-        <p style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin:0 0 10px;" data-i18n="formation.dejaCoach">Es-tu déjà coach ?</p>
-        <label style="margin-right:24px;font-size:14px;"><input type="radio" name="deja_coach" value="Oui" id="dejaCoachOui" required> <span data-i18n="formation.oui">Oui</span></label>
-        <label style="font-size:14px;"><input type="radio" name="deja_coach" value="Non" id="dejaCoachNon"> <span data-i18n="formation.non">Non</span></label>
-      </div>
-
-      <div>
-        <p id="formationConceptsLabel" style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin:0 0 10px;" data-i18n="formation.conceptsInterest">Quel(s) concept(s) t'intéresse(nt) ?</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:13px;color:var(--text-dim);">
-          <label><input type="checkbox" name="concepts" value="HIITXBAND"> HIITXBAND</label>
-          <label><input type="checkbox" name="concepts" value="POWERXBAND"> POWERXBAND</label>
-          <label><input type="checkbox" name="concepts" value="FIGHTXBAND"> FIGHTXBAND</label>
-          <label><input type="checkbox" name="concepts" value="COREXBAND"> COREXBAND</label>
-          <label><input type="checkbox" name="concepts" value="MOBILITYXBAND"> MOBILITYXBAND</label>
-          <label><input type="checkbox" name="concepts" value="DANCEXBAND"> DANCEXBAND</label>
-        </div>
-      </div>
-
-      <button type="submit" class="btn" style="justify-self:start;" data-i18n="formation.submitBtn">S'inscrire</button>
-      <p class="stock-confirm" id="formationConfirm" style="padding-top:0;" data-i18n="formation.confirm">Merci ! On revient vers toi par email avec les tarifs et le fonctionnement des formations.</p>
-      <p class="stock-error" id="formationError" style="display:none;color:var(--red);font-size:12px;"><span data-i18n="formation.error">Une erreur est survenue — réessaie, ou écris-nous à</span> <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
-    </form>
+    <div class="reveal" style="text-align:center;">
+      <a href="https://xbandfit-admin.lovable.app/formation" class="btn" target="_blank" rel="noopener" data-i18n="formation.submitBtn">S'inscrire</a>
+    </div>
   </div>
 </section>
 
@@ -1140,43 +1064,6 @@
   }, {threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 
-  // Stock / waitlist panel — envoi réel via Formspree (même endpoint mnpazynd que les autres formulaires)
-  const orderBtn = document.getElementById('orderBtn');
-  const stockPanel = document.getElementById('stockPanel');
-  const stockForm = document.getElementById('stockForm');
-  const stockConfirm = document.getElementById('stockConfirm');
-  const stockError = document.getElementById('stockError');
-
-  orderBtn.addEventListener('click', ()=>{
-    stockPanel.classList.toggle('open');
-  });
-
-  stockForm.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    await submitForm(stockForm, stockConfirm, stockError);
-    if(stockConfirm.classList.contains('show')) stockForm.classList.add('hide');
-  });
-
-  // Formation — le libellé des concepts s'adapte selon "déjà coach ou non"
-  const formationForm = document.getElementById('formationForm');
-  if(formationForm){
-    const conceptsLabel = document.getElementById('formationConceptsLabel');
-    const dejaCoachOui = document.getElementById('dejaCoachOui');
-    const dejaCoachNon = document.getElementById('dejaCoachNon');
-    const updateConceptsLabel = ()=>{
-      const dict = translations[currentLang];
-      conceptsLabel.textContent = dejaCoachOui.checked
-        ? dict['formation.conceptsCoach']
-        : dict['formation.conceptsInterest'];
-    };
-    dejaCoachOui.addEventListener('change', updateConceptsLabel);
-    dejaCoachNon.addEventListener('change', updateConceptsLabel);
-
-    formationForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      submitForm(formationForm, document.getElementById('formationConfirm'), document.getElementById('formationError'));
-    });
-  }
 </script>
 
 </body>
