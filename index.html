@@ -25,7 +25,8 @@
     --maxw:1180px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  input,textarea,select{min-width:0;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
   body{
     margin:0;
     background:var(--bg);
@@ -78,7 +79,58 @@
   .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:34px;}
   .nav-links a:first-child{margin-left:0;}
   .nav-links a:hover{color:var(--gold-light);}
-  @media (max-width:640px){.nav-links{display:none;}}
+  @media (max-width:960px){.nav-links{display:none;}}
+
+  /* ---------- HAMBURGER (mobile/tablet) ---------- */
+  .hamburger{
+    display:none;
+    flex-direction:column;justify-content:center;align-items:flex-end;gap:5px;
+    width:34px;height:34px;
+    background:none;border:none;cursor:pointer;padding:0;
+  }
+  .hamburger span{display:block;width:26px;height:2px;background:var(--text);transition:transform .25s ease, opacity .25s ease, width .25s ease;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);width:26px;}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);width:26px;}
+  @media (max-width:960px){.hamburger{display:flex;}}
+
+  .mobile-nav{
+    display:none;
+    max-height:0;overflow:hidden;
+    background:var(--bg-soft);
+    border-bottom:1px solid var(--border);
+    transition:max-height .35s ease;
+  }
+  .mobile-nav.open{max-height:calc(100vh - 60px);overflow-y:auto;}
+  @media (max-width:960px){
+    .mobile-nav{
+      display:block;
+      position:fixed;top:60px;left:0;right:0;z-index:49;
+    }
+  }
+  .mobile-nav-link,.mobile-nav-toggle{
+    display:flex;align-items:center;justify-content:space-between;width:100%;
+    padding:16px 28px;
+    background:none;border:none;border-bottom:1px solid var(--border);
+    color:var(--text);font-family:'Inter',sans-serif;
+    font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+    cursor:pointer;text-align:left;
+  }
+  .mobile-nav-toggle svg{transition:transform .2s ease;flex-shrink:0;color:var(--text-dim);}
+  .mobile-nav-group.open .mobile-nav-toggle svg{transform:rotate(180deg);}
+  .mobile-nav-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--bg);}
+  .mobile-nav-group.open .mobile-nav-sub{max-height:480px;}
+  .mobile-nav-sub a{
+    display:block;padding:13px 28px 13px 40px;
+    color:var(--text-dim);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+    border-bottom:1px solid var(--border);
+  }
+  .mobile-nav-langs{display:flex;gap:10px;padding:20px 28px;}
+  .mobile-nav-langs .lang-option{
+    flex:1;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:2px;
+    color:var(--text-dim);font-size:12px;letter-spacing:0.1em;cursor:pointer;
+  }
+  .mobile-nav-langs .lang-option.active{border-color:var(--gold);color:var(--gold-light);}
 
   /* ---------- NAV DROPDOWN (Boutique) ---------- */
   .nav-dropdown{position:relative;}
@@ -401,7 +453,7 @@
   .footer-mark{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.02em;color:var(--steel);}
   .footer-mark span{color:var(--red);}
   .footer-tag{font-size:11px;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;margin-top:6px;}
-  .footer-links{display:flex;gap:26px;font-size:13px;color:var(--text-dim);}
+  .footer-links{display:flex;flex-wrap:wrap;gap:12px 26px;font-size:13px;color:var(--text-dim);}
   .footer-links a:hover{color:var(--gold-light);}
   .footer-bottom{margin-top:34px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 
@@ -484,7 +536,55 @@
       </div>
     </div>
   </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
+
+  <div class="mobile-nav-group">
+    <button class="mobile-nav-toggle" data-i18n="nav.concepts">Concepts
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub">
+      <a href="concept-hiit.html">HiitXBand</a>
+      <a href="concept-power.html">PowerXBand</a>
+      <a href="concept-fight.html">FightXBand</a>
+      <a href="concept-core.html">CoreXBand</a>
+      <a href="concept-mobility.html">MobilityXBand</a>
+      <a href="concept-dance.html">DanceXBand</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-group">
+    <button class="mobile-nav-toggle" data-i18n="nav.clubs">Clubs
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub">
+      <a href="club-luxembourg.html">Luxembourg</a>
+      <a href="club-france.html">France</a>
+      <a href="club-belgique.html">Belgique</a>
+      <a href="club-allemagne.html">Allemagne</a>
+      <a href="club-uk.html">UK</a>
+      <a href="club-espagne.html">Espagne</a>
+      <a href="club-italie.html">Italie</a>
+      <a href="club-portugal.html">Portugal</a>
+      <a href="club-monaco.html">Monaco</a>
+    </div>
+  </div>
+
+  <a href="#formation" class="mobile-nav-link" data-i18n="nav.formation">Formation</a>
+  <a href="#apropos" class="mobile-nav-link" data-i18n="nav.apropos">À propos</a>
+  <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+
+  <div class="mobile-nav-langs">
+    <button class="lang-option" data-lang="fr">FR</button>
+    <button class="lang-option" data-lang="en">EN</button>
+    <button class="lang-option" data-lang="de">DE</button>
+  </div>
+</div>
 
 <section class="hero">
   <video class="hero-video" id="heroVideo" autoplay muted playsinline>
@@ -803,24 +903,24 @@
       'exp.card3.title':'En club','exp.card3.desc':'Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l\'expérience avec un groupe.',
       'boutique.eyebrow':'Boutique — X-Band','boutique.title':'La bande <span class="gold-grad">X-Band</span>',
       'boutique.desc':'Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l\'intégralité de nos six concepts d\'entraînement — chez toi, en salle, ou en extérieur.',
-      'boutique.vat':'TVA/TTC','boutique.feature1':'Full body workout','boutique.feature2':'Portable &amp; léger','boutique.feature3':'Durable &amp; résistant','boutique.feature4':'Exercices illimités',
+      'boutique.vat':'TVA/TTC','boutique.feature1':'Full body workout','boutique.feature2':'Portable & léger','boutique.feature3':'Durable & résistant','boutique.feature4':'Exercices illimités',
       'boutique.orderBtn':'Commander','boutique.stockTitle':'Rupture de stock',
       'boutique.stockDesc':'La bande X-Band est en cours de production, en vue du lancement. Laisse ton email : on te préviens dès qu\'elle est de nouveau disponible pour finaliser ta commande.',
       'boutique.stockPlaceholder':'ton@email.com','boutique.stockBtn':'Me prévenir','boutique.stockConfirm':'Merci ! On te recontacte dès la réouverture du stock.',
       'boutique.stockError':'Une erreur est survenue — réessaie, ou écris-nous à',
-      'clothing.eyebrow':'Vêtements &amp; accessoires','clothing.title':'La marque à porter',
+      'clothing.eyebrow':'Vêtements & accessoires','clothing.title':'La marque à porter',
       'clothing.desc':'La collection XBANDFIT arrive bientôt — sélectionne une catégorie pour être prévenu dès son ouverture.',
       'clothing.hommes':'Hommes','clothing.femmes':'Femmes','clothing.jogging':'Jogging','clothing.chaussures':'Chaussures','clothing.gourdes':'Gourdes',
       'shared.comingSoon':'Bientôt disponible',
       'concepts.eyebrow':'Nos concepts','concepts.title':'Un band.<br>Six disciplines.',
       'concepts.desc':'Chaque concept X-Band cible un objectif précis, avec la même bande. À toi de composer ton entraînement.',
-      'concepts.hiit.tag':'Cardio &amp; intensité','concepts.hiit.desc':'Des enchaînements courts et intenses avec la bande pour faire grimper le rythme cardiaque et brûler un maximum en peu de temps.',
-      'concepts.power.tag':'Force &amp; puissance','concepts.power.desc':'Travail de force sous tension constante : la résistance de la bande remplace les haltères pour construire du muscle utile.',
-      'concepts.fight.tag':'Boxe &amp; renforcement','concepts.fight.desc':'Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d\'exécution.',
-      'concepts.core.tag':'Gainage &amp; stabilité','concepts.core.desc':'Un travail ciblé de la sangle abdominale et du gainage profond, pour une posture plus stable dans tous les mouvements du quotidien.',
-      'concepts.mobility.tag':'Mobilité &amp; souplesse','concepts.mobility.desc':'Des étirements actifs assistés par la bande pour gagner en amplitude, soulager les tensions et prévenir les blessures.',
-      'concepts.dance.tag':'Danse &amp; plaisir','concepts.dance.desc':'Des chorégraphies simples et rythmées, bande en main, pour transformer la séance en moment de plaisir pur.',
-      'clubs.eyebrow':'Clubs &amp; Coachs','clubs.title':'Bientôt près<br>de chez toi',
+      'concepts.hiit.tag':'Cardio & intensité','concepts.hiit.desc':'Des enchaînements courts et intenses avec la bande pour faire grimper le rythme cardiaque et brûler un maximum en peu de temps.',
+      'concepts.power.tag':'Force & puissance','concepts.power.desc':'Travail de force sous tension constante : la résistance de la bande remplace les haltères pour construire du muscle utile.',
+      'concepts.fight.tag':'Boxe & renforcement','concepts.fight.desc':'Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d\'exécution.',
+      'concepts.core.tag':'Gainage & stabilité','concepts.core.desc':'Un travail ciblé de la sangle abdominale et du gainage profond, pour une posture plus stable dans tous les mouvements du quotidien.',
+      'concepts.mobility.tag':'Mobilité & souplesse','concepts.mobility.desc':'Des étirements actifs assistés par la bande pour gagner en amplitude, soulager les tensions et prévenir les blessures.',
+      'concepts.dance.tag':'Danse & plaisir','concepts.dance.desc':'Des chorégraphies simples et rythmées, bande en main, pour transformer la séance en moment de plaisir pur.',
+      'clubs.eyebrow':'Clubs & Coachs','clubs.title':'Bientôt près<br>de chez toi',
       'clubs.desc':'Dès qu\'un club partenaire rejoint XBandfit, son adresse est ajoutée sur la carte ci-dessous — avec ses coachs certifiés à la méthode X-Band.',
       'clubs.mapCaption':'Aucun club partenaire pour le moment — la carte se remplit dès le premier partenariat signé.',
       'formation.eyebrow':'Formation','formation.title':'Deviens coach<br>certifié X-Band',
@@ -835,7 +935,7 @@
       'about.eyebrow':'Qui sommes-nous','about.title':'Les créateurs de X-Band Fit','about.tag':'Notre vision',
       'about.p1':'HX Fitness n\'est pas une énième marque de fitness. Le secteur est saturé de concepts qui se ressemblent, de cours interchangeables et de promesses creuses — nous avons voulu construire autre chose : un fitness hybride, portable et connecté, qui ne dépend ni d\'un lieu ni d\'un équipement lourd.',
       'about.p2':'Le X-Band est né de cette vision : une seule bande, six concepts d\'entraînement, une méthode pensée pour suivre le corps partout — à la maison, en extérieur, en club. Nous ne vendons pas un simple accessoire, nous construisons un écosystème où coachs, clubs et pratiquants trouvent chacun leur place.',
-      'about.signature':'— Hervé-Ngongo, fondateur &amp; créateur du concept',
+      'about.signature':'— Hervé-Ngongo, fondateur & créateur du concept',
       'contact.eyebrow':'Contact','contact.title':'Nous contacter','contact.desc':'Une question sur le produit, les formations, ou un partenariat club ? Écris-nous.',
       'contact.nom':'Nom','contact.email':'Email','contact.message':'Message','contact.submitBtn':'Envoyer',
       'contact.confirm':'Merci, ton message est bien noté — on te répond rapidement.','contact.error':'Une erreur est survenue — réessaie, ou écris-nous directement à',
@@ -853,24 +953,24 @@
       'exp.card3.title':'In a club','exp.card3.desc':'Discover XBandfit group classes with trained coaches and live the experience with a group.',
       'boutique.eyebrow':'Shop — X-Band','boutique.title':'The <span class="gold-grad">X-Band</span> band',
       'boutique.desc':'One resistance band, four straps, one central ring. Enough to cover all six of our training concepts — at home, at the gym, or outdoors.',
-      'boutique.vat':'VAT incl.','boutique.feature1':'Full body workout','boutique.feature2':'Portable &amp; lightweight','boutique.feature3':'Durable &amp; resistant','boutique.feature4':'Unlimited exercises',
+      'boutique.vat':'VAT incl.','boutique.feature1':'Full body workout','boutique.feature2':'Portable & lightweight','boutique.feature3':'Durable & resistant','boutique.feature4':'Unlimited exercises',
       'boutique.orderBtn':'Order now','boutique.stockTitle':'Out of stock',
       'boutique.stockDesc':'The X-Band is currently in production ahead of launch. Leave your email and we\'ll let you know as soon as it\'s back in stock to complete your order.',
       'boutique.stockPlaceholder':'you@email.com','boutique.stockBtn':'Notify me','boutique.stockConfirm':'Thanks! We\'ll get back to you as soon as it\'s back in stock.',
       'boutique.stockError':'Something went wrong — try again, or email us at',
-      'clothing.eyebrow':'Apparel &amp; accessories','clothing.title':'The brand to wear',
+      'clothing.eyebrow':'Apparel & accessories','clothing.title':'The brand to wear',
       'clothing.desc':'The XBANDFIT collection is coming soon — pick a category to be notified as soon as it opens.',
       'clothing.hommes':'Men','clothing.femmes':'Women','clothing.jogging':'Sweatpants','clothing.chaussures':'Shoes','clothing.gourdes':'Bottles',
       'shared.comingSoon':'Coming soon',
       'concepts.eyebrow':'Our concepts','concepts.title':'One band.<br>Six disciplines.',
       'concepts.desc':'Each X-Band concept targets a specific goal, with the same band. It\'s up to you to build your workout.',
-      'concepts.hiit.tag':'Cardio &amp; intensity','concepts.hiit.desc':'Short, intense sequences with the band to spike your heart rate and burn the most in the least time.',
-      'concepts.power.tag':'Strength &amp; power','concepts.power.desc':'Strength work under constant tension: the band\'s resistance replaces dumbbells to build useful muscle.',
-      'concepts.fight.tag':'Boxing &amp; toning','concepts.fight.desc':'Boxing-inspired movements, plus resistance: strengthen your upper body while working on execution speed.',
-      'concepts.core.tag':'Core &amp; stability','concepts.core.desc':'Targeted work on the abs and deep core, for a more stable posture in every everyday movement.',
-      'concepts.mobility.tag':'Mobility &amp; flexibility','concepts.mobility.desc':'Active stretches assisted by the band to gain range of motion, relieve tension and prevent injury.',
-      'concepts.dance.tag':'Dance &amp; fun','concepts.dance.desc':'Simple, rhythmic choreography, band in hand, turning the session into a moment of pure fun.',
-      'clubs.eyebrow':'Clubs &amp; Coaches','clubs.title':'Coming soon<br>near you',
+      'concepts.hiit.tag':'Cardio & intensity','concepts.hiit.desc':'Short, intense sequences with the band to spike your heart rate and burn the most in the least time.',
+      'concepts.power.tag':'Strength & power','concepts.power.desc':'Strength work under constant tension: the band\'s resistance replaces dumbbells to build useful muscle.',
+      'concepts.fight.tag':'Boxing & toning','concepts.fight.desc':'Boxing-inspired movements, plus resistance: strengthen your upper body while working on execution speed.',
+      'concepts.core.tag':'Core & stability','concepts.core.desc':'Targeted work on the abs and deep core, for a more stable posture in every everyday movement.',
+      'concepts.mobility.tag':'Mobility & flexibility','concepts.mobility.desc':'Active stretches assisted by the band to gain range of motion, relieve tension and prevent injury.',
+      'concepts.dance.tag':'Dance & fun','concepts.dance.desc':'Simple, rhythmic choreography, band in hand, turning the session into a moment of pure fun.',
+      'clubs.eyebrow':'Clubs & Coaches','clubs.title':'Coming soon<br>near you',
       'clubs.desc':'As soon as a partner club joins XBandfit, its address is added to the map below — along with its X-Band certified coaches.',
       'clubs.mapCaption':'No partner clubs yet — the map fills in as soon as the first partnership is signed.',
       'formation.eyebrow':'Coaching','formation.title':'Become a certified<br>X-Band coach',
@@ -885,7 +985,7 @@
       'about.eyebrow':'Who we are','about.title':'The creators of X-Band Fit','about.tag':'Our vision',
       'about.p1':'HX Fitness isn\'t just another fitness brand. The industry is saturated with concepts that all look alike, interchangeable classes and empty promises — we wanted to build something else: hybrid, portable, connected fitness that depends on neither a place nor heavy equipment.',
       'about.p2':'The X-Band was born from this vision: one band, six training concepts, a method designed to follow the body everywhere — at home, outdoors, in a club. We don\'t just sell an accessory, we\'re building an ecosystem where coaches, clubs and members each find their place.',
-      'about.signature':'— Hervé-Ngongo, founder &amp; creator of the concept',
+      'about.signature':'— Hervé-Ngongo, founder & creator of the concept',
       'contact.eyebrow':'Contact','contact.title':'Get in touch','contact.desc':'A question about the product, coaching, or a club partnership? Write to us.',
       'contact.nom':'Name','contact.email':'Email','contact.message':'Message','contact.submitBtn':'Send',
       'contact.confirm':'Thanks, your message has been received — we\'ll get back to you shortly.','contact.error':'Something went wrong — try again, or email us directly at',
@@ -903,24 +1003,24 @@
       'exp.card3.title':'Im Club','exp.card3.desc':'Entdecke die XBandfit-Gruppenkurse mit ausgebildeten Coaches und erlebe es in der Gruppe.',
       'boutique.eyebrow':'Shop — X-Band','boutique.title':'Das <span class="gold-grad">X-Band</span>',
       'boutique.desc':'Ein Widerstandsband, vier Schlaufen, ein zentraler Ring. Genug, um alle sechs unserer Trainingskonzepte abzudecken — zu Hause, im Studio oder im Freien.',
-      'boutique.vat':'inkl. MwSt.','boutique.feature1':'Ganzkörpertraining','boutique.feature2':'Tragbar &amp; leicht','boutique.feature3':'Langlebig &amp; robust','boutique.feature4':'Unbegrenzte Übungen',
+      'boutique.vat':'inkl. MwSt.','boutique.feature1':'Ganzkörpertraining','boutique.feature2':'Tragbar & leicht','boutique.feature3':'Langlebig & robust','boutique.feature4':'Unbegrenzte Übungen',
       'boutique.orderBtn':'Bestellen','boutique.stockTitle':'Ausverkauft',
       'boutique.stockDesc':'Das X-Band befindet sich aktuell in Produktion für den Launch. Hinterlasse deine E-Mail: wir informieren dich, sobald es wieder verfügbar ist, um deine Bestellung abzuschließen.',
       'boutique.stockPlaceholder':'deine@email.com','boutique.stockBtn':'Benachrichtigen','boutique.stockConfirm':'Danke! Wir melden uns, sobald es wieder verfügbar ist.',
       'boutique.stockError':'Etwas ist schiefgelaufen — versuch es erneut oder schreib uns an',
-      'clothing.eyebrow':'Bekleidung &amp; Zubehör','clothing.title':'Die Marke zum Tragen',
+      'clothing.eyebrow':'Bekleidung & Zubehör','clothing.title':'Die Marke zum Tragen',
       'clothing.desc':'Die XBANDFIT-Kollektion kommt bald — wähle eine Kategorie, um benachrichtigt zu werden, sobald sie verfügbar ist.',
       'clothing.hommes':'Herren','clothing.femmes':'Damen','clothing.jogging':'Jogginghose','clothing.chaussures':'Schuhe','clothing.gourdes':'Trinkflaschen',
       'shared.comingSoon':'Demnächst verfügbar',
       'concepts.eyebrow':'Unsere Konzepte','concepts.title':'Ein Band.<br>Sechs Disziplinen.',
       'concepts.desc':'Jedes X-Band-Konzept zielt mit demselben Band auf ein bestimmtes Ziel ab. Du stellst dein Training zusammen.',
-      'concepts.hiit.tag':'Cardio &amp; Intensität','concepts.hiit.desc':'Kurze, intensive Übungsfolgen mit dem Band, um den Puls hochzutreiben und in kurzer Zeit maximal zu verbrennen.',
-      'concepts.power.tag':'Kraft &amp; Power','concepts.power.desc':'Krafttraining unter konstanter Spannung: der Widerstand des Bandes ersetzt Hanteln, um nutzbare Muskeln aufzubauen.',
-      'concepts.fight.tag':'Boxen &amp; Kräftigung','concepts.fight.desc':'Vom Boxen inspirierte Bewegungen, plus Widerstand: stärkt den Oberkörper und trainiert die Ausführungsgeschwindigkeit.',
-      'concepts.core.tag':'Rumpf &amp; Stabilität','concepts.core.desc':'Gezieltes Training der Bauchmuskulatur und der tiefen Rumpfmuskulatur für eine stabilere Haltung im Alltag.',
-      'concepts.mobility.tag':'Mobilität &amp; Beweglichkeit','concepts.mobility.desc':'Aktive, vom Band unterstützte Dehnungen, um Bewegungsspielraum zu gewinnen, Spannungen zu lösen und Verletzungen vorzubeugen.',
-      'concepts.dance.tag':'Tanz &amp; Spaß','concepts.dance.desc':'Einfache, rhythmische Choreografien mit dem Band in der Hand, die das Training in pure Freude verwandeln.',
-      'clubs.eyebrow':'Clubs &amp; Coaches','clubs.title':'Bald in<br>deiner Nähe',
+      'concepts.hiit.tag':'Cardio & Intensität','concepts.hiit.desc':'Kurze, intensive Übungsfolgen mit dem Band, um den Puls hochzutreiben und in kurzer Zeit maximal zu verbrennen.',
+      'concepts.power.tag':'Kraft & Power','concepts.power.desc':'Krafttraining unter konstanter Spannung: der Widerstand des Bandes ersetzt Hanteln, um nutzbare Muskeln aufzubauen.',
+      'concepts.fight.tag':'Boxen & Kräftigung','concepts.fight.desc':'Vom Boxen inspirierte Bewegungen, plus Widerstand: stärkt den Oberkörper und trainiert die Ausführungsgeschwindigkeit.',
+      'concepts.core.tag':'Rumpf & Stabilität','concepts.core.desc':'Gezieltes Training der Bauchmuskulatur und der tiefen Rumpfmuskulatur für eine stabilere Haltung im Alltag.',
+      'concepts.mobility.tag':'Mobilität & Beweglichkeit','concepts.mobility.desc':'Aktive, vom Band unterstützte Dehnungen, um Bewegungsspielraum zu gewinnen, Spannungen zu lösen und Verletzungen vorzubeugen.',
+      'concepts.dance.tag':'Tanz & Spaß','concepts.dance.desc':'Einfache, rhythmische Choreografien mit dem Band in der Hand, die das Training in pure Freude verwandeln.',
+      'clubs.eyebrow':'Clubs & Coaches','clubs.title':'Bald in<br>deiner Nähe',
       'clubs.desc':'Sobald ein Partnerclub XBandfit beitritt, wird seine Adresse auf der Karte unten ergänzt — mit seinen X-Band-zertifizierten Coaches.',
       'clubs.mapCaption':'Noch keine Partnerclubs — die Karte füllt sich, sobald die erste Partnerschaft unterzeichnet ist.',
       'formation.eyebrow':'Ausbildung','formation.title':'Werde zertifizierter<br>X-Band Coach',
@@ -935,7 +1035,7 @@
       'about.eyebrow':'Wer wir sind','about.title':'Die Macher von X-Band Fit','about.tag':'Unsere Vision',
       'about.p1':'HX Fitness ist nicht noch eine weitere Fitnessmarke. Die Branche ist übersättigt mit Konzepten, die sich alle ähneln, austauschbaren Kursen und leeren Versprechen — wir wollten etwas anderes aufbauen: hybrides, tragbares, vernetztes Fitness, das weder an einen Ort noch an schweres Equipment gebunden ist.',
       'about.p2':'Das X-Band entstand aus dieser Vision: ein Band, sechs Trainingskonzepte, eine Methode, die den Körper überallhin begleitet — zu Hause, im Freien, im Club. Wir verkaufen kein simples Zubehör, wir bauen ein Ökosystem, in dem Coaches, Clubs und Trainierende ihren Platz finden.',
-      'about.signature':'— Hervé-Ngongo, Gründer &amp; Erfinder des Konzepts',
+      'about.signature':'— Hervé-Ngongo, Gründer & Erfinder des Konzepts',
       'contact.eyebrow':'Kontakt','contact.title':'Kontaktiere uns','contact.desc':'Eine Frage zum Produkt, zur Ausbildung oder zu einer Club-Partnerschaft? Schreib uns.',
       'contact.nom':'Name','contact.email':'E-Mail','contact.message':'Nachricht','contact.submitBtn':'Senden',
       'contact.confirm':'Danke, deine Nachricht ist angekommen — wir antworten in Kürze.','contact.error':'Etwas ist schiefgelaufen — versuch es erneut oder schreib uns direkt an',
@@ -990,6 +1090,27 @@
       const wasOpen = sub.classList.contains('open');
       document.querySelectorAll('.nav-dropdown-sub.open').forEach(s=>s.classList.remove('open'));
       if(!wasOpen) sub.classList.add('open');
+    });
+  });
+
+  // Menu mobile / tablette : hamburger + accordéon Concepts / Clubs
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburgerBtn.addEventListener('click', ()=>{
+    const open = mobileNav.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.mobile-nav-toggle').forEach(toggle=>{
+    toggle.addEventListener('click', ()=>{
+      toggle.closest('.mobile-nav-group').classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('.mobile-nav-link, .mobile-nav-sub a').forEach(link=>{
+    link.addEventListener('click', ()=>{
+      mobileNav.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
     });
   });
 
