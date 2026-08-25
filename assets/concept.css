@@ -133,24 +133,18 @@ section{padding:100px 0;position:relative;}
 }
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold-light);transform:none;}
 
-/* ---------- EXERCISES / VIDEO PLACEHOLDERS ---------- */
-.exercise-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+/* ---------- APP DOWNLOAD CTA ---------- */
+.app-store-row{display:flex;gap:18px;flex-wrap:wrap;}
+.store-btn{
+  display:inline-flex;align-items:center;gap:14px;
+  background:var(--card);border:1px solid var(--border);border-radius:6px;
+  padding:14px 24px;
+  cursor:default;
+  opacity:0.75;
 }
-@media (max-width:900px){.exercise-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:520px){.exercise-grid{grid-template-columns:1fr;}}
-.exercise-card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:background .3s ease;}
-.exercise-card:hover{background:var(--card-2);}
-.exercise-video{
-  aspect-ratio:16/10;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  background:var(--bg-soft);
-  color:var(--text-dim);
-  border-bottom:1px solid var(--border);
-}
-.exercise-video svg{width:30px;height:30px;color:var(--gold);}
-.exercise-video span{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;}
-.exercise-name{padding:14px 16px;font-size:14px;color:var(--text);}
+.store-btn svg{width:28px;height:28px;color:var(--gold);flex-shrink:0;}
+.store-btn .store-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);}
+.store-btn .store-status{display:block;font-size:14px;color:var(--text);font-weight:600;margin-top:2px;}
 
 /* ---------- INFO / EVENTS BOX ---------- */
 .info-box{
