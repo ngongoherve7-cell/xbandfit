@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XBANDFIT — We Can Make It</title>
-<meta name="description" content="XBANDFIT — Une bande. Six façons de s'entraîner. HIIT, force, boxe, mobilité, gainage, danse.">
+<meta name="description" content="XBANDFIT — Une bande. Six façons de s'entraîner. HIIT, force, combat, mobilité, gainage, danse.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -339,6 +339,7 @@
     background:var(--card);
     padding:38px 30px;
     transition:background .3s ease;
+    scroll-margin-top:100px;
   }
   .concept-card:hover{background:var(--card-2);}
   .concept-card .icon{width:40px;height:40px;color:var(--gold);margin-bottom:22px;}
@@ -406,7 +407,19 @@
         </div>
       </div>
     </div>
-    <a href="#concepts" data-i18n="nav.concepts">Concepts</a>
+    <div class="nav-dropdown" id="conceptsDropdown">
+      <a href="#concepts" class="nav-dropdown-trigger"><span data-i18n="nav.concepts">Concepts</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a href="#concept-hiit">HiitXBand</a>
+        <a href="#concept-power">PowerXBand</a>
+        <a href="#concept-fight">FightXBand</a>
+        <a href="#concept-core">CoreXBand</a>
+        <a href="#concept-mobility">MobilityXBand</a>
+        <a href="#concept-dance">DanceXBand</a>
+      </div>
+    </div>
     <a href="#clubs" data-i18n="nav.clubs">Clubs</a>
     <a href="#formation" data-i18n="nav.formation">Formation</a>
     <a href="#apropos" data-i18n="nav.apropos">À propos</a>
@@ -491,8 +504,8 @@
         Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l'intégralité de nos six concepts d'entraînement — chez toi, en salle, ou en extérieur.
       </p>
       <div style="display:flex;align-items:baseline;gap:12px;margin-top:26px;flex-wrap:wrap;">
-        <span style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);">39,99&nbsp;€</span>
-        <span style="font-family:'Anton',sans-serif;font-size:36px;color:var(--gold-light);letter-spacing:0.01em;">29,99&nbsp;€</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);">49,99&nbsp;€</span>
+        <span style="font-family:'Anton',sans-serif;font-size:36px;color:var(--gold-light);letter-spacing:0.01em;">39,99&nbsp;€</span>
         <span style="font-size:11px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;" data-i18n="boutique.vat">TVA/TTC</span>
       </div>
       <ul class="feature-list">
@@ -585,7 +598,7 @@
   <div class="wrap" style="padding:0;">
     <div class="concepts-grid">
 
-      <div class="concept-card reveal">
+      <div class="concept-card reveal" id="concept-hiit">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="29" cy="9" r="4" fill="currentColor" stroke="none"/>
           <path d="M22 16l6 4 6-3M28 20l-3 8 6 3-2 9M25 28l-8 3-2 9M17 31l-6 5"/>
@@ -595,7 +608,7 @@
         <p data-i18n="concepts.hiit.desc">Des enchaînements courts et intenses avec la bande pour faire grimper le rythme cardiaque et brûler un maximum en peu de temps.</p>
       </div>
 
-      <div class="concept-card reveal">
+      <div class="concept-card reveal" id="concept-power">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="18" cy="10" r="4" fill="currentColor" stroke="none"/>
           <path d="M18 15v8"/>
@@ -607,19 +620,19 @@
         <p data-i18n="concepts.power.desc">Travail de force sous tension constante : la résistance de la bande remplace les haltères pour construire du muscle utile.</p>
       </div>
 
-      <div class="concept-card reveal">
+      <div class="concept-card reveal" id="concept-fight">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="24" cy="9" r="4" fill="currentColor" stroke="none"/>
           <path d="M16 16l8 3 8-3M24 19v7"/>
           <path d="M17 26a4 4 0 018 0v3a4 4 0 01-8 0z"/>
           <path d="M28 24l6-2a3 3 0 013 3v0a3 3 0 01-3 3l-6 1"/>
         </svg>
-        <h3>Box <span class="accent">X Band</span></h3>
-        <p class="concept-tagline" data-i18n="concepts.box.tag">Boxe &amp; renforcement</p>
-        <p data-i18n="concepts.box.desc">Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d'exécution.</p>
+        <h3>Fight <span class="accent">X Band</span></h3>
+        <p class="concept-tagline" data-i18n="concepts.fight.tag">Boxe &amp; renforcement</p>
+        <p data-i18n="concepts.fight.desc">Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d'exécution.</p>
       </div>
 
-      <div class="concept-card reveal">
+      <div class="concept-card reveal" id="concept-core">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <rect x="16" y="10" width="16" height="26" rx="8"/>
           <path d="M16 18h16M16 24h16M16 30h16"/>
@@ -629,7 +642,7 @@
         <p data-i18n="concepts.core.desc">Un travail ciblé de la sangle abdominale et du gainage profond, pour une posture plus stable dans tous les mouvements du quotidien.</p>
       </div>
 
-      <div class="concept-card reveal">
+      <div class="concept-card reveal" id="concept-mobility">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="20" cy="9" r="4" fill="currentColor" stroke="none"/>
           <path d="M20 15v10M20 25l-7 9M20 25l9 3 4 8M13 20l7-2 6 4"/>
@@ -639,7 +652,7 @@
         <p data-i18n="concepts.mobility.desc">Des étirements actifs assistés par la bande pour gagner en amplitude, soulager les tensions et prévenir les blessures.</p>
       </div>
 
-      <div class="concept-card reveal">
+      <div class="concept-card reveal" id="concept-dance">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="21" cy="9" r="4" fill="currentColor" stroke="none"/>
           <path d="M21 15v9l-6 4M21 24l7-2 4 5"/>
@@ -712,7 +725,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:13px;color:var(--text-dim);">
           <label><input type="checkbox" name="concepts" value="HIITXBAND"> HIITXBAND</label>
           <label><input type="checkbox" name="concepts" value="POWERXBAND"> POWERXBAND</label>
-          <label><input type="checkbox" name="concepts" value="BOXXBAND"> BOXXBAND</label>
+          <label><input type="checkbox" name="concepts" value="FIGHTXBAND"> FIGHTXBAND</label>
           <label><input type="checkbox" name="concepts" value="COREXBAND"> COREXBAND</label>
           <label><input type="checkbox" name="concepts" value="MOBILITYXBAND"> MOBILITYXBAND</label>
           <label><input type="checkbox" name="concepts" value="DANCEXBAND"> DANCEXBAND</label>
@@ -731,7 +744,7 @@
     <p class="eyebrow" style="display:flex;justify-content:center;" data-i18n="cta.eyebrow">Plus qu'un élastique</p>
     <h2 style="font-size:clamp(28px,4.4vw,46px);" data-i18n-html="cta.title">Une nouvelle<br>expérience <span class="gold-grad">fitness</span>.</h2>
     <p style="color:var(--text-dim);font-size:16px;line-height:1.7;margin:22px auto 8px;max-width:560px;" data-i18n="cta.desc">XBandfit associe mouvement, résistance, rythme et énergie collective autour d'un équipement simple et polyvalent. Découvrez nos différents programmes et trouvez l'expérience qui vous correspond.</p>
-    <p style="letter-spacing:0.14em;font-size:11px;color:var(--gold);text-transform:uppercase;margin:28px 0 36px;">HIITXBand · PowerXBand · BoxXBand · CoreXBand · MobilityXBand · DanceXBand</p>
+    <p style="letter-spacing:0.14em;font-size:11px;color:var(--gold);text-transform:uppercase;margin:28px 0 36px;">HIITXBand · PowerXBand · FightXBand · CoreXBand · MobilityXBand · DanceXBand</p>
     <h3 style="font-size:clamp(22px,3vw,30px);margin-bottom:26px;" data-i18n="cta.subtitle">Prêt à bouger autrement ?</h3>
     <a href="#boutique" class="btn" data-i18n="cta.btn">Acheter mon X-Band</a>
   </div>
@@ -824,7 +837,7 @@
       'concepts.desc':'Chaque concept X-Band cible un objectif précis, avec la même bande. À toi de composer ton entraînement.',
       'concepts.hiit.tag':'Cardio &amp; intensité','concepts.hiit.desc':'Des enchaînements courts et intenses avec la bande pour faire grimper le rythme cardiaque et brûler un maximum en peu de temps.',
       'concepts.power.tag':'Force &amp; puissance','concepts.power.desc':'Travail de force sous tension constante : la résistance de la bande remplace les haltères pour construire du muscle utile.',
-      'concepts.box.tag':'Boxe &amp; renforcement','concepts.box.desc':'Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d\'exécution.',
+      'concepts.fight.tag':'Boxe &amp; renforcement','concepts.fight.desc':'Des mouvements inspirés de la boxe, résistance en plus : on renforce le haut du corps tout en travaillant la vitesse d\'exécution.',
       'concepts.core.tag':'Gainage &amp; stabilité','concepts.core.desc':'Un travail ciblé de la sangle abdominale et du gainage profond, pour une posture plus stable dans tous les mouvements du quotidien.',
       'concepts.mobility.tag':'Mobilité &amp; souplesse','concepts.mobility.desc':'Des étirements actifs assistés par la bande pour gagner en amplitude, soulager les tensions et prévenir les blessures.',
       'concepts.dance.tag':'Danse &amp; plaisir','concepts.dance.desc':'Des chorégraphies simples et rythmées, bande en main, pour transformer la séance en moment de plaisir pur.',
@@ -874,7 +887,7 @@
       'concepts.desc':'Each X-Band concept targets a specific goal, with the same band. It\'s up to you to build your workout.',
       'concepts.hiit.tag':'Cardio &amp; intensity','concepts.hiit.desc':'Short, intense sequences with the band to spike your heart rate and burn the most in the least time.',
       'concepts.power.tag':'Strength &amp; power','concepts.power.desc':'Strength work under constant tension: the band\'s resistance replaces dumbbells to build useful muscle.',
-      'concepts.box.tag':'Boxing &amp; toning','concepts.box.desc':'Boxing-inspired movements, plus resistance: strengthen your upper body while working on execution speed.',
+      'concepts.fight.tag':'Boxing &amp; toning','concepts.fight.desc':'Boxing-inspired movements, plus resistance: strengthen your upper body while working on execution speed.',
       'concepts.core.tag':'Core &amp; stability','concepts.core.desc':'Targeted work on the abs and deep core, for a more stable posture in every everyday movement.',
       'concepts.mobility.tag':'Mobility &amp; flexibility','concepts.mobility.desc':'Active stretches assisted by the band to gain range of motion, relieve tension and prevent injury.',
       'concepts.dance.tag':'Dance &amp; fun','concepts.dance.desc':'Simple, rhythmic choreography, band in hand, turning the session into a moment of pure fun.',
@@ -924,7 +937,7 @@
       'concepts.desc':'Jedes X-Band-Konzept zielt mit demselben Band auf ein bestimmtes Ziel ab. Du stellst dein Training zusammen.',
       'concepts.hiit.tag':'Cardio &amp; Intensität','concepts.hiit.desc':'Kurze, intensive Übungsfolgen mit dem Band, um den Puls hochzutreiben und in kurzer Zeit maximal zu verbrennen.',
       'concepts.power.tag':'Kraft &amp; Power','concepts.power.desc':'Krafttraining unter konstanter Spannung: der Widerstand des Bandes ersetzt Hanteln, um nutzbare Muskeln aufzubauen.',
-      'concepts.box.tag':'Boxen &amp; Kräftigung','concepts.box.desc':'Vom Boxen inspirierte Bewegungen, plus Widerstand: stärkt den Oberkörper und trainiert die Ausführungsgeschwindigkeit.',
+      'concepts.fight.tag':'Boxen &amp; Kräftigung','concepts.fight.desc':'Vom Boxen inspirierte Bewegungen, plus Widerstand: stärkt den Oberkörper und trainiert die Ausführungsgeschwindigkeit.',
       'concepts.core.tag':'Rumpf &amp; Stabilität','concepts.core.desc':'Gezieltes Training der Bauchmuskulatur und der tiefen Rumpfmuskulatur für eine stabilere Haltung im Alltag.',
       'concepts.mobility.tag':'Mobilität &amp; Beweglichkeit','concepts.mobility.desc':'Aktive, vom Band unterstützte Dehnungen, um Bewegungsspielraum zu gewinnen, Spannungen zu lösen und Verletzungen vorzubeugen.',
       'concepts.dance.tag':'Tanz &amp; Spaß','concepts.dance.desc':'Einfache, rhythmische Choreografien mit dem Band in der Hand, die das Training in pure Freude verwandeln.',
