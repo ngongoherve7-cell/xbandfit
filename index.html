@@ -65,14 +65,27 @@
   /* ---------- NAV ---------- */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 28px;
-    background:linear-gradient(180deg,rgba(10,10,10,0.9),rgba(10,10,10,0));
+    display:flex;flex-direction:column;
+    background:linear-gradient(180deg,rgba(10,10,10,0.94),rgba(10,10,10,0.7) 85%,rgba(10,10,10,0));
     opacity:0;
     animation:navIn 0.8s ease forwards;
     animation-delay:2.6s;
   }
   @keyframes navIn{to{opacity:1;}}
+  .nav-top{
+    display:flex;align-items:center;justify-content:flex-end;gap:26px;
+    padding:9px 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-top a,.nav-top .lang-trigger{
+    font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;
+  }
+  .nav-top a:hover{color:var(--gold-light);}
+  @media (max-width:960px){.nav-top{display:none;}}
+  .nav-main{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+  }
   .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);}
   .nav-mark span{color:var(--red);}
   .nav-links{display:flex;gap:34px;}
@@ -488,6 +501,20 @@
 <body>
 
 <nav>
+  <div class="nav-top">
+    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Se connecter</a>
+    <div class="nav-dropdown lang-dropdown" id="langDropdown">
+      <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </span>
+      <div class="nav-dropdown-menu lang-menu">
+        <span class="lang-option" data-lang="fr">Français</span>
+        <span class="lang-option" data-lang="en">English</span>
+        <span class="lang-option" data-lang="de">Deutsch</span>
+      </div>
+    </div>
+  </div>
+  <div class="nav-main">
   <div class="nav-mark">XBAND<span>FIT</span></div>
   <div class="nav-links">
     <div class="nav-dropdown" id="boutiqueDropdown">
@@ -556,7 +583,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="formateursDropdown">
-      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>À l'attention des formateurs</span>
+      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>Formateurs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -579,7 +606,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="clubsDropdown">
-      <a href="#clubs" class="nav-dropdown-trigger"><span>Pour les clubs</span>
+      <a href="#clubs" class="nav-dropdown-trigger"><span>Clubs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -621,21 +648,11 @@
     </div>
     <a href="evenements.html">Événements</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
-    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Se connecter</a>
-    <div class="nav-dropdown lang-dropdown" id="langDropdown">
-      <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-      </span>
-      <div class="nav-dropdown-menu lang-menu">
-        <span class="lang-option" data-lang="fr">Français</span>
-        <span class="lang-option" data-lang="en">English</span>
-        <span class="lang-option" data-lang="de">Deutsch</span>
-      </div>
-    </div>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
   </button>
+  </div>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
@@ -658,7 +675,7 @@
   <a href="xbandfit-plus.html" class="mobile-nav-link">XBandFit+</a>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">À l'attention des formateurs
+    <button class="mobile-nav-toggle">Formateurs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -668,7 +685,7 @@
   </div>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">Pour les clubs
+    <button class="mobile-nav-toggle">Clubs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
