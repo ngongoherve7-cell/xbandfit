@@ -65,18 +65,34 @@
   /* ---------- NAV ---------- */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 28px;
-    background:linear-gradient(180deg,rgba(10,10,10,0.9),rgba(10,10,10,0));
+    display:flex;flex-direction:column;
+    background:linear-gradient(180deg,rgba(10,10,10,0.94),rgba(10,10,10,0.7) 85%,rgba(10,10,10,0));
     opacity:0;
     animation:navIn 0.8s ease forwards;
     animation-delay:2.6s;
   }
   @keyframes navIn{to{opacity:1;}}
+  .nav-top{
+    display:flex;align-items:center;justify-content:flex-end;gap:26px;
+    padding:9px 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-top a,.nav-top .lang-trigger{
+    font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;
+  }
+  .nav-top a:hover{color:var(--gold-light);}
+  @media (max-width:960px){.nav-top{display:none;}}
+  .nav-main{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;
+  }
+  @media (min-width:961px){
+    .nav-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;}
+  }
   .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);}
   .nav-mark span{color:var(--red);}
   .nav-links{display:flex;gap:34px;}
-  .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:34px;}
+  .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:24px;}
   .nav-links a:first-child{margin-left:0;}
   .nav-links a:hover{color:var(--gold-light);}
   @media (max-width:960px){.nav-links{display:none;}}
@@ -429,6 +445,9 @@
   .concepts-grid.cats-5{grid-template-columns:repeat(5,1fr);}
   @media (max-width:860px){.concepts-grid.cats-5{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:520px){.concepts-grid.cats-5{grid-template-columns:repeat(2,1fr);}}
+  .concepts-grid.cats-2{grid-template-columns:repeat(2,1fr);max-width:480px;margin:0 auto;}
+  .concepts-grid.cats-2 .concept-card{cursor:pointer;transition:border-color .25s ease,transform .25s ease;}
+  .concepts-grid.cats-2 .concept-card:hover{border-color:var(--gold);transform:translateY(-3px);}
   .concept-card{
     position:relative;
     overflow:hidden;
@@ -488,34 +507,22 @@
 <body>
 
 <nav>
-  <div class="nav-mark">XBAND<span>FIT</span></div>
-  <div class="nav-links">
-    <div class="nav-dropdown" id="boutiqueDropdown">
-      <a href="#boutique" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
+  <div class="nav-top">
+    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Se connecter</a>
+    <div class="nav-dropdown lang-dropdown" id="langDropdown">
+      <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-      </a>
-      <div class="nav-dropdown-menu">
-        <a href="#boutique"><span data-i18n="nav.xband">X-Band</span></a>
-        <div class="nav-dropdown-sub">
-          <span class="nav-dropdown-sublabel"><span data-i18n="nav.vetements">Vêtements</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-          <div class="nav-dropdown-submenu">
-            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
-          </div>
-        </div>
-        <div class="nav-dropdown-sub">
-          <span class="nav-dropdown-sublabel"><span data-i18n="nav.accessoires">Accessoires</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-          <div class="nav-dropdown-submenu">
-            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
-          </div>
-        </div>
+      </span>
+      <div class="nav-dropdown-menu lang-menu">
+        <span class="lang-option" data-lang="fr">Français</span>
+        <span class="lang-option" data-lang="en">English</span>
+        <span class="lang-option" data-lang="de">Deutsch</span>
       </div>
     </div>
+  </div>
+  <div class="nav-main">
+  <div class="nav-mark">XBAND<span>FIT</span></div>
+  <div class="nav-links">
     <div class="nav-dropdown" id="entrainementsDropdown">
       <a href="#concepts" class="nav-dropdown-trigger"><span>Entraînements</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -535,10 +542,16 @@
           <a href="#concepts" class="mega-explore">Explorer tout</a>
         </div>
         <div class="mega-col">
-          <p class="mega-eyebrow">XBandFit+</p>
-          <p class="mega-title">Nouvelle séance d'entraînement<br>disponible bientôt</p>
-          <p>Sur notre application et sur toutes nos chaînes, YouTube compris.</p>
-          <a href="xbandfit-plus.html" class="mega-explore">Explorez davantage</a>
+          <p class="mega-eyebrow">Dans votre sport</p>
+          <h4>Sports</h4>
+          <div class="mega-links">
+            <a href="sport-combat.html">Sports de combat</a>
+            <a href="sport-football.html">Football</a>
+            <a href="sport-basketball.html">Basketball</a>
+            <a href="sport-rugby.html">Rugby</a>
+            <a href="sport-tennis.html">Tennis</a>
+            <a href="sport-volleyball.html">Volley-ball</a>
+          </div>
         </div>
       </div>
     </div>
@@ -556,7 +569,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="formateursDropdown">
-      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>À l'attention des formateurs</span>
+      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>Formateurs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -579,7 +592,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="clubsDropdown">
-      <a href="#clubs" class="nav-dropdown-trigger"><span>Pour les clubs</span>
+      <a href="#clubs" class="nav-dropdown-trigger"><span>Clubs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -620,27 +633,42 @@
       </div>
     </div>
     <a href="evenements.html">Événements</a>
-    <a href="#contact" data-i18n="nav.contact">Contact</a>
-    <a href="https://xbandfit-compte.vercel.app/" target="_blank" rel="noopener">Se connecter</a>
-    <div class="nav-dropdown lang-dropdown" id="langDropdown">
-      <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
+    <div class="nav-dropdown" id="boutiqueDropdown">
+      <a href="boutique.html" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-      </span>
-      <div class="nav-dropdown-menu lang-menu">
-        <span class="lang-option" data-lang="fr">Français</span>
-        <span class="lang-option" data-lang="en">English</span>
-        <span class="lang-option" data-lang="de">Deutsch</span>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a href="#boutique"><span data-i18n="nav.xband">X-Band</span></a>
+        <div class="nav-dropdown-sub">
+          <span class="nav-dropdown-sublabel"><span data-i18n="nav.vetements">Vêtements</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="nav-dropdown-submenu">
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown-sub">
+          <span class="nav-dropdown-sublabel"><span data-i18n="nav.accessoires">Accessoires</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="nav-dropdown-submenu">
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
+          </div>
+        </div>
       </div>
     </div>
+    <a href="concept-calisthenie.html">CalisthénieXBand</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
   </button>
+  </div>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
-
   <div class="mobile-nav-group">
     <button class="mobile-nav-toggle">Entraînements
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -655,10 +683,24 @@
     </div>
   </div>
 
+  <div class="mobile-nav-group">
+    <button class="mobile-nav-toggle">Sports
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-nav-sub">
+      <a href="sport-combat.html">Sports de combat</a>
+      <a href="sport-football.html">Football</a>
+      <a href="sport-basketball.html">Basketball</a>
+      <a href="sport-rugby.html">Rugby</a>
+      <a href="sport-tennis.html">Tennis</a>
+      <a href="sport-volleyball.html">Volley-ball</a>
+    </div>
+  </div>
+
   <a href="xbandfit-plus.html" class="mobile-nav-link">XBandFit+</a>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">À l'attention des formateurs
+    <button class="mobile-nav-toggle">Formateurs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -668,7 +710,7 @@
   </div>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">Pour les clubs
+    <button class="mobile-nav-toggle">Clubs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -686,8 +728,10 @@
   </div>
 
   <a href="evenements.html" class="mobile-nav-link">Événements</a>
+  <a href="boutique.html" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
+  <a href="concept-calisthenie.html" class="mobile-nav-link">CalisthénieXBand</a>
   <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
-  <a href="https://xbandfit-compte.vercel.app/" class="mobile-nav-link" target="_blank" rel="noopener">Se connecter</a>
+  <a href="https://compte.xbandfit.com/" class="mobile-nav-link" target="_blank" rel="noopener">Se connecter</a>
 
   <div class="mobile-nav-langs">
     <button class="lang-option" data-lang="fr">FR</button>
@@ -706,7 +750,7 @@
     <h1><span class="x">XBAND</span><span style="color:var(--red);">FIT</span></h1>
     <p class="hero-sub" data-i18n-html="hero.sub"><strong>Une bande. Six façons de s'entraîner.</strong><br>Libère tout ton potentiel, où que tu sois.</p>
     <div class="hero-cta">
-      <a href="#boutique" class="btn" data-i18n="hero.cta">Découvrir la boutique</a>
+      <a href="boutique.html" class="btn" data-i18n="hero.cta">Découvrir la boutique</a>
     </div>
   </div>
   <div class="scroll-cue">
@@ -786,32 +830,17 @@
     </div>
   </div>
   <div class="wrap" style="padding:0;">
-    <div class="concepts-grid cats-5">
+    <div class="concepts-grid cats-2">
 
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
+      <a href="boutique-alerte.html" class="concept-card reveal" style="text-align:center;padding:32px 20px;">
         <h3 style="font-size:17px;" data-i18n="clothing.hommes">Hommes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
+      </a>
 
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
+      <a href="boutique-alerte.html" class="concept-card reveal" style="text-align:center;padding:32px 20px;">
         <h3 style="font-size:17px;" data-i18n="clothing.femmes">Femmes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
-
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <h3 style="font-size:17px;" data-i18n="clothing.jogging">Jogging</h3>
-        <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
-
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <h3 style="font-size:17px;" data-i18n="clothing.chaussures">Chaussures</h3>
-        <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
-
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <h3 style="font-size:17px;" data-i18n="clothing.gourdes">Gourdes</h3>
-        <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -976,13 +1005,13 @@
         <div class="footer-tag" data-i18n="hero.tag">We Can Make It</div>
       </div>
       <div class="footer-links">
-        <a href="#boutique" data-i18n="nav.boutique">Boutique</a>
+        <a href="boutique.html" data-i18n="nav.boutique">Boutique</a>
         <a href="#concepts" data-i18n="nav.concepts">Concepts</a>
         <a href="#clubs" data-i18n="nav.clubs">Clubs</a>
         <a href="#formation" data-i18n="nav.formation">Formation</a>
         <a href="#apropos" data-i18n="nav.apropos">À propos</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
-        <a href="https://xbandfit-compte.vercel.app/" target="_blank" rel="noopener">Mon compte</a>
+        <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
       </div>
     </div>
     <div class="footer-bottom">
