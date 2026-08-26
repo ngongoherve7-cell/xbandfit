@@ -86,6 +86,9 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:14px 28px;
   }
+  @media (min-width:961px){
+    .nav-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;}
+  }
   .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);}
   .nav-mark span{color:var(--red);}
   .nav-links{display:flex;gap:34px;}
@@ -517,32 +520,6 @@
   <div class="nav-main">
   <div class="nav-mark">XBAND<span>FIT</span></div>
   <div class="nav-links">
-    <div class="nav-dropdown" id="boutiqueDropdown">
-      <a href="#boutique" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-      </a>
-      <div class="nav-dropdown-menu">
-        <a href="#boutique"><span data-i18n="nav.xband">X-Band</span></a>
-        <div class="nav-dropdown-sub">
-          <span class="nav-dropdown-sublabel"><span data-i18n="nav.vetements">Vêtements</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-          <div class="nav-dropdown-submenu">
-            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
-          </div>
-        </div>
-        <div class="nav-dropdown-sub">
-          <span class="nav-dropdown-sublabel"><span data-i18n="nav.accessoires">Accessoires</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-          <div class="nav-dropdown-submenu">
-            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="nav-dropdown" id="entrainementsDropdown">
       <a href="#concepts" class="nav-dropdown-trigger"><span>Entraînements</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -560,12 +537,6 @@
             <a href="concept-dance.html">DanceXBand</a>
           </div>
           <a href="#concepts" class="mega-explore">Explorer tout</a>
-        </div>
-        <div class="mega-col">
-          <p class="mega-eyebrow">XBandFit+</p>
-          <p class="mega-title">Nouvelle séance d'entraînement<br>disponible bientôt</p>
-          <p>Sur notre application et sur toutes nos chaînes, YouTube compris.</p>
-          <a href="xbandfit-plus.html" class="mega-explore">Explorez davantage</a>
         </div>
       </div>
     </div>
@@ -647,6 +618,32 @@
       </div>
     </div>
     <a href="evenements.html">Événements</a>
+    <div class="nav-dropdown" id="boutiqueDropdown">
+      <a href="#boutique" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a href="#boutique"><span data-i18n="nav.xband">X-Band</span></a>
+        <div class="nav-dropdown-sub">
+          <span class="nav-dropdown-sublabel"><span data-i18n="nav.vetements">Vêtements</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="nav-dropdown-submenu">
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown-sub">
+          <span class="nav-dropdown-sublabel"><span data-i18n="nav.accessoires">Accessoires</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+          <div class="nav-dropdown-submenu">
+            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
+            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
@@ -656,8 +653,6 @@
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
-
   <div class="mobile-nav-group">
     <button class="mobile-nav-toggle">Entraînements
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -703,6 +698,7 @@
   </div>
 
   <a href="evenements.html" class="mobile-nav-link">Événements</a>
+  <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
   <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
   <a href="https://compte.xbandfit.com/" class="mobile-nav-link" target="_blank" rel="noopener">Se connecter</a>
 
