@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Être prévenu, XBANDFIT</title>
+<meta name="description" content="Laisse ton email pour être prévenu dès que la collection de vêtements et accessoires XBANDFIT est disponible.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/concept.css">
+<style>
+  .alerte-form{display:grid;gap:16px;max-width:420px;margin:0 auto;}
+  .alerte-form input{
+    background:var(--card);border:1px solid var(--border);color:var(--text);
+    padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;
+  }
+  .alerte-confirm{display:none;color:var(--gold-light);font-size:14px;padding-top:4px;}
+  .alerte-confirm.show{display:block;}
+  .alerte-error{display:none;color:var(--red);font-size:12px;padding-top:4px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-mark">XBAND<span>FIT</span></a>
+  <div class="nav-links">
+    <a href="boutique.html" class="back-link">&larr; Boutique</a>
+    <a href="index.html#concepts">Entraînements</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+  </div>
+</nav>
+
+<section class="concept-hero" style="padding-bottom:56px;">
+  <div class="wrap" style="max-width:560px;">
+    <p class="eyebrow">Boutique, Vêtements & accessoires</p>
+    <h1>Être <span class="accent">prévenu</span></h1>
+    <p class="concept-hero-sub">La collection XBANDFIT arrive bientôt. Laisse ton email ci-dessous, on te préviendra dès qu'elle sera disponible à la vente, homme comme femme.</p>
+  </div>
+</section>
+
+<section id="alerte">
+  <div class="wrap" style="max-width:560px;">
+    <form class="alerte-form reveal" id="alerteForm" data-endpoint="https://formspree.io/f/mnpazynd">
+      <input type="hidden" name="_subject" value="XBandFit, Alerte collection vêtements">
+      <input type="email" name="email" required placeholder="Ton adresse email">
+      <button type="submit" class="btn">Me prévenir</button>
+      <p class="alerte-confirm" id="alerteConfirm">Merci, on te préviendra dès que la collection est disponible.</p>
+      <p class="alerte-error" id="alerteError">Une erreur est survenue, réessaie, ou écris-nous directement à <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div>
+        <a href="index.html" class="footer-mark">XBAND<span>FIT</span></a>
+        <div class="footer-tag">We Can Make It</div>
+      </div>
+      <div class="footer-links">
+        <a href="boutique.html">Boutique</a>
+        <a href="index.html#concepts">Concepts</a>
+        <a href="index.html#clubs">Clubs</a>
+        <a href="index.html#formation">Formation</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 X-Band Fit, xbandfit.com</span>
+      <span>Tous droits réservés</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/concept.js"></script>
+<script>
+  const alerteForm = document.getElementById('alerteForm');
+  if(alerteForm){
+    alerteForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const confirmEl = document.getElementById('alerteConfirm');
+      const errorEl = document.getElementById('alerteError');
+      const submitBtn = alerteForm.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn.textContent;
+      errorEl.classList.remove('show');
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi…';
+      try{
+        const res = await fetch(alerteForm.dataset.endpoint, {
+          method: 'POST',
+          body: new FormData(alerteForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(!res.ok) throw new Error('Formspree error');
+        confirmEl.classList.add('show');
+        alerteForm.querySelectorAll('input,button').forEach(el=>el.disabled=true);
+      }catch(err){
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  }
+</script>
+</body>
+</html>

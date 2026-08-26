@@ -87,12 +87,12 @@
     padding:14px 28px;
   }
   @media (min-width:961px){
-    .nav-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;}
+    .nav-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;}
   }
   .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);}
   .nav-mark span{color:var(--red);}
   .nav-links{display:flex;gap:34px;}
-  .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:34px;}
+  .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:24px;}
   .nav-links a:first-child{margin-left:0;}
   .nav-links a:hover{color:var(--gold-light);}
   @media (max-width:960px){.nav-links{display:none;}}
@@ -445,6 +445,9 @@
   .concepts-grid.cats-5{grid-template-columns:repeat(5,1fr);}
   @media (max-width:860px){.concepts-grid.cats-5{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:520px){.concepts-grid.cats-5{grid-template-columns:repeat(2,1fr);}}
+  .concepts-grid.cats-2{grid-template-columns:repeat(2,1fr);max-width:480px;margin:0 auto;}
+  .concepts-grid.cats-2 .concept-card{cursor:pointer;transition:border-color .25s ease,transform .25s ease;}
+  .concepts-grid.cats-2 .concept-card:hover{border-color:var(--gold);transform:translateY(-3px);}
   .concept-card{
     position:relative;
     overflow:hidden;
@@ -631,7 +634,7 @@
     </div>
     <a href="evenements.html">Événements</a>
     <div class="nav-dropdown" id="boutiqueDropdown">
-      <a href="#boutique" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
+      <a href="boutique.html" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-menu">
@@ -725,7 +728,7 @@
   </div>
 
   <a href="evenements.html" class="mobile-nav-link">Événements</a>
-  <a href="#boutique" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
+  <a href="boutique.html" class="mobile-nav-link" data-i18n="nav.boutique">Boutique</a>
   <a href="concept-calisthenie.html" class="mobile-nav-link">CalisthénieXBand</a>
   <a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
   <a href="https://compte.xbandfit.com/" class="mobile-nav-link" target="_blank" rel="noopener">Se connecter</a>
@@ -747,7 +750,7 @@
     <h1><span class="x">XBAND</span><span style="color:var(--red);">FIT</span></h1>
     <p class="hero-sub" data-i18n-html="hero.sub"><strong>Une bande. Six façons de s'entraîner.</strong><br>Libère tout ton potentiel, où que tu sois.</p>
     <div class="hero-cta">
-      <a href="#boutique" class="btn" data-i18n="hero.cta">Découvrir la boutique</a>
+      <a href="boutique.html" class="btn" data-i18n="hero.cta">Découvrir la boutique</a>
     </div>
   </div>
   <div class="scroll-cue">
@@ -827,32 +830,17 @@
     </div>
   </div>
   <div class="wrap" style="padding:0;">
-    <div class="concepts-grid cats-5">
+    <div class="concepts-grid cats-2">
 
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
+      <a href="boutique-alerte.html" class="concept-card reveal" style="text-align:center;padding:32px 20px;">
         <h3 style="font-size:17px;" data-i18n="clothing.hommes">Hommes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
+      </a>
 
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
+      <a href="boutique-alerte.html" class="concept-card reveal" style="text-align:center;padding:32px 20px;">
         <h3 style="font-size:17px;" data-i18n="clothing.femmes">Femmes</h3>
         <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
-
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <h3 style="font-size:17px;" data-i18n="clothing.jogging">Jogging</h3>
-        <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
-
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <h3 style="font-size:17px;" data-i18n="clothing.chaussures">Chaussures</h3>
-        <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
-
-      <div class="concept-card reveal" style="text-align:center;padding:32px 20px;">
-        <h3 style="font-size:17px;" data-i18n="clothing.gourdes">Gourdes</h3>
-        <p class="concept-tagline" style="margin-bottom:0;" data-i18n="shared.comingSoon">Bientôt disponible</p>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -1017,7 +1005,7 @@
         <div class="footer-tag" data-i18n="hero.tag">We Can Make It</div>
       </div>
       <div class="footer-links">
-        <a href="#boutique" data-i18n="nav.boutique">Boutique</a>
+        <a href="boutique.html" data-i18n="nav.boutique">Boutique</a>
         <a href="#concepts" data-i18n="nav.concepts">Concepts</a>
         <a href="#clubs" data-i18n="nav.clubs">Clubs</a>
         <a href="#formation" data-i18n="nav.formation">Formation</a>
