@@ -167,24 +167,16 @@
   .nav-dropdown:hover .nav-dropdown-menu{
     opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
   }
-  .nav-dropdown-menu a,.nav-dropdown-sublabel,.lang-option{
+  .nav-dropdown-menu a,.lang-option{
     display:flex;align-items:center;justify-content:space-between;gap:8px;
     padding:9px 12px;margin:0;
     font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);
     border-radius:3px;cursor:pointer;transition:background .2s ease,color .2s ease;
   }
-  .nav-dropdown-menu a:hover,.nav-dropdown-sublabel:hover,.lang-option:hover{background:rgba(217,164,65,0.1);color:var(--gold-light);}
+  .nav-dropdown-menu a:hover,.lang-option:hover{background:rgba(217,164,65,0.1);color:var(--gold-light);}
   .lang-option.active{color:var(--gold-light);}
   .lang-trigger{cursor:pointer;}
   .lang-menu{min-width:130px;}
-  .nav-dropdown-sublabel svg{transition:transform .2s ease;flex-shrink:0;}
-  .nav-dropdown-sub.open .nav-dropdown-sublabel svg{transform:rotate(180deg);}
-  .nav-dropdown-submenu{
-    max-height:0;overflow:hidden;
-    transition:max-height .25s ease;
-  }
-  .nav-dropdown-sub.open .nav-dropdown-submenu{max-height:120px;}
-  .nav-dropdown-submenu a{padding-left:22px;}
 
   /* ---------- NAV MEGA MENU ---------- */
   .nav-dropdown-mega{
@@ -663,32 +655,7 @@
       </div>
     </div>
     <a href="evenements.html">Événements</a>
-    <div class="nav-dropdown" id="boutiqueDropdown">
-      <a href="boutique.html" class="nav-dropdown-trigger"><span data-i18n="nav.boutique">Boutique</span>
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-      </a>
-      <div class="nav-dropdown-menu">
-        <a href="#boutique"><span data-i18n="nav.xband">X-Band</span></a>
-        <div class="nav-dropdown-sub">
-          <span class="nav-dropdown-sublabel"><span data-i18n="nav.vetements">Vêtements</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-          <div class="nav-dropdown-submenu">
-            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
-          </div>
-        </div>
-        <div class="nav-dropdown-sub">
-          <span class="nav-dropdown-sublabel"><span data-i18n="nav.accessoires">Accessoires</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-          </span>
-          <div class="nav-dropdown-submenu">
-            <a href="boutique-homme.html"><span data-i18n="nav.homme">Homme</span></a>
-            <a href="boutique-femme.html"><span data-i18n="nav.femme">Femme</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <a href="boutique.html" data-i18n="nav.boutique">Boutique</a>
     <a href="concept-calisthenie.html">CalisthénieXBand</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
@@ -1303,16 +1270,6 @@
     opt.addEventListener('click', ()=> applyLanguage(opt.dataset.lang));
   });
   applyLanguage(currentLang);
-
-  // Menu déroulant Boutique : accordéon pour les sous-catégories Vêtements / Accessoires
-  document.querySelectorAll('.nav-dropdown-sublabel').forEach(label=>{
-    label.addEventListener('click', ()=>{
-      const sub = label.closest('.nav-dropdown-sub');
-      const wasOpen = sub.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown-sub.open').forEach(s=>s.classList.remove('open'));
-      if(!wasOpen) sub.classList.add('open');
-    });
-  });
 
   // Menu mobile / tablette : hamburger + accordéon Concepts / Clubs
   const hamburgerBtn = document.getElementById('hamburgerBtn');

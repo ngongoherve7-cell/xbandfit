@@ -4,45 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boutique, XBANDFIT</title>
-<meta name="description" content="La boutique XBANDFIT : le X-Band, et bientôt la collection de vêtements et accessoires homme et femme.">
+<meta name="description" content="La boutique XBANDFIT : le X-Band, et bientôt la collection de vêtements, chaussures et accessoires homme et femme.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/concept.css">
+<style>
+  .shop-nav{
+    position:sticky;top:0;z-index:50;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:16px 32px;
+    background:rgba(10,10,10,0.95);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--border);
+  }
+  .shop-mark{justify-self:start;display:block;}
+  .shop-mark img{width:32px;height:32px;display:block;}
+  .shop-nav-links{justify-self:center;display:flex;align-items:center;gap:40px;}
+  .shop-dropdown{position:relative;}
+  .shop-dropdown-trigger{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);font-weight:600;}
+  .shop-dropdown:hover .shop-dropdown-trigger{color:var(--gold-light);}
+  .shop-dropdown-menu{
+    position:absolute;top:calc(100% + 16px);left:50%;
+    transform:translateX(-50%) translateY(-6px);
+    min-width:180px;
+    background:var(--card-2);border:1px solid var(--border);border-radius:6px;
+    padding:10px;
+    opacity:0;visibility:hidden;
+    transition:opacity .2s ease,transform .2s ease,visibility .2s;
+    box-shadow:0 24px 60px -20px rgba(0,0,0,.7);
+  }
+  .shop-dropdown:hover .shop-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  .shop-dropdown-menu a{
+    display:block;padding:9px 12px;
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);
+    border-radius:3px;
+  }
+  .shop-dropdown-menu a:hover{background:rgba(217,164,65,.1);color:var(--gold-light);}
+  .shop-account{
+    justify-self:end;
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);
+  }
+  .shop-account:hover{color:var(--gold-light);}
+  @media (max-width:760px){
+    .shop-nav{padding:14px 18px;}
+    .shop-nav-links{gap:20px;}
+    .shop-dropdown-trigger{font-size:11px;}
+    .shop-account{font-size:10px;}
+  }
+
+  .model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:760px){.model-grid{grid-template-columns:1fr;}}
+  .model-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:24px;text-align:center;position:relative;}
+  .model-card img{width:100%;height:auto;border-radius:4px;margin-bottom:18px;background:#0d0c0a;}
+  .model-card h3{font-size:18px;margin-bottom:4px;}
+  .model-card h3 .accent{color:var(--gold);}
+  .model-tag{color:var(--text-dim);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;}
+  .model-price{font-family:'Anton',sans-serif;font-size:26px;color:var(--gold-light);margin-bottom:18px;}
+  .model-price-old{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--text-dim);text-decoration:line-through;text-decoration-color:var(--text-dim);margin-right:10px;vertical-align:middle;}
+  .model-badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--gold);color:#0a0a0a;
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+    padding:4px 10px;border-radius:20px;
+  }
+
+  .shop-section-head{text-align:center;margin-bottom:36px;}
+  .shop-section-head .eyebrow{justify-content:center;display:flex;}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-mark">XBAND<span>FIT</span></a>
-  <div class="nav-links">
-    <a href="/" class="back-link">Accueil</a>
-    <a href="/#concepts">Entraînements</a>
-    <a href="/#contact">Contact</a>
-    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+<nav class="shop-nav">
+  <a href="/" class="shop-mark"><img src="assets/xband-mark.webp" alt="XBandFit"></a>
+  <div class="shop-nav-links">
+    <div class="shop-dropdown">
+      <a href="#nouveautes" class="shop-dropdown-trigger">Nouveautés</a>
+      <div class="shop-dropdown-menu">
+        <a href="#nouveautes">Sorti récemment</a>
+        <a href="#nouveautes">Meilleures ventes</a>
+        <a href="boutique-alerte.html">Prochaine sortie</a>
+      </div>
+    </div>
+    <div class="shop-dropdown">
+      <a href="boutique-homme.html" class="shop-dropdown-trigger">Hommes</a>
+      <div class="shop-dropdown-menu">
+        <a href="boutique-homme.html">Chaussures</a>
+        <a href="boutique-homme.html">Vêtements</a>
+        <a href="boutique-homme.html">Accessoires</a>
+      </div>
+    </div>
+    <div class="shop-dropdown">
+      <a href="boutique-femme.html" class="shop-dropdown-trigger">Femmes</a>
+      <div class="shop-dropdown-menu">
+        <a href="boutique-femme.html">Chaussures</a>
+        <a href="boutique-femme.html">Vêtements</a>
+        <a href="boutique-femme.html">Accessoires</a>
+      </div>
+    </div>
   </div>
+  <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener" class="shop-account">Mon compte</a>
 </nav>
 
 <section class="concept-hero" style="padding-bottom:56px;">
   <div class="wrap">
     <p class="eyebrow">Boutique</p>
     <h1>La boutique <span class="accent">XBandFit</span></h1>
-    <p class="concept-hero-sub">Le X-Band, ton équipement d'entraînement, et bientôt une collection complète de vêtements et accessoires, homme et femme.</p>
+    <p class="concept-hero-sub">Le X-Band, ton équipement d'entraînement, et bientôt une collection complète de vêtements, chaussures et accessoires, homme et femme.</p>
   </div>
 </section>
 
-<section id="categories">
+<section id="nouveautes">
   <div class="wrap">
+    <div class="shop-section-head reveal">
+      <p class="eyebrow">Nouveautés, sorti récemment</p>
+      <h2>Le <span class="accent">X-Band</span></h2>
+    </div>
+    <div class="model-grid">
+      <div class="model-card reveal">
+        <span class="model-badge">Meilleure vente</span>
+        <img src="assets/xband-product.webp" alt="X-Band 10 kg">
+        <h3>X-Band <span class="accent">10 kg</span></h3>
+        <p class="model-tag">Résistance légère</p>
+        <div class="model-price"><span class="model-price-old">49,99&nbsp;€</span>39,99&nbsp;€</div>
+        <a class="btn" href="https://xbandfit-admin.lovable.app/commander" target="_blank" rel="noopener">Commander</a>
+      </div>
+      <div class="model-card reveal">
+        <img src="assets/xband-product.webp" alt="X-Band 20 kg">
+        <h3>X-Band <span class="accent">20 kg</span></h3>
+        <p class="model-tag">Résistance moyenne</p>
+        <div class="model-price"><span class="model-price-old">49,99&nbsp;€</span>39,99&nbsp;€</div>
+        <a class="btn" href="https://xbandfit-admin.lovable.app/commander" target="_blank" rel="noopener">Commander</a>
+      </div>
+      <div class="model-card reveal">
+        <img src="assets/xband-product.webp" alt="X-Band 30 kg">
+        <h3>X-Band <span class="accent">30 kg</span></h3>
+        <p class="model-tag">Résistance élevée</p>
+        <div class="model-price"><span class="model-price-old">49,99&nbsp;€</span>39,99&nbsp;€</div>
+        <a class="btn" href="https://xbandfit-admin.lovable.app/commander" target="_blank" rel="noopener">Commander</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hommes" style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="shop-section-head reveal">
+      <p class="eyebrow">Collection</p>
+      <h2>Hommes</h2>
+    </div>
     <div class="category-grid">
-      <a href="/#boutique" class="category-card reveal">
-        <h3>Le X-Band</h3>
-        <p>Disponible à la commande</p>
+      <a href="boutique-homme.html" class="category-card reveal">
+        <h3>Chaussures</h3>
+        <p>Bientôt disponible</p>
       </a>
       <a href="boutique-homme.html" class="category-card reveal">
-        <h3>Homme</h3>
+        <h3>Vêtements</h3>
+        <p>Bientôt disponible</p>
+      </a>
+      <a href="boutique-homme.html" class="category-card reveal">
+        <h3>Accessoires</h3>
+        <p>Bientôt disponible</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="femmes">
+  <div class="wrap">
+    <div class="shop-section-head reveal">
+      <p class="eyebrow">Collection</p>
+      <h2>Femmes</h2>
+    </div>
+    <div class="category-grid">
+      <a href="boutique-femme.html" class="category-card reveal">
+        <h3>Chaussures</h3>
         <p>Bientôt disponible</p>
       </a>
       <a href="boutique-femme.html" class="category-card reveal">
-        <h3>Femme</h3>
+        <h3>Vêtements</h3>
+        <p>Bientôt disponible</p>
+      </a>
+      <a href="boutique-femme.html" class="category-card reveal">
+        <h3>Accessoires</h3>
         <p>Bientôt disponible</p>
       </a>
     </div>
