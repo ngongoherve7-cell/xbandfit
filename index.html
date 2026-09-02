@@ -92,6 +92,8 @@
   .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);display:block;}
   .nav-mark span{color:var(--red);}
   .nav-mark img{height:34px;width:auto;max-width:none;display:block;}
+  .club-card{text-decoration:none;transition:border-color .25s;}
+  .club-card:hover{border-color:var(--gold);}
   .nav-links{display:flex;gap:34px;}
   .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:24px;}
   .nav-links a:first-child{margin-left:0;}
@@ -1004,11 +1006,12 @@
         width="100%" height="420" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         style="border:0;display:block;filter:grayscale(1) invert(0.9) contrast(0.85);"></iframe>
     </div>
-    <div class="reveal" style="max-width:420px;margin:20px auto 0;padding:18px 22px;background:var(--card);border:1px solid var(--border);border-radius:6px;text-align:center;">
-      <p style="font-family:'Anton',sans-serif;letter-spacing:0.02em;font-size:16px;margin:0 0 4px;">Athletic Center <span style="color:var(--gold);">Arlon</span></p>
+    <a href="https://athleticcenter.be/" target="_blank" rel="noopener" class="club-card reveal" style="display:block;max-width:420px;margin:20px auto 0;padding:18px 22px;background:var(--card);border:1px solid var(--border);border-radius:6px;text-align:center;">
+      <p style="font-family:'Anton',sans-serif;letter-spacing:0.02em;font-size:16px;margin:0 0 4px;color:var(--text);">Athletic Center <span style="color:var(--gold);">Arlon</span></p>
       <p style="color:var(--text-dim);font-size:13px;margin:0 0 10px;" data-i18n="clubs.athleticcenter.address">Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arlon, Belgique</p>
-      <p style="font-size:13px;margin:0;" data-i18n="clubs.athleticcenter.schedule">HiitXBand tous les vendredis à 19h00</p>
-    </div>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--text);" data-i18n="clubs.athleticcenter.schedule">HiitXBand tous les vendredis à 19h00</p>
+      <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin:0;" data-i18n="clubs.athleticcenter.link">Voir le site du club</p>
+    </a>
     <p class="reveal" style="color:var(--text-dim);font-size:13px;max-width:420px;margin:16px auto 0;text-align:center;" data-i18n="clubs.mapCaption">D'autres clubs partenaires rejoindront bientôt la carte.</p>
   </div>
 </section>
@@ -1147,6 +1150,7 @@
       'clubs.mapCaption':'D\'autres clubs partenaires rejoindront bientôt la carte.',
       'clubs.athleticcenter.address':'Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arlon, Belgique',
       'clubs.athleticcenter.schedule':'HiitXBand tous les vendredis à 19h00',
+      'clubs.athleticcenter.link':'Voir le site du club',
       'formation.eyebrow':'Formation','formation.title':'Deviens coach<br>certifié X-Band',
       'formation.desc':'Forme-toi aux 6 concepts X-Band et rejoins le réseau de coachs certifiés, que tu veuilles enseigner en club, en indépendant, ou simplement maîtriser la méthode à fond. Laisse tes coordonnées : on te recontacte par email avec les tarifs et le fonctionnement.',
       'formation.prenom':'Prénom','formation.nom':'Nom','formation.email':'Email','formation.dejaCoach':'Es-tu déjà coach ?','formation.oui':'Oui','formation.non':'Non',
@@ -1204,6 +1208,7 @@
       'clubs.mapCaption':'More partner clubs will join the map soon.',
       'clubs.athleticcenter.address':'Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arlon, Belgium',
       'clubs.athleticcenter.schedule':'HiitXBand every Friday at 7:00 PM',
+      'clubs.athleticcenter.link':'Visit club website',
       'formation.eyebrow':'Coaching','formation.title':'Become a certified<br>X-Band coach',
       'formation.desc':'Train in all 6 X-Band concepts and join the network of certified coaches, whether you want to teach in a club, as a freelancer, or simply master the method inside out. Leave your details: we\'ll get back to you by email with pricing and how it works.',
       'formation.prenom':'First name','formation.nom':'Last name','formation.email':'Email','formation.dejaCoach':'Are you already a coach?','formation.oui':'Yes','formation.non':'No',
@@ -1256,6 +1261,7 @@
       'clubs.mapCaption':'Weitere Partnerclubs folgen bald auf der Karte.',
       'clubs.athleticcenter.address':'Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arlon, Belgien',
       'clubs.athleticcenter.schedule':'HiitXBand jeden Freitag um 19:00 Uhr',
+      'clubs.athleticcenter.link':'Zur Website des Clubs',
       'formation.eyebrow':'Ausbildung','formation.title':'Werde zertifizierter<br>X-Band Coach',
       'formation.desc':'Bilde dich in allen 6 X-Band-Konzepten aus und werde Teil des Netzwerks zertifizierter Coaches, ob im Club, selbstständig oder einfach um die Methode voll zu beherrschen. Hinterlasse deine Daten: wir melden uns per E-Mail mit den Preisen und dem Ablauf.',
       'formation.prenom':'Vorname','formation.nom':'Nachname','formation.email':'E-Mail','formation.dejaCoach':'Bist du bereits Coach?','formation.oui':'Ja','formation.non':'Nein',
