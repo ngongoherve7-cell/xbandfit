@@ -89,8 +89,9 @@
   @media (min-width:961px){
     .nav-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;}
   }
-  .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);}
+  .nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);display:block;}
   .nav-mark span{color:var(--red);}
+  .nav-mark img{height:34px;width:auto;max-width:none;display:block;}
   .nav-links{display:flex;gap:34px;}
   .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:24px;}
   .nav-links a:first-child{margin-left:0;}
@@ -561,7 +562,7 @@
     </div>
   </div>
   <div class="nav-main">
-  <div class="nav-mark">XBAND<span>FIT</span></div>
+  <div class="nav-mark"><img src="assets/xband-logo-full.webp" alt="XBandFit, We Can Make It"></div>
   <div class="nav-links">
     <div class="nav-dropdown" id="entrainementsDropdown">
       <a href="#concepts" class="nav-dropdown-trigger"><span>Entraînements</span>

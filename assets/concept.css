@@ -59,8 +59,9 @@ nav{
   backdrop-filter:blur(6px);
   border-bottom:1px solid var(--border);
 }
-.nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);}
+.nav-mark{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--steel);display:block;}
 .nav-mark span{color:var(--red);}
+.nav-mark img{height:34px;width:auto;max-width:none;display:block;}
 .nav-links{display:flex;align-items:center;gap:0;}
 .nav-links a{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);transition:color .25s;margin-left:34px;}
 .nav-links a:first-child{margin-left:0;}
