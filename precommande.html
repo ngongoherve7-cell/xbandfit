@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Précommander le X-Band, XBANDFIT</title>
+<meta name="description" content="Précommande ton X-Band : laisse tes informations, on te contacte par email pour valider ta commande dès que le stock est prêt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/concept.css">
+<style>
+  .precommande-form{display:grid;gap:16px;max-width:460px;margin:0 auto;}
+  .precommande-form label{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px;display:block;}
+  .precommande-form input,.precommande-form select{
+    width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);
+    padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;
+  }
+  .precommande-confirm{display:none;color:var(--gold-light);font-size:14px;padding-top:4px;}
+  .precommande-confirm.show{display:block;}
+  .precommande-error{display:none;color:var(--red);font-size:12px;padding-top:4px;}
+  .precommande-note{
+    background:var(--card);border:1px solid var(--border);border-radius:6px;
+    padding:18px 20px;margin:0 auto 32px;max-width:460px;font-size:13px;line-height:1.6;color:var(--text-dim);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-mark">XBAND<span>FIT</span></a>
+  <div class="nav-links">
+    <a href="/" class="back-link">Accueil</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="/#concepts">Entraînements</a>
+    <a href="/#contact">Contact</a>
+    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+  </div>
+</nav>
+
+<section class="concept-hero" style="padding-bottom:40px;">
+  <div class="wrap" style="max-width:560px;">
+    <p class="eyebrow">Boutique, X-Band</p>
+    <h1>Pré<span class="accent">commander</span></h1>
+    <p class="concept-hero-sub">Le X-Band n'est pas encore en stock. Laisse tes informations ci-dessous, dès que le stock est prêt, on t'envoie un email pour valider et finaliser ta commande.</p>
+  </div>
+</section>
+
+<section id="precommande">
+  <div class="wrap" style="max-width:560px;">
+    <div class="precommande-note reveal">
+      Aucun paiement n'est demandé maintenant. Cette précommande sert uniquement à réserver ta place et à nous aider à préparer la bonne quantité de stock. Tu recevras un email pour confirmer et payer ta commande dès qu'elle sera prête à être expédiée.
+    </div>
+    <form class="precommande-form reveal" id="precommandeForm" data-endpoint="https://formspree.io/f/mnpazynd">
+      <input type="hidden" name="_subject" value="XBandFit, Nouvelle precommande X-Band">
+      <div>
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" required placeholder="Ton nom complet">
+      </div>
+      <div>
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" name="email" required placeholder="ton@email.com">
+      </div>
+      <div>
+        <label for="modele">Modèle souhaité</label>
+        <select id="modele" name="modele">
+          <option value="10 kg, resistance legere">X-Band 10 kg, résistance légère</option>
+          <option value="20 kg, resistance moyenne">X-Band 20 kg, résistance moyenne</option>
+          <option value="30 kg, resistance elevee">X-Band 30 kg, résistance élevée</option>
+          <option value="je ne sais pas encore">Je ne sais pas encore</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Précommander</button>
+      <p class="precommande-confirm" id="precommandeConfirm">Merci, ta précommande est enregistrée. On te contacte par email dès que ta commande est prête à être validée.</p>
+      <p class="precommande-error" id="precommandeError">Une erreur est survenue, réessaie, ou écris-nous directement à <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div>
+        <a href="/" class="footer-mark">XBAND<span>FIT</span></a>
+        <div class="footer-tag">We Can Make It</div>
+      </div>
+      <div class="footer-links">
+        <a href="boutique.html">Boutique</a>
+        <a href="/#concepts">Concepts</a>
+        <a href="/#clubs">Clubs</a>
+        <a href="/#formation">Formation</a>
+        <a href="/#contact">Contact</a>
+        <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 X-Band Fit, xbandfit.com</span>
+      <span>Tous droits réservés</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/concept.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const modele = params.get('modele');
+  if (modele) {
+    const select = document.getElementById('modele');
+    const match = [...select.options].find(opt => opt.value.startsWith(`${modele} kg`));
+    if (match) select.value = match.value;
+  }
+
+  const precommandeForm = document.getElementById('precommandeForm');
+  if (precommandeForm) {
+    precommandeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const confirmEl = document.getElementById('precommandeConfirm');
+      const errorEl = document.getElementById('precommandeError');
+      const submitBtn = precommandeForm.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn.textContent;
+      errorEl.classList.remove('show');
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi…';
+      try {
+        const res = await fetch(precommandeForm.dataset.endpoint, {
+          method: 'POST',
+          body: new FormData(precommandeForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error('Formspree error');
+        confirmEl.classList.add('show');
+        precommandeForm.querySelectorAll('input,select,button').forEach(el => el.disabled = true);
+      } catch (err) {
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  }
+</script>
+</body>
+</html>
