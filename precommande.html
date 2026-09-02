@@ -64,9 +64,9 @@
       <div>
         <label for="modele">Modèle souhaité</label>
         <select id="modele" name="modele">
-          <option value="10 kg, resistance legere">X-Band 10 kg, résistance légère</option>
-          <option value="20 kg, resistance moyenne">X-Band 20 kg, résistance moyenne</option>
-          <option value="30 kg, resistance elevee">X-Band 30 kg, résistance élevée</option>
+          <option value="10-35 lb, resistance legere">X-Band 10-35 lb, résistance légère</option>
+          <option value="30-50 lb, resistance moyenne">X-Band 30-50 lb, résistance moyenne</option>
+          <option value="40-80 lb, resistance elevee">X-Band 40-80 lb, résistance élevée</option>
           <option value="je ne sais pas encore">Je ne sais pas encore</option>
         </select>
       </div>
@@ -106,7 +106,8 @@
   const modele = params.get('modele');
   if (modele) {
     const select = document.getElementById('modele');
-    const match = [...select.options].find(opt => opt.value.startsWith(`${modele} kg`));
+    const normalized = modele.replace(/lb$/, ' lb');
+    const match = [...select.options].find(opt => opt.value.startsWith(normalized));
     if (match) select.value = match.value;
   }
 
