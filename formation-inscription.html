@@ -63,16 +63,37 @@
         <input type="email" id="email" name="email" required placeholder="ton@email.com">
       </div>
       <div>
-        <label for="telephone">Téléphone (optionnel)</label>
+        <label for="telephone">Téléphone</label>
         <input type="tel" id="telephone" name="telephone" placeholder="Ton numéro de téléphone">
       </div>
       <div>
-        <label for="niveau">Niveau d'expérience</label>
+        <label for="niveau">Niveau</label>
         <select id="niveau" name="niveau">
           <option value="debutant">Débutant en encadrement sportif</option>
-          <option value="coach confirme">Coach confirmé</option>
-          <option value="deja certifie">Déjà certifié XBandFit, formation continue</option>
+          <option value="professionnel">Professionnel avec des années d'expérience</option>
         </select>
+      </div>
+      <div>
+        <label for="experience">Années d'expérience (optionnel)</label>
+        <input type="number" id="experience" name="experience" min="0" placeholder="Ex : 5">
+      </div>
+      <div>
+        <label for="dejaCoach">Es-tu déjà coach ou instructeur ?</label>
+        <select id="dejaCoach" name="deja_coach">
+          <option value="non">Non</option>
+          <option value="oui">Oui</option>
+        </select>
+      </div>
+      <div>
+        <label for="dejaCertifie">As-tu déjà été formé ou certifié dans une autre méthode ?</label>
+        <select id="dejaCertifie" name="deja_certifie">
+          <option value="non">Non</option>
+          <option value="oui">Oui</option>
+        </select>
+      </div>
+      <div>
+        <label for="heures">Nombre d'heures de cours données par semaine (si tu coaches déjà)</label>
+        <input type="number" id="heures" name="heures" min="0" placeholder="Ex : 10">
       </div>
       <div>
         <label>Concepts qui t'intéressent</label>

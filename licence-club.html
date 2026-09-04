@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demander la licence club, XBANDFIT</title>
-<meta name="description" content="Ton club souhaite proposer les concepts X-Band ? Demande la licence d'exploitation XBandFit pour ton club.">
+<title>Licence club, XBANDFIT</title>
+<meta name="description" content="Licence club XBandFit : rejoins le réseau de clubs partenaires et propose les concepts X-Band à tes membres.">
 <link rel="canonical" href="https://xbandfit.com/licence-club.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 <section class="concept-hero" style="padding-bottom:40px;">
   <div class="wrap" style="max-width:560px;">
     <p class="eyebrow">Clubs partenaires</p>
-    <h1>Demander la <span class="accent">licence club</span></h1>
+    <h1>Licence <span class="accent">club</span></h1>
     <p class="concept-hero-sub">Ton club souhaite proposer les concepts X-Band à ses membres ? Laisse-nous tes informations, on te recontacte pour discuter du partenariat et des modalités de la licence.</p>
   </div>
 </section>
@@ -53,6 +53,10 @@
         <input type="text" id="club" name="club" required placeholder="Nom de ton club">
       </div>
       <div>
+        <label for="tva">Numéro de TVA</label>
+        <input type="text" id="tva" name="tva" placeholder="Numéro de TVA du club">
+      </div>
+      <div>
         <label for="nom">Nom du contact</label>
         <input type="text" id="nom" name="nom" required placeholder="Ton nom complet">
       </div>
@@ -61,16 +65,24 @@
         <input type="email" id="email" name="email" required placeholder="ton@email.com">
       </div>
       <div>
-        <label for="telephone">Téléphone (optionnel)</label>
+        <label for="telephone">Téléphone</label>
         <input type="tel" id="telephone" name="telephone" placeholder="Ton numéro de téléphone">
       </div>
       <div>
-        <label for="ville">Ville, pays</label>
-        <input type="text" id="ville" name="ville" required placeholder="Ville et pays du club">
+        <label for="adresse">Adresse complète du club</label>
+        <input type="text" id="adresse" name="adresse" required placeholder="Rue, numéro, ville, pays">
+      </div>
+      <div>
+        <label for="instructeurs">Nombre d'instructeurs dans le club</label>
+        <input type="number" id="instructeurs" name="instructeurs" min="0" placeholder="Ex : 3">
+      </div>
+      <div>
+        <label for="membres">Nombre de membres du club</label>
+        <input type="number" id="membres" name="membres" min="0" placeholder="Ex : 150">
       </div>
       <div>
         <label for="message">Message (optionnel)</label>
-        <textarea id="message" name="message" rows="4" placeholder="Parle-nous de ton club, du nombre de membres, des concepts qui t'intéressent"></textarea>
+        <textarea id="message" name="message" rows="4" placeholder="Une précision sur ton club, tes attentes ?"></textarea>
       </div>
       <button type="submit" class="btn">Envoyer la demande</button>
       <p class="precommande-confirm" id="licenceConfirm">Merci, ta demande est bien enregistrée. On te recontacte par email pour discuter du partenariat.</p>
