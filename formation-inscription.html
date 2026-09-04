@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S'inscrire à la formation, XBANDFIT</title>
+<meta name="description" content="Inscris-toi à la formation X-Band : laisse tes informations et les concepts qui t'intéressent, notre équipe te recontacte avec les modalités.">
+<link rel="canonical" href="https://xbandfit.com/formation-inscription.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/concept.css">
+<style>
+  .precommande-form{display:grid;gap:16px;max-width:460px;margin:0 auto;}
+  .precommande-form label{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px;display:block;}
+  .precommande-form input,.precommande-form select,.precommande-form textarea{
+    width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);
+    padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;border-radius:2px;
+  }
+  .precommande-form textarea{resize:vertical;}
+  .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .checkbox-grid label{
+    display:flex;align-items:center;gap:8px;font-size:13px;letter-spacing:0;text-transform:none;color:var(--text);
+    margin-bottom:0;background:var(--card);border:1px solid var(--border);border-radius:4px;padding:10px 12px;cursor:pointer;
+  }
+  .checkbox-grid input{width:auto;padding:0;accent-color:var(--gold);}
+  .precommande-confirm{display:none;color:var(--gold-light);font-size:14px;padding-top:4px;}
+  .precommande-confirm.show{display:block;}
+  .precommande-error{display:none;color:var(--red);font-size:12px;padding-top:4px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-mark"><img src="assets/xband-logo-full.webp" alt="XBandFit, We Can Make It"></a>
+  <div class="nav-links">
+    <a href="/" class="back-link">Accueil</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="/#concepts">Entraînements</a>
+    <a href="/#contact">Contact</a>
+    <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+  </div>
+</nav>
+
+<section class="concept-hero" style="padding-bottom:40px;">
+  <div class="wrap" style="max-width:560px;">
+    <p class="eyebrow">Formation X-Band</p>
+    <h1>S'inscrire <span class="accent">à la formation</span></h1>
+    <p class="concept-hero-sub">Laisse tes informations, ton niveau d'expérience et les concepts qui t'intéressent, notre équipe te recontacte pour t'expliquer le déroulement, le calendrier et les tarifs.</p>
+  </div>
+</section>
+
+<section id="inscription">
+  <div class="wrap" style="max-width:560px;">
+    <form class="precommande-form reveal" id="formationForm" data-endpoint="https://formspree.io/f/mnpazynd">
+      <input type="hidden" name="_subject" value="XBandFit, Nouvelle inscription formation">
+      <div>
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" required placeholder="Ton nom complet">
+      </div>
+      <div>
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" name="email" required placeholder="ton@email.com">
+      </div>
+      <div>
+        <label for="telephone">Téléphone (optionnel)</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="Ton numéro de téléphone">
+      </div>
+      <div>
+        <label for="niveau">Niveau d'expérience</label>
+        <select id="niveau" name="niveau">
+          <option value="debutant">Débutant en encadrement sportif</option>
+          <option value="coach confirme">Coach confirmé</option>
+          <option value="deja certifie">Déjà certifié XBandFit, formation continue</option>
+        </select>
+      </div>
+      <div>
+        <label>Concepts qui t'intéressent</label>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="concepts" value="HiitXBand">HiitXBand</label>
+          <label><input type="checkbox" name="concepts" value="PowerXBand">PowerXBand</label>
+          <label><input type="checkbox" name="concepts" value="FightXBand">FightXBand</label>
+          <label><input type="checkbox" name="concepts" value="CoreXBand">CoreXBand</label>
+          <label><input type="checkbox" name="concepts" value="MobilityXBand">MobilityXBand</label>
+          <label><input type="checkbox" name="concepts" value="DanceXBand">DanceXBand</label>
+        </div>
+      </div>
+      <div>
+        <label for="message">Message (optionnel)</label>
+        <textarea id="message" name="message" rows="4" placeholder="Une question, une précision sur ta situation ?"></textarea>
+      </div>
+      <button type="submit" class="btn">S'inscrire</button>
+      <p class="precommande-confirm" id="formationConfirm">Merci, ton inscription est bien enregistrée. On te recontacte par email avec les détails de la formation.</p>
+      <p class="precommande-error" id="formationError">Une erreur est survenue, réessaie, ou écris-nous directement à <a href="mailto:contact@xbandfit.com" style="text-decoration:underline;">contact@xbandfit.com</a>.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div>
+        <a href="/" class="footer-mark">XBAND<span>FIT</span></a>
+        <div class="footer-tag">We Can Make It</div>
+      </div>
+      <div class="footer-links">
+        <a href="boutique.html">Boutique</a>
+        <a href="/#concepts">Concepts</a>
+        <a href="/#clubs">Clubs</a>
+        <a href="/#formation">Formation</a>
+        <a href="/#contact">Contact</a>
+        <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Mon compte</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 X-Band Fit, xbandfit.com</span>
+      <span>Tous droits réservés</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/concept.js"></script>
+<script>
+  const formationForm = document.getElementById('formationForm');
+  if (formationForm) {
+    formationForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const confirmEl = document.getElementById('formationConfirm');
+      const errorEl = document.getElementById('formationError');
+      const submitBtn = formationForm.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn.textContent;
+      errorEl.classList.remove('show');
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi…';
+      try {
+        const res = await fetch(formationForm.dataset.endpoint, {
+          method: 'POST',
+          body: new FormData(formationForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error('Formspree error');
+        confirmEl.classList.add('show');
+        formationForm.querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = true);
+      } catch (err) {
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  }
+</script>
+</body>
+</html>
