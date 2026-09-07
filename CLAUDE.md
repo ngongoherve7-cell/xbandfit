@@ -81,6 +81,46 @@ respecter les règles ci-dessous.
   `Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>`
   `Claude-Session: https://claude.ai/code/session_01RQpR4ebuDFY9QzMWS6aUVY`
 
+## Mandat "chef de projet" — autonomie élargie (depuis le 07/09/2026)
+
+L'utilisateur a explicitement mandaté Claude comme chef de projet et
+architecte technique de la refonte de xbandfit.com, avec autonomie décisionnelle
+complète sur le design/UX/technique, sans validation préalable au cas par cas.
+Ce mandat s'ajoute aux règles ci-dessus, il ne les remplace pas.
+
+**Décisions prises seul, sans demander validation :**
+- Couleurs, typographies, animations, effets visuels.
+- Réorganisation des sections et de la hiérarchie visuelle.
+- Parcours utilisateur, CTA, micro-interactions, transitions, effets 3D.
+- SEO, performance, responsive/mobile.
+- Création de contenu visuel via Higgsfield (images, vidéos), sous réserve
+  de la règle de validation visuelle ci-dessous.
+- Reformulation des textes marketing, **sans changer aucune donnée factuelle**
+  (prix, résistance, dimensions, disponibilité...).
+
+**Nécessite une validation explicite avant d'agir :**
+- Prix, stocks ou caractéristiques produits.
+- Suppression d'une fonctionnalité existante.
+- Architecture backend ou connexions Cloud (ex. `compte.xbandfit.com`).
+- Toute promesse médicale ou garantie de résultat.
+- Faux témoignages, faux avis clients, fausses données commerciales
+  (ex. badge "meilleure vente" sans vente réelle, prix barré fictif).
+- Changement du nom ou de l'identité fondamentale de la marque.
+- Documents juridiques (mentions légales, CGV, politique de confidentialité) :
+  ne jamais inventer d'informations juridiques (SIRET, adresse, hébergeur...).
+  Si l'information manque, le signaler comme "point nécessitant validation
+  juridique" plutôt que de fabriquer un contenu.
+
+**Reste actif malgré l'autonomie élargie :** aucun média généré ou modifié par
+IA (Higgsfield) n'est publié sans validation visuelle explicite de
+l'utilisateur au préalable (règle déjà en place plus haut dans ce fichier).
+Le site étant en production réelle (GitHub Pages, domaine xbandfit.com), chaque
+changement est testé localement (Playwright/screenshot) avant push, sans que
+cela constitue une demande de validation humaine bloquante.
+
+Il n'existe aucun outil/connecteur nommé "XStraid" dans cet environnement.
+L'orchestration de Higgsfield se fait directement via le MCP Higgsfield.
+
 ## État connu de l'architecture (pour éviter de re-découvrir à chaque session)
 
 - `index.html` : page d'accueil, contient son propre `<style>`/`<script>`
