@@ -206,3 +206,4 @@ footer{padding:60px 0 40px;border-top:1px solid var(--border);}
 .footer-links{display:flex;flex-wrap:wrap;gap:12px 26px;font-size:13px;color:var(--text-dim);}
 .footer-links a:hover{color:var(--gold-light);}
 .footer-bottom{margin-top:34px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.footer-bottom a:hover{color:var(--gold-light);}
