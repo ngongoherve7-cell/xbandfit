@@ -1207,6 +1207,8 @@
   </div>
 </footer>
 
+<script src="assets/gsap.min.js"></script>
+<script src="assets/ScrollTrigger.min.js"></script>
 <script>
   // ---------- Traductions (FR / EN / DE) ----------
   const translations = {
@@ -1521,7 +1523,68 @@
     });
   }
 
-  // Scroll reveal
+  // Animations cinematiques (hero parallax + entree en cascade) : GSAP + ScrollTrigger,
+  // auto-heberges dans assets/. Progressif : si GSAP echoue a charger pour une raison
+  // quelconque, le site reste parfaitement utilisable, ces cartes retombent simplement
+  // sur le fondu .reveal standard.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+    const isMobile = window.innerWidth < 760;
+    const cineSelectors = ['#concepts .concept-card', '#experience .concept-card'];
+
+    // Le parallax du logo ne doit demarrer qu'une fois la sequence d'entree du hero
+    // terminee (video/rotation), sinon GSAP capture un etat encore invisible comme
+    // point de depart et le logo semble reste sombre au premier scroll.
+    const heroMarkEl = document.querySelector('.hero-mark');
+    const heroSectionEl = document.querySelector('.hero');
+    function initHeroParallax() {
+      if (!heroMarkEl) return;
+      gsap.to(heroMarkEl, {
+        y: isMobile ? -24 : -70,
+        scale: isMobile ? 0.94 : 0.82,
+        opacity: 0.55,
+        ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+    // La classe .revealed declenche elle-meme l'animation CSS d'entree du logo
+    // (markIn, ~1.25s). On attend cette duree avant d'activer le parallax pour que
+    // GSAP parte d'un etat repose (scale/rotation stabilises), pas d'une image figee
+    // au tout debut de l'animation d'entree.
+    const HERO_ENTRANCE_MS = 1400;
+    if (heroMarkEl && heroSectionEl) {
+      if (heroSectionEl.classList.contains('revealed')) {
+        setTimeout(initHeroParallax, HERO_ENTRANCE_MS);
+      } else {
+        const heroRevealObserver = new MutationObserver(() => {
+          if (heroSectionEl.classList.contains('revealed')) {
+            heroRevealObserver.disconnect();
+            setTimeout(initHeroParallax, HERO_ENTRANCE_MS);
+          }
+        });
+        heroRevealObserver.observe(heroSectionEl, { attributes: true, attributeFilter: ['class'] });
+      }
+    }
+
+    cineSelectors.forEach(sel => {
+      const items = document.querySelectorAll(sel);
+      if (!items.length) return;
+      items.forEach(el => el.classList.remove('reveal'));
+      gsap.set(items, { opacity: 1 });
+      gsap.from(items, {
+        opacity: 0,
+        y: isMobile ? 20 : 36,
+        scale: isMobile ? 1 : 0.96,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: items[0].closest('.concepts-grid'), start: 'top 85%' }
+      });
+    });
+  }
+
+  // Scroll reveal (fondu standard pour tout le reste du site)
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
