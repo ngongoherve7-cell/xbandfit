@@ -544,19 +544,23 @@
     background:linear-gradient(90deg,var(--gold-light),var(--gold));
     transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
   }
-  .concept-card:hover{background:var(--card-2);transform:translateY(-6px);box-shadow:0 22px 44px -22px rgba(0,0,0,0.65);}
+  .concept-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -22px rgba(0,0,0,0.65);}
   .concept-card:hover::before{transform:scaleX(1);}
+  .concept-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;z-index:0;}
+  .concept-card:hover .concept-card-bg{transform:scale(1.08);}
+  .concept-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,.82) 65%,rgba(10,10,10,.94) 100%);z-index:1;}
   .card-index{
+    position:relative;z-index:2;
     display:block;font-family:'Anton',sans-serif;font-size:32px;letter-spacing:0.01em;
     background:linear-gradient(180deg,var(--gold-light),var(--gold) 55%,var(--gold-dark));
     -webkit-background-clip:text;background-clip:text;color:transparent;
     opacity:0.9;margin-bottom:12px;
   }
-  .concept-card h3{font-size:22px;margin-bottom:6px;}
+  .concept-card h3{position:relative;z-index:2;font-size:22px;margin-bottom:6px;}
   .concept-card h3 .accent{color:var(--red);}
-  .concept-tagline{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
-  .concept-card p{font-size:14px;line-height:1.6;color:var(--steel);margin:0;}
-  .concept-more{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);transition:color .2s ease;}
+  .concept-tagline{position:relative;z-index:2;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
+  .concept-card p{position:relative;z-index:2;font-size:14px;line-height:1.6;color:var(--steel);margin:0;}
+  .concept-more{position:relative;z-index:2;display:inline-block;margin-top:16px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);transition:color .2s ease;}
   .concept-more:hover{color:var(--gold-light);}
 
   /* ---------- ABOUT ---------- */
@@ -971,6 +975,8 @@
     <div class="concepts-grid">
 
       <div class="concept-card reveal" id="concept-hiit">
+        <div class="concept-card-bg" style="background-image:url('assets/concept-bg-hiit.webp');"></div>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">01</span>
         <h3>Hiit <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.hiit.tag">Cardio & intensité</p>
@@ -979,6 +985,8 @@
       </div>
 
       <div class="concept-card reveal" id="concept-power">
+        <div class="concept-card-bg" style="background-image:url('assets/concept-bg-power.webp');"></div>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">02</span>
         <h3>Power <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.power.tag">Force & puissance</p>
@@ -987,6 +995,8 @@
       </div>
 
       <div class="concept-card reveal" id="concept-fight">
+        <div class="concept-card-bg" style="background-image:url('assets/concept-bg-fight.webp');"></div>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">03</span>
         <h3>Fight <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.fight.tag">Boxe & renforcement</p>
@@ -995,6 +1005,8 @@
       </div>
 
       <div class="concept-card reveal" id="concept-core">
+        <div class="concept-card-bg" style="background-image:url('assets/concept-bg-core.webp');"></div>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">04</span>
         <h3>Core <span class="accent">X-Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.core.tag">Gainage & stabilité</p>
@@ -1003,6 +1015,8 @@
       </div>
 
       <div class="concept-card reveal" id="concept-mobility">
+        <div class="concept-card-bg" style="background-image:url('assets/concept-bg-mobility.webp');"></div>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">05</span>
         <h3>Mobility <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.mobility.tag">Mobilité & souplesse</p>
@@ -1011,6 +1025,8 @@
       </div>
 
       <div class="concept-card reveal" id="concept-dance">
+        <div class="concept-card-bg" style="background-image:url('assets/concept-bg-dance.webp');"></div>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">06</span>
         <h3>Dance <span class="accent">X Band</span></h3>
         <p class="concept-tagline" data-i18n="concepts.dance.tag">Danse & plaisir</p>
