@@ -528,6 +528,9 @@
   .concepts-grid.cats-5{grid-template-columns:repeat(5,1fr);}
   @media (max-width:860px){.concepts-grid.cats-5{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:520px){.concepts-grid.cats-5{grid-template-columns:repeat(2,1fr);}}
+  .concepts-grid.cats-4{grid-template-columns:repeat(4,1fr);}
+  @media (max-width:960px){.concepts-grid.cats-4{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.concepts-grid.cats-4{grid-template-columns:1fr;}}
   .concepts-grid.cats-2{grid-template-columns:repeat(2,1fr);max-width:480px;margin:0 auto;}
   .concepts-grid.cats-2 .concept-card{cursor:pointer;transition:border-color .25s ease,transform .25s ease;}
   .concepts-grid.cats-2 .concept-card:hover{border-color:var(--gold);transform:translateY(-3px);}
@@ -549,6 +552,8 @@
   .concept-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;z-index:0;}
   .concept-card:hover .concept-card-bg{transform:scale(1.08);}
   .concept-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,.82) 65%,rgba(10,10,10,.94) 100%);z-index:1;}
+  .concept-card-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;z-index:0;}
+  .concept-card:hover .concept-card-video{transform:scale(1.08);}
   .card-index{
     position:relative;z-index:2;
     display:block;font-family:'Anton',sans-serif;font-size:32px;letter-spacing:0.01em;
@@ -839,23 +844,45 @@
   <!-- Triptyque maison/exterieur/club retire : images generees avec logos de marques tierces visibles, a regenerer -->
 
   <div class="wrap" style="padding:0;">
-    <div class="concepts-grid">
+    <div class="concepts-grid cats-4">
       <div class="concept-card reveal">
+        <video class="concept-card-video" autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Inq3bhfuA9jHLvcFhlgmOPk0Bk/hf_20260907_211031_b63adf4d-b586-42b0-b647-0aa3e5a36544.mp4" type="video/mp4">
+        </video>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">01</span>
         <h3 style="font-size:20px;" data-i18n="exp.card1.title">À la maison</h3>
         <p data-i18n="exp.card1.desc">Suivez nos exercices et nos séances vidéo et entraînez-vous à votre rythme.</p>
         <a href="entrainement-maison.html" class="concept-more">En savoir plus</a>
       </div>
       <div class="concept-card reveal">
+        <video class="concept-card-video" autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Inq3bhfuA9jHLvcFhlgmOPk0Bk/hf_20260907_211030_c5aff837-19d7-4e08-a1aa-86d2ccb7bf9d.mp4" type="video/mp4">
+        </video>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">02</span>
         <h3 style="font-size:20px;" data-i18n="exp.card2.title">En extérieur</h3>
         <p data-i18n="exp.card2.desc">Emportez votre X-Band partout et transformez presque n'importe quel espace en terrain d'entraînement.</p>
         <a href="entrainement-exterieur.html" class="concept-more">En savoir plus</a>
       </div>
       <div class="concept-card reveal">
+        <video class="concept-card-video" autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Inq3bhfuA9jHLvcFhlgmOPk0Bk/hf_20260907_211031_583656cb-04d2-4f65-a668-4652a163d579.mp4" type="video/mp4">
+        </video>
+        <div class="concept-card-overlay"></div>
         <span class="card-index">03</span>
-        <h3 style="font-size:20px;" data-i18n="exp.card3.title">En club</h3>
-        <p data-i18n="exp.card3.desc">Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l'expérience avec un groupe.</p>
+        <h3 style="font-size:20px;" data-i18n="exp.card3.title">En salle de sport</h3>
+        <p data-i18n="exp.card3.desc">Intégrez le X-Band à vos séances de musculation pour plus de variété et d'intensité.</p>
+        <a href="entrainement-salle.html" class="concept-more">En savoir plus</a>
+      </div>
+      <div class="concept-card reveal">
+        <video class="concept-card-video" autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Inq3bhfuA9jHLvcFhlgmOPk0Bk/hf_20260907_211031_b433ccbb-fbb7-4330-84ce-022df66539a3.mp4" type="video/mp4">
+        </video>
+        <div class="concept-card-overlay"></div>
+        <span class="card-index">04</span>
+        <h3 style="font-size:20px;" data-i18n="exp.card4.title">En club</h3>
+        <p data-i18n="exp.card4.desc">Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l'expérience avec un groupe.</p>
         <a href="entrainement-club.html" class="concept-more">En savoir plus</a>
       </div>
     </div>
@@ -1173,7 +1200,8 @@
       'exp.desc':'Découvrez le X-Band, un nouvel équipement de fitness en forme de X qui vous permet de vous entraîner partout : chez vous, en extérieur ou dans votre centre de fitness. Le X-Band accompagne vos mouvements et ajoute de la résistance pour créer une nouvelle manière de bouger, de se renforcer et de s\'entraîner.',
       'exp.card1.title':'À la maison','exp.card1.desc':'Suivez nos exercices et nos séances vidéo et entraînez-vous à votre rythme.',
       'exp.card2.title':'En extérieur','exp.card2.desc':'Emportez votre X-Band partout et transformez presque n\'importe quel espace en terrain d\'entraînement.',
-      'exp.card3.title':'En club','exp.card3.desc':'Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l\'expérience avec un groupe.',
+      'exp.card3.title':'En salle de sport','exp.card3.desc':'Intégrez le X-Band à vos séances de musculation pour plus de variété et d\'intensité.',
+      'exp.card4.title':'En club','exp.card4.desc':'Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l\'expérience avec un groupe.',
       'boutique.eyebrow':'Boutique, X-Band','boutique.title':'La bande <span class="gold-grad">X-Band</span>',
       'boutique.desc':'Une seule bande de résistance, quatre sangles, un anneau central. De quoi couvrir l\'intégralité de nos six concepts d\'entraînement, chez toi, en salle, ou en extérieur.',
       'boutique.detail.tag':'La X-Band','boutique.detail.title':'L\'équipement pivot de l\'univers XBandFit',
@@ -1239,7 +1267,8 @@
       'exp.desc':'Discover the X-Band, a new X-shaped fitness tool that lets you train anywhere: at home, outdoors, or at your fitness club. The X-Band follows your every move and adds resistance to create a new way to move, get stronger and train.',
       'exp.card1.title':'At home','exp.card1.desc':'Follow our exercises and video sessions and train at your own pace.',
       'exp.card2.title':'Outdoors','exp.card2.desc':'Take your X-Band anywhere and turn almost any space into a training ground.',
-      'exp.card3.title':'In a club','exp.card3.desc':'Discover XBandfit group classes with trained coaches and live the experience with a group.',
+      'exp.card3.title':'At the gym','exp.card3.desc':'Add the X-Band to your gym sessions for more variety and intensity.',
+      'exp.card4.title':'In a club','exp.card4.desc':'Discover XBandfit group classes with trained coaches and live the experience with a group.',
       'boutique.eyebrow':'Shop, X-Band','boutique.title':'The <span class="gold-grad">X-Band</span> band',
       'boutique.desc':'One resistance band, four straps, one central ring. Enough to cover all six of our training concepts, at home, at the gym, or outdoors.',
       'boutique.vat':'VAT incl.','boutique.feature1':'Full body workout','boutique.feature2':'Portable & lightweight','boutique.feature3':'Durable & resistant','boutique.feature4':'Unlimited exercises',
@@ -1292,7 +1321,8 @@
       'exp.desc':'Entdecke das X-Band, ein neues X-förmiges Fitnessgerät, mit dem du überall trainieren kannst: zu Hause, im Freien oder in deinem Fitnessstudio. Das X-Band begleitet deine Bewegungen und fügt Widerstand hinzu, um eine neue Art der Bewegung, Kräftigung und des Trainings zu schaffen.',
       'exp.card1.title':'Zu Hause','exp.card1.desc':'Folge unseren Übungen und Videosessions und trainiere in deinem eigenen Tempo.',
       'exp.card2.title':'Im Freien','exp.card2.desc':'Nimm dein X-Band überallhin mit und verwandle fast jeden Ort in ein Trainingsgelände.',
-      'exp.card3.title':'Im Club','exp.card3.desc':'Entdecke die XBandfit-Gruppenkurse mit ausgebildeten Coaches und erlebe es in der Gruppe.',
+      'exp.card3.title':'Im Fitnessstudio','exp.card3.desc':'Integriere das X-Band in dein Krafttraining für mehr Abwechslung und Intensität.',
+      'exp.card4.title':'Im Club','exp.card4.desc':'Entdecke die XBandfit-Gruppenkurse mit ausgebildeten Coaches und erlebe es in der Gruppe.',
       'boutique.eyebrow':'Shop, X-Band','boutique.title':'Das <span class="gold-grad">X-Band</span>',
       'boutique.desc':'Ein Widerstandsband, vier Schlaufen, ein zentraler Ring. Genug, um alle sechs unserer Trainingskonzepte abzudecken, zu Hause, im Studio oder im Freien.',
       'boutique.vat':'inkl. MwSt.','boutique.feature1':'Ganzkörpertraining','boutique.feature2':'Tragbar & leicht','boutique.feature3':'Langlebig & robust','boutique.feature4':'Unbegrenzte Übungen',
