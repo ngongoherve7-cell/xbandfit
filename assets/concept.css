@@ -83,7 +83,17 @@ nav{
   0%{background-size:auto, 112%;}
   100%{background-size:auto, 126%;}
 }
-.concept-hero-kenburns{animation:heroKenBurns 26s ease-in-out infinite alternate;}
+.concept-hero-kenburns{
+  animation:heroKenBurns 26s ease-in-out infinite alternate;
+  background-image:linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.88) 70%, rgba(10,10,10,.96)), var(--hero-wide);
+  background-size:cover;
+  background-position:center;
+}
+@media (max-width:860px){
+  .concept-hero-kenburns{
+    background-image:linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.88) 70%, rgba(10,10,10,.96)), var(--hero-tall);
+  }
+}
 @media (prefers-reduced-motion: reduce){
   .concept-hero-kenburns{animation:none;}
 }
@@ -132,7 +142,6 @@ section{padding:100px 0;position:relative;}
   box-shadow:inset 0 0 0 1px var(--accent, var(--border)), 0 0 50px -12px var(--accent-glow, transparent);
   pointer-events:none;
 }
-@media (max-width:860px){.detail-media{aspect-ratio:16/10;}}
 
 /* ---------- BUTTONS ---------- */
 .btn{
