@@ -185,10 +185,10 @@
     color:var(--text-dim);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
     border-bottom:1px solid var(--border);
   }
-  .mobile-nav-langs{display:flex;gap:10px;padding:20px 28px;}
+  .mobile-nav-langs{display:flex;flex-wrap:wrap;gap:10px;padding:20px 28px;}
   .mobile-nav-langs .lang-option{
-    flex:1;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:2px;
-    color:var(--text-dim);font-size:12px;letter-spacing:0.1em;cursor:pointer;
+    flex:1 1 calc(33.333% - 7px);padding:10px;background:var(--card);border:1px solid var(--border);border-radius:2px;
+    color:var(--text-dim);font-size:12px;letter-spacing:0.1em;cursor:pointer;text-align:center;
   }
   .mobile-nav-langs .lang-option.active{border-color:var(--gold);color:var(--gold-light);}
 
@@ -220,7 +220,8 @@
   .nav-dropdown-menu a:hover,.lang-option:hover{background:rgba(217,164,65,0.1);color:var(--gold-light);}
   .lang-option.active{color:var(--gold-light);}
   .lang-trigger{cursor:pointer;}
-  .lang-menu{min-width:130px;}
+  .lang-menu{min-width:130px;left:auto;right:0;transform:translateY(-6px);}
+  .lang-dropdown:hover .lang-menu,.lang-dropdown:focus-within .lang-menu{transform:translateY(0);}
 
   /* ---------- NAV MEGA MENU ---------- */
   .nav-dropdown-mega{
@@ -612,6 +613,9 @@
         <span class="lang-option" data-lang="fr" tabindex="0" role="button">Français</span>
         <span class="lang-option" data-lang="en" tabindex="0" role="button">English</span>
         <span class="lang-option" data-lang="de" tabindex="0" role="button">Deutsch</span>
+        <span class="lang-option" data-lang="es" tabindex="0" role="button">Español</span>
+        <span class="lang-option" data-lang="it" tabindex="0" role="button">Italiano</span>
+        <span class="lang-option" data-lang="lb" tabindex="0" role="button">Lëtzebuergesch</span>
       </div>
     </div>
   </div>
@@ -807,6 +811,9 @@
     <button class="lang-option" data-lang="fr">FR</button>
     <button class="lang-option" data-lang="en">EN</button>
     <button class="lang-option" data-lang="de">DE</button>
+    <button class="lang-option" data-lang="es">ES</button>
+    <button class="lang-option" data-lang="it">IT</button>
+    <button class="lang-option" data-lang="lb">LB</button>
   </div>
 </div>
 
@@ -1412,6 +1419,186 @@
       'contact.nom':'Name','contact.email':'E-Mail','contact.message':'Nachricht','contact.submitBtn':'Senden',
       'contact.confirm':'Danke, deine Nachricht ist angekommen, wir antworten in Kürze.','contact.error':'Etwas ist schiefgelaufen, versuch es erneut oder schreib uns direkt an',
       'footer.rights':'Alle Rechte vorbehalten','footer.legal':'Impressum','footer.privacy':'Datenschutz','footer.terms':'AGB'
+    },
+    es: {
+      'nav.boutique':'Tienda','nav.xband':'X-Band','nav.vetements':'Ropa','nav.homme':'Hombre','nav.femme':'Mujer','nav.accessoires':'Accesorios','nav.concepts':'Conceptos','nav.clubs':'Clubes',
+      'nav.formation':'Formación','nav.apropos':'Sobre nosotros','nav.contact':'Contacto','hero.tag':'We Can Make It',
+      'hero.sub':'<strong>Una banda. Seis formas de entrenar.</strong><br>Libera todo tu potencial, estés donde estés.','hero.cta':'Descubrir la tienda','hero.cta2':'Descubrir los 6 conceptos',
+      'hero.scroll':'Desplázate','exp.eyebrow':'Qué es XBandfit','exp.title':'Una X-Band.<br>Varias formas<br>de entrenar.',
+      'exp.desc':'Descubre el X-Band, un nuevo equipo de fitness en forma de X que te permite entrenar en cualquier lugar: en casa, al aire libre o en tu gimnasio. El X-Band acompaña tus movimientos y añade resistencia para crear una nueva forma de moverte, fortalecerte y entrenar.',
+      'exp.card1.title':'En casa','exp.card1.desc':'Sigue nuestros ejercicios y sesiones en vídeo y entrena a tu ritmo.','exp.card2.title':'Al aire libre',
+      'exp.card2.desc':'Lleva tu X-Band a todas partes y convierte casi cualquier espacio en tu zona de entrenamiento.','exp.card3.title':'En el gimnasio',
+      'exp.card3.desc':'Añade el X-Band a tus sesiones de musculación para más variedad e intensidad.','exp.card4.title':'En club',
+      'exp.card4.desc':'Descubre las clases colectivas de XBandfit con coaches formados y vive la experiencia en grupo.','boutique.eyebrow':'Tienda, X-Band',
+      'boutique.title':'La banda <span class="gold-grad">X-Band</span>',
+      'boutique.desc':'Una sola banda de resistencia, cuatro correas, un anillo central. Suficiente para cubrir la totalidad de nuestros seis conceptos de entrenamiento, en casa, en el gimnasio o al aire libre.',
+      'boutique.detail.tag':'La X-Band','boutique.detail.title':'El equipo central del universo XBandFit',
+      'boutique.detail.p1':'Sea cual sea tu perfil, principiante, practicante habitual, atleta experimentado o profesional del sector, la X-Band se diseñó para adaptarse a una amplia variedad de movimientos y niveles de intensidad.',
+      'boutique.detail.p2':'Su estructura singular, compuesta por cuatro correas unidas a un anillo central, permite un agarre tanto con las manos como con los pies. Sus aberturas, de acceso inmediato y natural, favorecen una amplitud de movimiento notable y hacen posibles múltiples ejercicios que implican todas las cadenas musculares del cuerpo.',
+      'boutique.detail.p3':'Lejos de limitarse a una sola disciplina o a un gesto técnico, la X-Band constituye la base material del ecosistema XBandFit. Se integra con flexibilidad en diversas modalidades de entrenamiento: cardio, HIIT, fuerza, trabajo funcional, movilidad o preparación física.',
+      'boutique.detail.highlight':'Una sola banda. Infinitas posibilidades.','boutique.detail.item1':'El tren inferior','boutique.detail.item2':'El core','boutique.detail.item3':'Los brazos',
+      'boutique.detail.item4':'Los hombros','boutique.detail.item5':'La espalda y el tren superior','boutique.detail.item6':'Toda la cadena muscular',
+      'boutique.detail.p4':'Gracias a su resistencia progresiva, la banda acompaña el movimiento de forma natural y permite ajustar la carga según el nivel y los objetivos personales de cada uno.',
+      'boutique.vat':'IVA incluido','boutique.feature1':'Entrenamiento de cuerpo completo','boutique.feature2':'Portátil y ligera','boutique.feature3':'Duradera y resistente',
+      'boutique.feature4':'Ejercicios ilimitados','boutique.orderBtn':'Reservar','boutique.stockTitle':'Sin stock',
+      'boutique.stockDesc':'La banda X-Band está actualmente en producción de cara al lanzamiento. Déjanos tu email: te avisaremos en cuanto vuelva a estar disponible para completar tu pedido.',
+      'boutique.stockPlaceholder':'tu@email.com','boutique.stockBtn':'Avísame','boutique.stockConfirm':'¡Gracias! Te contactaremos en cuanto vuelva a haber stock.',
+      'boutique.stockError':'Se ha producido un error, inténtalo de nuevo o escríbenos a','clothing.eyebrow':'Ropa y accesorios','clothing.title':'La marca que se lleva',
+      'clothing.desc':'La colección XBANDFIT llega pronto, elige una categoría para que te avisemos en cuanto esté disponible.','clothing.hommes':'Hombre','clothing.femmes':'Mujer',
+      'clothing.jogging':'Pantalón de chándal','clothing.chaussures':'Zapatillas','clothing.gourdes':'Botellas','shared.comingSoon':'Próximamente','concepts.eyebrow':'Nuestros conceptos',
+      'concepts.title':'Una banda.<br>Seis disciplinas.','concepts.desc':'Cada concepto X-Band se centra en un objetivo concreto, con la misma banda. Tú decides cómo componer tu entrenamiento.',
+      'concepts.hiit.tag':'Cardio e intensidad','concepts.hiit.desc':'Series cortas e intensas con la banda para elevar el ritmo cardíaco y aumentar el gasto energético en poco tiempo.',
+      'concepts.power.tag':'Fuerza y potencia','concepts.power.desc':'Trabajo de fuerza bajo tensión constante: la resistencia de la banda sustituye a las mancuernas para desarrollar músculo útil.',
+      'concepts.fight.tag':'Boxeo y tonificación',
+      'concepts.fight.desc':'Movimientos inspirados en el boxeo, con resistencia añadida: fortalece el tren superior mientras trabajas la velocidad de ejecución.',
+      'concepts.core.tag':'Core y estabilidad',
+      'concepts.core.desc':'Un trabajo específico de la faja abdominal y del core profundo, para una postura más estable en todos los movimientos del día a día.',
+      'concepts.mobility.tag':'Movilidad y flexibilidad',
+      'concepts.mobility.desc':'Estiramientos activos asistidos por la banda para ganar amplitud de movimiento y liberar la tensión muscular después del esfuerzo.',
+      'concepts.dance.tag':'Baile y diversión','concepts.dance.desc':'Coreografías simples y rítmicas, banda en mano, para transformar la sesión en un momento de pura diversión.',
+      'clubs.eyebrow':'Clubes y coaches','clubs.title':'Muy pronto<br>cerca de ti',
+      'clubs.desc':'En cuanto un club asociado se une a XBandfit, su dirección se añade al mapa de abajo, junto con sus coaches certificados en el método X-Band.',
+      'clubs.mapCaption':'Pronto se sumarán más clubes asociados al mapa.','clubs.athleticcenter.address':'Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arlon, Bélgica',
+      'clubs.athleticcenter.schedule':'HiitXBand todos los viernes a las 19:00','clubs.athleticcenter.link':'Ver la web del club','formation.eyebrow':'Formación',
+      'formation.title':'Conviértete en coach<br>certificado X-Band',
+      'formation.desc':'Fórmate en los 6 conceptos X-Band y únete a la red de coaches certificados, ya quieras enseñar en un club, como autónomo, o simplemente dominar el método a fondo. Déjanos tus datos: te contactaremos por email con las tarifas y el funcionamiento.',
+      'formation.prenom':'Nombre','formation.nom':'Apellido','formation.email':'Email','formation.dejaCoach':'¿Ya eres coach?','formation.oui':'Sí','formation.non':'No',
+      'formation.conceptsInterest':'¿Qué concepto(s) te interesan?','formation.conceptsCoach':'¿Qué concepto(s) enseñas ya?','formation.submitBtn':'Inscribirme',
+      'formation.confirm':'¡Gracias! Te contactaremos por email con las tarifas y el funcionamiento de las formaciones.',
+      'formation.error':'Se ha producido un error, inténtalo de nuevo o escríbenos a','cta.eyebrow':'Más que una banda elástica',
+      'cta.title':'Una nueva<br>experiencia <span class="gold-grad">fitness</span>.',
+      'cta.desc':'XBandfit combina movimiento, resistencia, ritmo y energía colectiva en torno a un equipo simple y versátil. Descubre nuestros programas y encuentra la experiencia que se adapta a ti.',
+      'cta.subtitle':'¿Listo para moverte de otra forma?','cta.btn':'Comprar mi X-Band','about.eyebrow':'Quiénes somos','about.title':'Los creadores de X-Band Fit','about.tag':'Nuestra visión',
+      'about.p1':'XBandFit no se presenta como una marca de fitness cualquiera.',
+      'about.p2':'El mercado abunda en propuestas sólidas, cardio, fuerza, clases colectivas, todas ellas ya probadas. Nuestra ambición no es sustituirlas, sino aportarles una profundidad inédita.',
+      'about.p3':'Al asociar la X-Band a la práctica, introducimos un nuevo lenguaje corporal: más exigente, más completo y más adaptable, libre de las limitaciones del lugar o del equipamiento pesado.',
+      'about.p4':'Esta visión dio origen a la X-Band: una herramienta singular, concebida para acompañar el movimiento allá donde se produzca, en casa, al aire libre o en un estudio, especialmente a través de clases colectivas certificadas.',
+      'about.p5':'Una sola banda basta ahora para movilizar toda la cadena muscular: tren inferior, faja abdominal, brazos y cintura escapular. Donde antes había que acumular accesorios y máquinas, la X-Band concentra multitud de ejercicios en un único soporte.',
+      'about.p6':'XBandFit es, por tanto, mucho más que un equipo: un verdadero ecosistema fitness que reúne programas de entrenamiento, coaches, clubes y practicantes en torno a una misma innovación, expresada en universos variados.',
+      'about.tagline':'Una herramienta. Múltiples enfoques. Una forma inédita de repensar el movimiento.','about.signature':'Hervé Ngongo, Fundador y creador del concepto XBandFit',
+      'contact.eyebrow':'Contacto','contact.title':'Contáctanos','contact.desc':'¿Tienes una pregunta sobre el producto, las formaciones o una colaboración con tu club? Escríbenos.',
+      'contact.nom':'Nombre','contact.email':'Email','contact.message':'Mensaje','contact.submitBtn':'Enviar','contact.confirm':'Gracias, hemos recibido tu mensaje, te responderemos pronto.',
+      'contact.error':'Se ha producido un error, inténtalo de nuevo o escríbenos directamente a','footer.rights':'Todos los derechos reservados','footer.legal':'Aviso legal',
+      'footer.privacy':'Privacidad','footer.terms':'Condiciones de venta'
+    },
+    it: {
+      'nav.boutique':'Shop','nav.xband':'X-Band','nav.vetements':'Abbigliamento','nav.homme':'Uomo','nav.femme':'Donna','nav.accessoires':'Accessori','nav.concepts':'Concetti','nav.clubs':'Club',
+      'nav.formation':'Formazione','nav.apropos':'Chi siamo','nav.contact':'Contatti','hero.tag':'We Can Make It',
+      'hero.sub':'<strong>Una fascia. Sei modi di allenarti.</strong><br>Libera tutto il tuo potenziale, ovunque tu sia.','hero.cta':'Scopri lo shop','hero.cta2':'Scopri i 6 concetti',
+      'hero.scroll':'Scorri','exp.eyebrow':'Cos\'è XBandfit','exp.title':'Una X-Band.<br>Tanti modi<br>di allenarti.',
+      'exp.desc':'Scopri la X-Band, un nuovo attrezzo fitness a forma di X che ti permette di allenarti ovunque: a casa, all\'aperto o nella tua palestra. La X-Band accompagna i tuoi movimenti e aggiunge resistenza per creare un nuovo modo di muoverti, rafforzarti e allenarti.',
+      'exp.card1.title':'A casa','exp.card1.desc':'Segui i nostri esercizi e le sessioni video e allenati al tuo ritmo.','exp.card2.title':'All\'aperto',
+      'exp.card2.desc':'Porta la tua X-Band ovunque e trasforma quasi ogni spazio in un campo di allenamento.','exp.card3.title':'In palestra',
+      'exp.card3.desc':'Aggiungi la X-Band alle tue sessioni di allenamento con i pesi per più varietà e intensità.','exp.card4.title':'In club',
+      'exp.card4.desc':'Scopri i corsi collettivi XBandfit con coach qualificati e vivi l\'esperienza in gruppo.','boutique.eyebrow':'Shop, X-Band',
+      'boutique.title':'La fascia <span class="gold-grad">X-Band</span>',
+      'boutique.desc':'Un\'unica fascia di resistenza, quattro cinghie, un anello centrale. Abbastanza per coprire tutti e sei i nostri concetti di allenamento, a casa, in palestra o all\'aperto.',
+      'boutique.detail.tag':'La X-Band','boutique.detail.title':'L\'attrezzo centrale dell\'universo XBandFit',
+      'boutique.detail.p1':'Che tu sia un principiante, un praticante abituale, un atleta esperto o un professionista del settore, la X-Band è stata pensata per adattarsi a un\'ampia gamma di movimenti e livelli di intensità.',
+      'boutique.detail.p2':'La sua struttura particolare, composta da quattro cinghie unite da un anello centrale, consente una presa sia manuale che con il piede. Le sue aperture, di accesso immediato e naturale, favoriscono un\'ampiezza di movimento notevole e rendono possibili numerosi esercizi che coinvolgono l\'intera catena muscolare.',
+      'boutique.detail.p3':'Lungi dal limitarsi a una sola disciplina o a un gesto tecnico, la X-Band costituisce la base materiale dell\'ecosistema XBandFit. Si integra con facilità in diverse modalità di allenamento: cardio, HIIT, potenziamento, lavoro funzionale, mobilità o preparazione fisica.',
+      'boutique.detail.highlight':'Una sola fascia. Infinite possibilità.','boutique.detail.item1':'La parte inferiore del corpo','boutique.detail.item2':'Il core',
+      'boutique.detail.item3':'Le braccia','boutique.detail.item4':'Le spalle','boutique.detail.item5':'La schiena e la parte superiore del corpo','boutique.detail.item6':'L\'intera catena muscolare',
+      'boutique.detail.p4':'Grazie alla sua resistenza progressiva, la fascia segue naturalmente il movimento e permette di modulare il carico in base al livello e agli obiettivi personali di ciascuno.',
+      'boutique.vat':'IVA inclusa','boutique.feature1':'Allenamento total body','boutique.feature2':'Portatile e leggera','boutique.feature3':'Duratura e resistente',
+      'boutique.feature4':'Esercizi illimitati','boutique.orderBtn':'Prenota','boutique.stockTitle':'Esaurito',
+      'boutique.stockDesc':'La fascia X-Band è attualmente in produzione in vista del lancio. Lascia la tua email: ti avviseremo non appena sarà di nuovo disponibile per completare il tuo ordine.',
+      'boutique.stockPlaceholder':'tu@email.com','boutique.stockBtn':'Avvisami','boutique.stockConfirm':'Grazie! Ti ricontatteremo non appena il prodotto sarà di nuovo disponibile.',
+      'boutique.stockError':'Si è verificato un errore, riprova oppure scrivici a','clothing.eyebrow':'Abbigliamento e accessori','clothing.title':'Il brand da indossare',
+      'clothing.desc':'La collezione XBANDFIT arriva presto, scegli una categoria per essere avvisato non appena sarà disponibile.','clothing.hommes':'Uomo','clothing.femmes':'Donna',
+      'clothing.jogging':'Pantaloni da jogging','clothing.chaussures':'Scarpe','clothing.gourdes':'Borracce','shared.comingSoon':'Prossimamente','concepts.eyebrow':'I nostri concetti',
+      'concepts.title':'Una fascia.<br>Sei discipline.','concepts.desc':'Ogni concetto X-Band punta a un obiettivo preciso, con la stessa fascia. Sta a te comporre il tuo allenamento.',
+      'concepts.hiit.tag':'Cardio e intensità','concepts.hiit.desc':'Sequenze brevi e intense con la fascia per far salire il battito cardiaco e aumentare il dispendio energetico in poco tempo.',
+      'concepts.power.tag':'Forza e potenza','concepts.power.desc':'Lavoro di forza sotto tensione costante: la resistenza della fascia sostituisce i manubri per costruire massa muscolare utile.',
+      'concepts.fight.tag':'Boxe e tonificazione',
+      'concepts.fight.desc':'Movimenti ispirati alla boxe, con resistenza in più: rinforza la parte superiore del corpo mentre lavori sulla velocità di esecuzione.',
+      'concepts.core.tag':'Core e stabilità','concepts.core.desc':'Un lavoro mirato sugli addominali e sul core profondo, per una postura più stabile in tutti i movimenti quotidiani.',
+      'concepts.mobility.tag':'Mobilità e flessibilità',
+      'concepts.mobility.desc':'Stretching attivo assistito dalla fascia per guadagnare ampiezza di movimento e sciogliere le tensioni muscolari dopo lo sforzo.',
+      'concepts.dance.tag':'Danza e divertimento','concepts.dance.desc':'Coreografie semplici e ritmate, fascia alla mano, per trasformare la sessione in un momento di puro divertimento.',
+      'clubs.eyebrow':'Club e coach','clubs.title':'Presto vicino<br>a te',
+      'clubs.desc':'Non appena un club partner si unisce a XBandfit, il suo indirizzo viene aggiunto alla mappa qui sotto, insieme ai suoi coach certificati nel metodo X-Band.',
+      'clubs.mapCaption':'Altri club partner si aggiungeranno presto alla mappa.','clubs.athleticcenter.address':'Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arlon, Belgio',
+      'clubs.athleticcenter.schedule':'HiitXBand ogni venerdì alle 19:00','clubs.athleticcenter.link':'Vai al sito del club','formation.eyebrow':'Formazione',
+      'formation.title':'Diventa coach<br>certificato X-Band',
+      'formation.desc':'Formati sui 6 concetti X-Band e unisciti alla rete di coach certificati, che tu voglia insegnare in un club, come libero professionista, o semplicemente padroneggiare a fondo il metodo. Lasciaci i tuoi dati: ti ricontatteremo via email con tariffe e modalità.',
+      'formation.prenom':'Nome','formation.nom':'Cognome','formation.email':'Email','formation.dejaCoach':'Sei già un coach?','formation.oui':'Sì','formation.non':'No',
+      'formation.conceptsInterest':'A quale/i concetto/i sei interessato?','formation.conceptsCoach':'Quale/i concetto/i insegni già?','formation.submitBtn':'Iscriviti',
+      'formation.confirm':'Grazie! Ti ricontatteremo via email con tariffe e modalità delle formazioni.','formation.error':'Si è verificato un errore, riprova oppure scrivici a',
+      'cta.eyebrow':'Più di un elastico','cta.title':'Una nuova<br>esperienza <span class="gold-grad">fitness</span>.',
+      'cta.desc':'XBandfit unisce movimento, resistenza, ritmo ed energia collettiva attorno a un attrezzo semplice e versatile. Scopri i nostri programmi e trova l\'esperienza più adatta a te.',
+      'cta.subtitle':'Pronto a muoverti in un modo diverso?','cta.btn':'Acquista la mia X-Band','about.eyebrow':'Chi siamo','about.title':'I creatori di X-Band Fit','about.tag':'La nostra visione',
+      'about.p1':'XBandFit non si presenta come un normale marchio fitness.',
+      'about.p2':'Il mercato abbonda di proposte solide, cardio, potenziamento, corsi collettivi, tutte ormai collaudate. La nostra ambizione non è sostituirle, ma dare loro una profondità inedita.',
+      'about.p3':'Associando la X-Band alla pratica, introduciamo un nuovo linguaggio del corpo: più impegnativo, più completo e più adattabile, libero dai vincoli di luogo e di attrezzature pesanti.',
+      'about.p4':'Da questa visione è nata la X-Band: uno strumento unico, pensato per accompagnare il movimento ovunque si sviluppi, a casa, all\'aperto o in uno studio, in particolare attraverso corsi collettivi certificati.',
+      'about.p5':'Ormai una sola fascia basta a coinvolgere l\'intera catena muscolare: parte inferiore del corpo, core, braccia e cintura scapolare. Dove prima bisognava accumulare accessori e macchinari, la X-Band concentra una moltitudine di esercizi in un unico attrezzo.',
+      'about.p6':'XBandFit è dunque molto più di un attrezzo: un vero ecosistema fitness, che riunisce programmi di allenamento, coach, club e praticanti attorno a un\'unica innovazione, declinata in universi diversi.',
+      'about.tagline':'Uno strumento. Approcci multipli. Un modo inedito di ripensare il movimento.','about.signature':'Hervé Ngongo, Fondatore e creatore del concetto XBandFit',
+      'contact.eyebrow':'Contatti','contact.title':'Contattaci','contact.desc':'Una domanda sul prodotto, sulle formazioni o su una collaborazione con il tuo club? Scrivici.','contact.nom':'Nome',
+      'contact.email':'Email','contact.message':'Messaggio','contact.submitBtn':'Invia','contact.confirm':'Grazie, il tuo messaggio è stato ricevuto, ti risponderemo a breve.',
+      'contact.error':'Si è verificato un errore, riprova oppure scrivici direttamente a','footer.rights':'Tutti i diritti riservati','footer.legal':'Note legali','footer.privacy':'Privacy',
+      'footer.terms':'Condizioni di vendita'
+    },
+    lb: {
+      'nav.boutique':'Buttéck','nav.xband':'X-Band','nav.vetements':'Kleeder','nav.homme':'Mann','nav.femme':'Fra','nav.accessoires':'Accessoiren','nav.concepts':'Konzepter','nav.clubs':'Clibb',
+      'nav.formation':'Formatioun','nav.apropos':'Iwwer eis','nav.contact':'Kontakt','hero.tag':'We Can Make It',
+      'hero.sub':'<strong>Ee Band. Sechs Weeër fir ze trainéieren.</strong><br>Setz däi ganzt Potenzial fräi, egal wou s de bass.','hero.cta':'Buttéck entdecken',
+      'hero.cta2':'Déi 6 Konzepter entdecken','hero.scroll':'Scrollen','exp.eyebrow':'Wat ass XBandfit','exp.title':'Een X-Band.<br>Verschidde Weeër<br>fir ze trainéieren.',
+      'exp.desc':'Entdeck den X-Band, en neit Fitnessgeschir a Form vun engem X, mat deem s de iwwerall trainéiere kanns: doheem, dobausse oder an denger Sportshal. Den X-Band begleet deng Bewegungen an addéiert Resistenz fir eng nei Aart a Weis ze bewegen, dech ze stäerken an ze trainéieren.',
+      'exp.card1.title':'Doheem','exp.card1.desc':'Verfollegt eis Übungen a Videosessioune fir an dengem eegene Rhythmus ze trainéieren.','exp.card2.title':'Dobausse',
+      'exp.card2.desc':'Huel däin X-Band iwwerall mat a verwandel bal all Plaz an ee Training-Terrain.','exp.card3.title':'Am Fitnessstudio',
+      'exp.card3.desc':'Integréier den X-Band an denger Kraaftrainingssessioun fir méi Ofwiesslung an Intensitéit.','exp.card4.title':'Am Club',
+      'exp.card4.desc':'Entdeck d\'XBandfit-Gruppekuren mat ausgebilte Coachen a live d\'Erfarung an der Grupp.','boutique.eyebrow':'Buttéck, X-Band',
+      'boutique.title':'Dat <span class="gold-grad">X-Band</span>',
+      'boutique.desc':'Een eenzegt Resistenzband, véier Réimen, ee zentrale Ring. Genuch fir all sechs vun eise Trainingskonzepter ofzedecken, doheem, am Studio oder dobausse.',
+      'boutique.detail.tag':'Dat X-Band','boutique.detail.title':'D\'zentraalt Geschir vum XBandFit-Universum',
+      'boutique.detail.p1':'Egal ob Ufänger, regelméissegen Trainéierer, erfuerene Athlet oder Profi vum Secteur, den X-Band gouf entwéckelt fir sech un eng breet Palette vu Bewegungen an Intensitéitsniveaue unzepassen.',
+      'boutique.detail.p2':'Seng besonnesch Struktur aus véier Réimen, verbonnen duerch ee zentrale Ring, erlaabt souwuel e Grëff mat der Hand wéi mam Fouss. Seng Ëffnungen, direkt an natierlech ze erreechen, förderen eng bemierkenswäert Bewegungsamplitude a maachen zill vill Übunge méiglech, déi de ganze Kierper aschléissen.',
+      'boutique.detail.p3':'Den X-Band limitéiert sech net op eng eenzeg Disziplin oder eng technesch Bewegung, mä ass d\'materiell Basis vum XBandFit-Ekosystem. Hie léisst sech flexibel a verschidde Trainingsformen integréieren: Cardio, HIIT, Kraaftraining, funktionellt Training, Mobilitéit oder kierperlech Virbereedung.',
+      'boutique.detail.highlight':'Een eenzegt Band. Onendlech Méiglechkeeten.','boutique.detail.item1':'D\'Been','boutique.detail.item2':'D\'Mëtt','boutique.detail.item3':'D\'Äerm',
+      'boutique.detail.item4':'D\'Schëlleren','boutique.detail.item5':'De Réck an den Uewerkierper','boutique.detail.item6':'Déi ganz Muskelkette',
+      'boutique.detail.p4':'Dank senger progressiver Resistenz suivéiert d\'Band ganz natierlech d\'Bewegung a mécht et méiglech d\'Laascht no dem Niveau an de perséinleche Ziler vun all Persoun unzepassen.',
+      'boutique.vat':'TVA abegraff','boutique.feature1':'Ganzkierpertraining','boutique.feature2':'Portabel a liicht','boutique.feature3':'Dauerhaft a resistent',
+      'boutique.feature4':'Onlimitéiert Übungen','boutique.orderBtn':'Virbestellen','boutique.stockTitle':'Ausverkaf',
+      'boutique.stockDesc':'Den X-Band ass momentan an der Produktioun fir de Lancement. Looss deng E-Mail do: mir soen dir Bescheed, soubal en nees disponibel ass fir deng Bestellung ofzeschléissen.',
+      'boutique.stockPlaceholder':'deng@email.com','boutique.stockBtn':'Mech informéieren','boutique.stockConfirm':'Merci! Mir mellen eis, soubal de Stock nees do ass.',
+      'boutique.stockError':'Et ass e Feeler opgetrueden, probéier nach eng Kéier oder schreif eis un','clothing.eyebrow':'Kleeder & Accessoiren','clothing.title':'D\'Marque fir unzedoen',
+      'clothing.desc':'D\'XBANDFIT-Kollektioun kënnt geschwënn, wielt eng Kategorie fir informéiert ze ginn soubal se disponibel ass.','clothing.hommes':'Männer','clothing.femmes':'Frae',
+      'clothing.jogging':'Joggingbox','clothing.chaussures':'Schung','clothing.gourdes':'Flaschen','shared.comingSoon':'Geschwënn disponibel','concepts.eyebrow':'Eis Konzepter',
+      'concepts.title':'Ee Band.<br>Sechs Disziplinnen.','concepts.desc':'All X-Band-Konzept zielt op ee bestëmmte Ziel of, mam selwechte Band. Et läit un dir däi Training zesummenzestellen.',
+      'concepts.hiit.tag':'Cardio & Intensitéit','concepts.hiit.desc':'Kuerz an intensiv Sequenzen mam Band fir de Pouls an d\'Luucht ze bréngen an den Energieverbrauch a kuerzer Zäit ze erhéijen.',
+      'concepts.power.tag':'Kraaft & Puissance','concepts.power.desc':'Kraaftaarbecht ënner konstanter Spannung: d\'Resistenz vum Band ersetzt d\'Hantelen fir nëtzlech Muskele opzebauen.',
+      'concepts.fight.tag':'Boxe & Kräftegung',
+      'concepts.fight.desc':'Bewegunge vum Boxe inspiréiert, mat Resistenz derbäi: stäerkt den Uewerkierper wärend s de un der Ausféierungsgeschwindegkeet schaffs.',
+      'concepts.core.tag':'Mëtt & Stabilitéit','concepts.core.desc':'Eng geziilte Aarbecht un der Bauchmuskulatur an der déiwer Mëtt, fir eng méi stabil Postur an alle deeglechen Bewegungen.',
+      'concepts.mobility.tag':'Mobilitéit & Beweeglechkeet',
+      'concepts.mobility.desc':'Aktiv Dehnungen, ënnerstëtzt vum Band, fir Bewegungsspillraum ze gewannen a Muskelspannung no der Ustrengung ze léisen.','concepts.dance.tag':'Danz & Spaass',
+      'concepts.dance.desc':'Einfach a rhythmesch Choreografien, Band an der Hand, fir aus der Sessioun ee Moment vu purem Spaass ze maachen.','clubs.eyebrow':'Clibb & Coachen',
+      'clubs.title':'Geschwënn<br>bei dir an der Géigend',
+      'clubs.desc':'Soubal ee Partnerclub XBandfit bäitrëtt, gëtt seng Adress op der Kaart hei drënner bäigefüügt, mat sengen zertifizéierte X-Band-Coachen.',
+      'clubs.mapCaption':'Weider Partnerclibb komme geschwënn op d\'Kaart derbäi.','clubs.athleticcenter.address':'Espace Callemeyn, Av. du 10e de Ligne 90, 6700 Arel, Belsch',
+      'clubs.athleticcenter.schedule':'HiitXBand all Freideg um 19:00 Auer','clubs.athleticcenter.link':'D\'Websäit vum Club kucken','formation.eyebrow':'Formatioun',
+      'formation.title':'Gëff zertifizéierte<br>X-Band Coach',
+      'formation.desc':'Bild dech an alle 6 X-Band-Konzepter aus a gëff Member vum Netzwierk vu zertifizéierte Coachen, egal ob s de an engem Club, als Onofhängege wëlls ënnerrichten oder d\'Method einfach richteg gutt beherrsche wëlls. Looss eis deng Donnéeën do: mir mellen eis per E-Mail mat de Präisser an dem Fonctionnement.',
+      'formation.prenom':'Virnumm','formation.nom':'Numm','formation.email':'E-Mail','formation.dejaCoach':'Bass de scho Coach?','formation.oui':'Jo','formation.non':'Neen',
+      'formation.conceptsInterest':'Wéi Konzept(er) interesséiere dech?','formation.conceptsCoach':'Wéi Konzept(er) ënnerriichts de scho?','formation.submitBtn':'Umellen',
+      'formation.confirm':'Merci! Mir mellen eis per E-Mail mat de Präisser an dem Fonctionnement vun de Formatiounen.',
+      'formation.error':'Et ass e Feeler opgetrueden, probéier nach eng Kéier oder schreif eis un','cta.eyebrow':'Méi wéi eng Gummi',
+      'cta.title':'Eng nei<br>Fitness<span class="gold-grad">erfarung</span>.',
+      'cta.desc':'XBandfit verbënnt Bewegung, Resistenz, Rhythmus a kollektiv Energie ronderëm ee simpelt a villsäitegt Geschir. Entdeck eis verschidde Programmer a fannt d\'Erfarung, déi zu dir passt.',
+      'cta.subtitle':'Prett fir dech anescht ze bewegen?','cta.btn':'Mäin X-Band kafen','about.eyebrow':'Wie mir sinn','about.title':'D\'Erfinder vum X-Band Fit','about.tag':'Eis Visioun',
+      'about.p1':'XBandFit presentéiert sech net als eng gewéinlech Fitnessmarque.',
+      'about.p2':'De Maart huet vill gutt Offere, Cardio, Kraaftraining, Gruppekuren, déi hire Wäert scho bewisen hunn. Eise Bestriewen ass net se z\'ersetzen, mä hinne eng nei Déift ze ginn.',
+      'about.p3':'Andeems mir den X-Band mat der Praxis verbannen, bréngen mir eng erneiert Kierpersprooch eran: méi ustrengend, méi global a méi upassbar, ouni Zwang vu Plaz oder schwéierem Material.',
+      'about.p4':'Aus dëser Visioun ass den X-Band entstanen: en eenzegaartegt Tool, dat entworf gouf fir d\'Bewegung iwwerall ze begleeden, doheem, dobausse oder am Studio, ënner anerem duerch zertifizéiert Gruppekuren.',
+      'about.p5':'Een eenzegt Band duergt haut fir déi ganz Muskelkette ze mobiliséieren: Been, Bauchmuskulatur, Äerm a Schëllergürtel. Do wou fréier Accessoiren an Apparater mussten ugehäuft ginn, konzentréiert den X-Band eng Villzuel vun Übunge an engem eenzegen Tool.',
+      'about.p6':'XBandFit ass also vill méi wéi just eng Ausrüstung: en echte Fitness-Ekosystem, deen Trainingsprogrammer, Coachen, Clibb a Praktizéierer ronderëm déiselwecht Innovatioun zesummebréngt, an ënnerschiddleche Welten ausgedréckt.',
+      'about.tagline':'Een Tool. Verschidde Approche\'en. En neien Aart a Weis, iwwer Bewegung nozedenken.','about.signature':'Hervé Ngongo, Grënner & Erfinder vum XBandFit-Konzept',
+      'contact.eyebrow':'Kontakt','contact.title':'Eis kontaktéieren','contact.desc':'Eng Fro zum Produkt, zu de Formatiounen oder zu enger Club-Partnerschaft? Schreif eis.','contact.nom':'Numm',
+      'contact.email':'E-Mail','contact.message':'Message','contact.submitBtn':'Schécken','contact.confirm':'Merci, deng Noriicht ass ukomm, mir äntwerten der séier.',
+      'contact.error':'Et ass e Feeler opgetrueden, probéier nach eng Kéier oder schreif eis direkt un','footer.rights':'All Rechter reservéiert','footer.legal':'Impressum',
+      'footer.privacy':'Vertraulechkeet','footer.terms':'Verkafsbedingungen'
     }
   };
 
