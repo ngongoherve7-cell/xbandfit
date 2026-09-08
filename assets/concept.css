@@ -78,6 +78,15 @@ nav{
   background:radial-gradient(circle at 50% -10%, var(--accent-glow, rgba(217,164,65,0.16)), transparent 55%), var(--bg);
   border-bottom:1px solid var(--border);
 }
+/* Zoom lent continu (Ken Burns) sur les heros a image de fond reelle (pages concept) */
+@keyframes heroKenBurns{
+  0%{background-size:auto, 112%;}
+  100%{background-size:auto, 126%;}
+}
+.concept-hero-kenburns{animation:heroKenBurns 26s ease-in-out infinite alternate;}
+@media (prefers-reduced-motion: reduce){
+  .concept-hero-kenburns{animation:none;}
+}
 .concept-index{
   display:inline-block;
   font-family:'Anton',sans-serif;font-size:13px;letter-spacing:0.3em;text-transform:uppercase;
