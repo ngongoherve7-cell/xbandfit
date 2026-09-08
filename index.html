@@ -196,7 +196,7 @@
   .nav-dropdown{position:relative;}
   .nav-links .nav-dropdown-trigger{margin-left:0;display:inline-flex;align-items:center;gap:5px;}
   .nav-dropdown-trigger svg{transition:transform .2s ease;}
-  .nav-dropdown:hover .nav-dropdown-trigger svg{transform:rotate(180deg);}
+  .nav-dropdown:hover .nav-dropdown-trigger svg,.nav-dropdown:focus-within .nav-dropdown-trigger svg{transform:rotate(180deg);}
   .nav-dropdown-menu{
     position:absolute;top:calc(100% + 18px);left:50%;
     transform:translateX(-50%) translateY(-6px);
@@ -208,7 +208,7 @@
     box-shadow:0 24px 60px -20px rgba(0,0,0,0.7);
     z-index:60;
   }
-  .nav-dropdown:hover .nav-dropdown-menu{
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{
     opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
   }
   .nav-dropdown-menu a,.lang-option{
@@ -235,10 +235,10 @@
     box-shadow:0 24px 60px -20px rgba(0,0,0,0.7);
     z-index:60;
   }
-  .nav-dropdown:hover .nav-dropdown-mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+  .nav-dropdown:hover .nav-dropdown-mega,.nav-dropdown:focus-within .nav-dropdown-mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
   @media (max-width:1100px){
     .nav-dropdown-mega{left:auto;right:-20px;transform:translateY(-6px);}
-    .nav-dropdown:hover .nav-dropdown-mega{transform:translateY(0);}
+    .nav-dropdown:hover .nav-dropdown-mega,.nav-dropdown:focus-within .nav-dropdown-mega{transform:translateY(0);}
   }
   .mega-col{min-width:190px;}
   .mega-eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
@@ -605,13 +605,13 @@
   <div class="nav-top">
     <a href="https://compte.xbandfit.com/" target="_blank" rel="noopener">Se connecter</a>
     <div class="nav-dropdown lang-dropdown" id="langDropdown">
-      <span class="nav-dropdown-trigger lang-trigger" id="langTrigger">FR
+      <span class="nav-dropdown-trigger lang-trigger" id="langTrigger" tabindex="0" role="button" aria-haspopup="true">FR
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </span>
       <div class="nav-dropdown-menu lang-menu">
-        <span class="lang-option" data-lang="fr">Français</span>
-        <span class="lang-option" data-lang="en">English</span>
-        <span class="lang-option" data-lang="de">Deutsch</span>
+        <span class="lang-option" data-lang="fr" tabindex="0" role="button">Français</span>
+        <span class="lang-option" data-lang="en" tabindex="0" role="button">English</span>
+        <span class="lang-option" data-lang="de" tabindex="0" role="button">Deutsch</span>
       </div>
     </div>
   </div>
@@ -619,7 +619,7 @@
   <div class="nav-mark"><img src="assets/xband-logo-full.webp" alt="XBandFit, We Can Make It"></div>
   <div class="nav-links">
     <div class="nav-dropdown" id="entrainementsDropdown">
-      <a href="#concepts" class="nav-dropdown-trigger"><span>Entraînements</span>
+      <a href="#concepts" class="nav-dropdown-trigger" aria-haspopup="true"><span>Entraînements</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -651,7 +651,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="plusDropdown">
-      <a href="xbandfit-plus.html" class="nav-dropdown-trigger"><span>XBandFit+</span>
+      <a href="xbandfit-plus.html" class="nav-dropdown-trigger" aria-haspopup="true"><span>XBandFit+</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -664,7 +664,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="formateursDropdown">
-      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger"><span>Formateurs</span>
+      <a href="formateurs-rejoindre.html" class="nav-dropdown-trigger" aria-haspopup="true"><span>Formateurs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -687,7 +687,7 @@
       </div>
     </div>
     <div class="nav-dropdown" id="clubsDropdown">
-      <a href="#clubs" class="nav-dropdown-trigger"><span>Clubs</span>
+      <a href="#clubs" class="nav-dropdown-trigger" aria-haspopup="true"><span>Clubs</span>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="nav-dropdown-mega">
@@ -740,7 +740,7 @@
 
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">Entraînements
+    <button class="mobile-nav-toggle" aria-expanded="false">Entraînements
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -754,7 +754,7 @@
   </div>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">Sports
+    <button class="mobile-nav-toggle" aria-expanded="false">Sports
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -770,7 +770,7 @@
   <a href="xbandfit-plus.html" class="mobile-nav-link">XBandFit+</a>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">Formateurs
+    <button class="mobile-nav-toggle" aria-expanded="false">Formateurs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -780,7 +780,7 @@
   </div>
 
   <div class="mobile-nav-group">
-    <button class="mobile-nav-toggle">Clubs
+    <button class="mobile-nav-toggle" aria-expanded="false">Clubs
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="mobile-nav-sub">
@@ -1427,6 +1427,14 @@
   document.querySelectorAll('.lang-option').forEach(opt=>{
     opt.addEventListener('click', ()=> applyLanguage(opt.dataset.lang));
   });
+  document.querySelectorAll('.lang-option[role="button"], .lang-trigger[role="button"]').forEach(opt=>{
+    opt.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        opt.click();
+      }
+    });
+  });
   applyLanguage(currentLang);
 
   // Menu mobile / tablette : hamburger + accordéon Concepts / Clubs
@@ -1439,7 +1447,8 @@
   });
   document.querySelectorAll('.mobile-nav-toggle').forEach(toggle=>{
     toggle.addEventListener('click', ()=>{
-      toggle.closest('.mobile-nav-group').classList.toggle('open');
+      const open = toggle.closest('.mobile-nav-group').classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
   document.querySelectorAll('.mobile-nav-link, .mobile-nav-sub a').forEach(link=>{
