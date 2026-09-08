@@ -1582,6 +1582,43 @@
         scrollTrigger: { trigger: items[0].closest('.concepts-grid'), start: 'top 85%' }
       });
     });
+
+    // Showroom produit (#boutique) : entree en fondu au scroll, tilt au survol
+    const productGrid = document.querySelector('#boutique .product-grid');
+    if (productGrid) {
+      const productItems = Array.from(productGrid.children);
+      productItems.forEach(el => el.classList.remove('reveal'));
+      gsap.set(productItems, { opacity: 1 });
+      gsap.from(productItems, {
+        opacity: 0,
+        y: isMobile ? 20 : 32,
+        duration: 0.75,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: productGrid, start: 'top 82%' }
+      });
+    }
+
+    const productMediaEl = document.getElementById('productMedia');
+    if (productMediaEl && !isMobile && window.matchMedia('(hover: hover)').matches) {
+      const tiltStrength = 7;
+      productMediaEl.addEventListener('mousemove', (e) => {
+        if (productMediaEl.classList.contains('playing')) return;
+        const rect = productMediaEl.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(productMediaEl, {
+          rotateY: px * tiltStrength,
+          rotateX: -py * tiltStrength,
+          transformPerspective: 800,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      });
+      productMediaEl.addEventListener('mouseleave', () => {
+        gsap.to(productMediaEl, { rotateY: 0, rotateX: 0, duration: 0.6, ease: 'power2.out' });
+      });
+    }
   }
 
   // Scroll reveal (fondu standard pour tout le reste du site)
