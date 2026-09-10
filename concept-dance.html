@@ -11,9 +11,96 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/concept.css">
-<style>:root{--accent:#a76bf0;--accent-glow:rgba(167,107,240,0.22);--hero-wide:url('concept-bg-dance-wide.webp');--hero-tall:url('concept-bg-dance-tall.webp');--bg-soft:color-mix(in srgb, var(--accent) 14%, #121110);}</style>
+<style>
+:root{--accent:#b98aff;--hero-wide:url('assets/concept-bg-dance-wide.webp');--hero-tall:url('assets/concept-bg-dance-tall.webp');--bg-soft:#131116;--border:rgba(243,241,236,.14);}
+
+/* Direction Dance X-Band — editorial campaign, deliberately independent from the shared concept template. */
+.concept-dance-page{background:#090909;color:#f3f1ec;}
+.concept-dance-page nav{background:#090909;border-bottom:1px solid rgba(243,241,236,.13);backdrop-filter:none;}
+.concept-dance-page .nav-links a:hover,.concept-dance-page .nav-links a.back-link{color:#d9c3ff;}
+.concept-dance-page .eyebrow{color:#d9c3ff;}
+.concept-dance-page .gold-grad{background:none;color:#d9c3ff;}
+
+.concept-dance-page .concept-hero{
+  isolation:isolate;min-height:calc(100svh - 71px);padding:clamp(120px,18vh,190px) 24px 72px;
+  display:flex;align-items:flex-end;text-align:left;border:0;background:#090909;
+}
+.concept-dance-page .concept-hero::before{
+  content:"";position:absolute;inset:0;z-index:-2;background-image:var(--hero-wide);
+  background-position:center 34%;background-size:cover;transform:scale(1.035);
+  animation:danceCamera 18s cubic-bezier(.22,.61,.36,1) infinite alternate;
+}
+.concept-dance-page .concept-hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:rgba(9,9,9,.3);box-shadow:inset 0 -210px 130px -80px #090909, inset 170px 0 140px -110px #090909;
+}
+.concept-dance-page .concept-hero-kenburns{animation:none;background:none;}
+@keyframes danceCamera{from{transform:scale(1.035) translate3d(-.6%,.4%,0);}to{transform:scale(1.12) translate3d(1.1%,-.7%,0);}}
+.concept-dance-page .concept-hero .wrap{width:100%;max-width:1280px;}
+.concept-dance-page .concept-index{color:#d9c3ff;margin-bottom:42px;}
+.concept-dance-page .concept-hero h1{max-width:760px;font-size:clamp(56px,10.5vw,132px);letter-spacing:-.015em;line-height:.9;}
+.concept-dance-page .concept-hero h1 .accent{color:#b98aff;}
+.concept-dance-page .concept-hero-tag{color:#fff;margin:26px 0 0;font-weight:700;}
+.concept-dance-page .concept-hero-sub{max-width:490px;margin:20px 0 0;color:#e4e0e7;font-size:15px;}
+
+.concept-dance-page section{padding:clamp(76px,10vw,152px) 0;}
+.concept-dance-page #detail{padding-top:clamp(96px,13vw,176px);}
+.concept-dance-page .section-head{max-width:760px;margin-bottom:58px;}
+.concept-dance-page .section-head h2{font-size:clamp(38px,5vw,64px);letter-spacing:0;line-height:1;}
+.concept-dance-page .section-head p{max-width:610px;color:#bab5bd;}
+.concept-dance-page .detail-grid{grid-template-columns:minmax(0,1fr) minmax(300px,.75fr);gap:clamp(36px,7vw,110px);align-items:end;}
+.concept-dance-page .detail-text{border-left:1px solid #b98aff;padding-left:26px;}
+.concept-dance-page .detail-text p{color:#d0cbd2;font-size:17px;line-height:1.8;}
+.concept-dance-page .detail-media{aspect-ratio:3/4;border-radius:0;box-shadow:none;}
+.concept-dance-page .detail-media::after{border-radius:0;box-shadow:inset 0 -80px 60px -60px #090909;}
+
+.concept-dance-page #xband,.concept-dance-page #evenements{background:#131116!important;border:0!important;}
+.concept-dance-page #xband .detail-text{max-width:850px;border-left-color:#81738f;}
+.concept-dance-page #app{border-top:1px solid rgba(243,241,236,.13);}
+.concept-dance-page .app-store-row{gap:0;border-top:1px solid rgba(243,241,236,.18);border-bottom:1px solid rgba(243,241,236,.18);}
+.concept-dance-page .store-btn{min-width:255px;flex:1;padding:20px 0;background:transparent;border:0;border-radius:0;opacity:1;}
+.concept-dance-page .store-btn + .store-btn{padding-left:32px;border-left:1px solid rgba(243,241,236,.18);}
+.concept-dance-page .store-btn .store-status{color:#f3f1ec;}
+
+.concept-dance-page .info-box{max-width:760px;background:transparent;border:0;border-left:1px solid #b98aff;border-radius:0;padding:6px 0 6px 28px;box-shadow:none;}
+.concept-dance-page .info-box h4{color:#f3f1ec;font-size:25px;letter-spacing:.01em;}
+.concept-dance-page .info-box p{font-size:16px;color:#c2bcc6;}
+.concept-dance-page #cta{border-top:1px solid rgba(243,241,236,.13);}
+.concept-dance-page .cta-grid{gap:0;border-top:1px solid rgba(243,241,236,.18);border-bottom:1px solid rgba(243,241,236,.18);}
+.concept-dance-page .cta-card{min-height:360px;display:flex;flex-direction:column;align-items:flex-start;background:transparent;border:0;border-radius:0;padding:38px 0;box-shadow:none;}
+.concept-dance-page .cta-card + .cta-card{padding-left:clamp(32px,5vw,76px);border-left:1px solid rgba(243,241,236,.18);}
+.concept-dance-page .cta-card::before{display:none;}
+.concept-dance-page .cta-card:hover{transform:none;box-shadow:none;}
+.concept-dance-page .cta-card .tag{border:0;border-radius:0;padding:0;color:#d9c3ff;margin-bottom:20px;}
+.concept-dance-page .cta-card h3{font-size:clamp(28px,3vw,39px);line-height:1;max-width:470px;}
+.concept-dance-page .cta-card p{max-width:450px;font-size:15px;}
+.concept-dance-page .cta-card .btn{margin-top:auto;}
+.concept-dance-page .btn{background:#b98aff;color:#130e19;border-radius:0;box-shadow:none;transition:background .25s ease,color .25s ease;}
+.concept-dance-page .btn:hover{transform:none;background:#f3f1ec;color:#090909;box-shadow:none;}
+.concept-dance-page .btn-ghost{background:transparent;border:1px solid rgba(243,241,236,.5);color:#f3f1ec;}
+.concept-dance-page .btn-ghost:hover{border-color:#f3f1ec;background:#f3f1ec;color:#090909;}
+.concept-dance-page footer{border-top:1px solid rgba(243,241,236,.13);}
+.concept-dance-page .footer-links a:hover,.concept-dance-page .footer-bottom a:hover{color:#d9c3ff;}
+@media (max-width:860px){
+  .concept-dance-page .concept-hero::before{background-image:var(--hero-tall);background-position:center 24%;}
+  .concept-dance-page .detail-grid{grid-template-columns:1fr;}
+  .concept-dance-page .detail-media{max-width:540px;width:78%;justify-self:end;}
+}
+@media (max-width:760px){
+  .concept-dance-page .cta-card + .cta-card{padding-left:0;border-left:0;border-top:1px solid rgba(243,241,236,.18);}
+  .concept-dance-page .store-btn + .store-btn{padding-left:0;border-left:0;border-top:1px solid rgba(243,241,236,.18);}
+}
+@media (max-width:540px){
+  .concept-dance-page .concept-hero{min-height:650px;padding-bottom:54px;}
+  .concept-dance-page .concept-hero h1{font-size:clamp(54px,17vw,80px);}
+  .concept-dance-page .concept-index{margin-bottom:26px;}
+  .concept-dance-page .detail-media{width:100%;}
+  .concept-dance-page .detail-text{padding-left:18px;}
+}
+@media (prefers-reduced-motion:reduce){.concept-dance-page .concept-hero::before{animation:none;}}
+</style>
 </head>
-<body>
+<body class="concept-dance-page">
 
 <nav>
   <a href="/" class="nav-mark"><img src="assets/xband-logo-full.webp" alt="XBandFit, We Can Make It"></a>
