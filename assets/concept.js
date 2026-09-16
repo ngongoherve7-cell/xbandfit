@@ -7,27 +7,17 @@ const io = new IntersectionObserver((entries)=>{
 }, {threshold:0.15});
 revealEls.forEach(el=>io.observe(el));
 
-// Motion cinematique (parallax du hero + entree en cascade par section) : GSAP +
-// ScrollTrigger, auto-heberges dans assets/, presents uniquement sur les pages qui
-// les chargent (pages concept). Progressif : si GSAP echoue a charger, ou si
-// prefers-reduced-motion est actif, le site reste parfaitement utilisable, ces
-// elements retombent simplement sur le fondu .reveal standard ci-dessus.
+// Motion cinematique (entree en cascade par section) : GSAP + ScrollTrigger,
+// auto-heberges dans assets/, presents uniquement sur les pages qui les chargent
+// (pages concept). Le hero a son propre mouvement de camera en CSS pur (voir
+// .concept-hero::before dans concept.css), pas besoin de parallax JS ici.
+// Progressif : si GSAP echoue a charger, ou si prefers-reduced-motion est actif,
+// le site reste parfaitement utilisable, ces elements retombent simplement sur
+// le fondu .reveal standard ci-dessus.
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
   gsap.registerPlugin(ScrollTrigger);
   const isMobile = window.innerWidth < 760;
-
-  // Parallax discret du visuel de fond du hero, en complement du zoom Ken Burns CSS
-  // deja en place (les deux animent des sous-proprietes differentes du background et
-  // peuvent tourner ensemble sans conflit).
-  const heroEl = document.querySelector('.concept-hero-kenburns');
-  if (heroEl) {
-    gsap.to(heroEl, {
-      backgroundPositionY: isMobile ? '54%' : '64%',
-      ease: 'none',
-      scrollTrigger: { trigger: heroEl, start: 'top top', end: 'bottom top', scrub: true }
-    });
-  }
 
   // Entree en cascade des blocs .reveal, section par section, a la place du fondu
   // simultane : chaque section anime ses propres elements avec un leger decalage,
@@ -39,10 +29,9 @@ if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     gsap.set(items, { opacity: 1 });
     gsap.from(items, {
       opacity: 0,
-      y: isMobile ? 24 : 44,
-      scale: isMobile ? 1 : 0.97,
-      duration: 1.1,
-      stagger: 0.14,
+      y: isMobile ? 24 : 40,
+      duration: 1.0,
+      stagger: 0.12,
       ease: 'power3.out',
       scrollTrigger: { trigger: section, start: 'top 82%' }
     });
