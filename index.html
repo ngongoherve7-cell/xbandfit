@@ -424,8 +424,8 @@
   .section-head h2{font-size:clamp(30px,4.4vw,50px);}
   .section-head p{color:var(--text-dim);font-size:16px;line-height:1.65;margin-top:16px;}
 
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal{opacity:0;transform:translateY(40px) scale(0.985);transition:opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1);}
+  .reveal.is-visible{opacity:1;transform:translateY(0) scale(1);}
 
   /* ---------- DECORATIVE GLOWS ---------- */
   #concepts::before{
@@ -1796,11 +1796,11 @@
       gsap.set(items, { opacity: 1 });
       gsap.from(items, {
         opacity: 0,
-        y: isMobile ? 20 : 36,
-        scale: isMobile ? 1 : 0.96,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'power2.out',
+        y: isMobile ? 20 : 44,
+        scale: isMobile ? 1 : 0.95,
+        duration: 1.1,
+        stagger: 0.16,
+        ease: 'power3.out',
         scrollTrigger: { trigger: items[0].closest('.concepts-grid'), start: 'top 85%' }
       });
     });
@@ -1813,10 +1813,10 @@
       gsap.set(productItems, { opacity: 1 });
       gsap.from(productItems, {
         opacity: 0,
-        y: isMobile ? 20 : 32,
-        duration: 0.75,
-        stagger: 0.15,
-        ease: 'power2.out',
+        y: isMobile ? 20 : 40,
+        duration: 1.1,
+        stagger: 0.18,
+        ease: 'power3.out',
         scrollTrigger: { trigger: productGrid, start: 'top 82%' }
       });
     }

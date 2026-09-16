@@ -138,8 +138,18 @@ L'orchestration de Higgsfield se fait directement via le MCP Higgsfield.
   besoin explicite et justifié après audit.
 - Librairies front auto-hébergées dans `assets/` (récupérées via npm plutôt
   que via CDN externe, pour ne dépendre d'aucun tiers au chargement) :
-  `gsap.min.js` + `ScrollTrigger.min.js` (3.12.5), utilisées uniquement sur
-  `index.html` pour le parallax du hero et l'entrée en cascade des cartes
-  concepts/expérience. Toujours dégradable : si GSAP échoue à s'initialiser
-  ou si `prefers-reduced-motion` est actif, ces éléments retombent sur le
-  système `.reveal`/`IntersectionObserver` déjà utilisé partout ailleurs.
+  `gsap.min.js` + `ScrollTrigger.min.js` (3.12.5), utilisées sur `index.html`
+  (parallax du hero, entrée en cascade des cartes concepts/expérience) et sur
+  les 6 pages concept (`concept-fight/power/hiit/dance/core/mobility.html` :
+  parallax discret du visuel de fond du hero en plus du zoom Ken Burns CSS,
+  entrée en cascade section par section via `assets/concept.js`). Direction
+  motion voulue : mouvement lent, fluide, contrôlé et intentionnel
+  (« cinematic athletic premium »), jamais une multiplication d'animations.
+  Toujours dégradable : si GSAP échoue à s'initialiser ou si
+  `prefers-reduced-motion` est actif, ces éléments retombent sur le système
+  `.reveal`/`IntersectionObserver` déjà utilisé partout ailleurs. Palette
+  couleur : fond sombre `--bg`/`--bg-soft` conservé comme base, `--red`
+  (#e2394a) comme couleur d'énergie XBandFit, `--gold` comme signature de
+  marque constante, texte blanc cassé `--text` pour les moments de contraste
+  propre ; chaque page concept ajoute sa propre couleur d'accent
+  (`--accent`/`--accent-glow`) par-dessus cette base commune.
