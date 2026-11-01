@@ -277,6 +277,29 @@
     opacity:0;
     pointer-events:none;
   }
+  /* Courants chromatiques : une signature motion discrète derrière le contenu. */
+  .hero::before,.hero::after{
+    content:"";position:absolute;inset:-28%;z-index:1;pointer-events:none;
+    opacity:0;filter:blur(46px);mix-blend-mode:screen;
+    transform:translate3d(0,0,0) rotate(0deg);
+  }
+  .hero::before{
+    background:conic-gradient(from 210deg at 48% 50%,transparent 0deg,rgba(226,57,74,.18) 38deg,transparent 82deg,rgba(217,164,65,.15) 142deg,transparent 190deg,rgba(78,119,185,.13) 248deg,transparent 310deg);
+    animation:heroCurrentA 22s ease-in-out infinite alternate;
+  }
+  .hero::after{
+    background:conic-gradient(from 30deg at 52% 48%,transparent 0deg,rgba(217,164,65,.13) 48deg,transparent 104deg,rgba(226,57,74,.12) 172deg,transparent 230deg,rgba(105,76,180,.12) 292deg,transparent 340deg);
+    animation:heroCurrentB 29s ease-in-out infinite alternate;
+  }
+  .hero.revealed::before,.hero.revealed::after{opacity:1;transition:opacity 1.8s ease;}
+  @keyframes heroCurrentA{
+    0%{transform:translate3d(-4%,2%,0) rotate(-12deg) scale(.94);}
+    100%{transform:translate3d(5%,-3%,0) rotate(18deg) scale(1.08);}
+  }
+  @keyframes heroCurrentB{
+    0%{transform:translate3d(4%,-2%,0) rotate(16deg) scale(1.05);}
+    100%{transform:translate3d(-5%,3%,0) rotate(-14deg) scale(.92);}
+  }
   .hero-content{
     position:relative;z-index:2;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -597,6 +620,7 @@
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important;animation-delay:0s !important;transition-duration:0.01ms !important;}
+    .hero::before,.hero::after{display:none;}
   }
 </style>
 </head>
