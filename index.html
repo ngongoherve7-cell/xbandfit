@@ -622,6 +622,30 @@
     *{animation-duration:0.01ms !important;animation-delay:0s !important;transition-duration:0.01ms !important;}
     .hero::before,.hero::after{display:none;}
   }
+
+  /* Cartes visuelles cliquables de la section expérience */
+  .concepts-grid.cats-4 .concept-card{
+    display:block;
+    position:relative;
+    padding:0;
+    aspect-ratio:1 / 1;
+    min-width:0;
+    overflow:hidden;
+    text-decoration:none;
+  }
+  .concepts-grid.cats-4 .concept-card::before,
+  .concepts-grid.cats-4 .concept-card .concept-card-overlay{display:none;}
+  .concepts-grid.cats-4 .concept-card-video{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    pointer-events:none;
+  }
+  .concepts-grid.cats-4 .concept-card:focus-visible{
+    outline:2px solid var(--gold-light);
+    outline-offset:4px;
+  }
 </style>
 </head>
 <body>
@@ -891,46 +915,26 @@
 
   <div class="wrap" style="padding:0;">
     <div class="concepts-grid cats-4">
-      <div class="concept-card reveal">
-        <video class="concept-card-video" autoplay muted loop playsinline>
+      <a href="entrainement-maison.html" class="concept-card reveal" aria-label="Découvrir l'entraînement à la maison">
+        <video class="concept-card-video" autoplay muted loop playsinline aria-hidden="true">
           <source src="assets/experience-maison.mp4" type="video/mp4">
         </video>
-        <div class="concept-card-overlay"></div>
-        <span class="card-index">01</span>
-        <h3 style="font-size:20px;" data-i18n="exp.card1.title">À la maison</h3>
-        <p data-i18n="exp.card1.desc">Suivez nos exercices et nos séances vidéo et entraînez-vous à votre rythme.</p>
-        <a href="entrainement-maison.html" class="concept-more">En savoir plus</a>
-      </div>
-      <div class="concept-card reveal">
-        <video class="concept-card-video" autoplay muted loop playsinline>
+      </a>
+      <a href="entrainement-exterieur.html" class="concept-card reveal" aria-label="Découvrir l'entraînement en extérieur">
+        <video class="concept-card-video" autoplay muted loop playsinline aria-hidden="true">
           <source src="assets/experience-exterieur.mp4" type="video/mp4">
         </video>
-        <div class="concept-card-overlay"></div>
-        <span class="card-index">02</span>
-        <h3 style="font-size:20px;" data-i18n="exp.card2.title">En extérieur</h3>
-        <p data-i18n="exp.card2.desc">Emportez votre X-Band partout et transformez presque n'importe quel espace en terrain d'entraînement.</p>
-        <a href="entrainement-exterieur.html" class="concept-more">En savoir plus</a>
-      </div>
-      <div class="concept-card reveal">
-        <video class="concept-card-video" autoplay muted loop playsinline>
+      </a>
+      <a href="entrainement-salle.html" class="concept-card reveal" aria-label="Découvrir l'entraînement en salle de sport">
+        <video class="concept-card-video" autoplay muted loop playsinline aria-hidden="true">
           <source src="assets/experience-salle.mp4" type="video/mp4">
         </video>
-        <div class="concept-card-overlay"></div>
-        <span class="card-index">03</span>
-        <h3 style="font-size:20px;" data-i18n="exp.card3.title">En salle de sport</h3>
-        <p data-i18n="exp.card3.desc">Intégrez le X-Band à vos séances de musculation pour plus de variété et d'intensité.</p>
-        <a href="entrainement-salle.html" class="concept-more">En savoir plus</a>
-      </div>
-      <div class="concept-card reveal">
-        <video class="concept-card-video" autoplay muted loop playsinline>
+      </a>
+      <a href="entrainement-club.html" class="concept-card reveal" aria-label="Découvrir l'entraînement en club">
+        <video class="concept-card-video" autoplay muted loop playsinline aria-hidden="true">
           <source src="assets/experience-club.mp4" type="video/mp4">
         </video>
-        <div class="concept-card-overlay"></div>
-        <span class="card-index">04</span>
-        <h3 style="font-size:20px;" data-i18n="exp.card4.title">En club</h3>
-        <p data-i18n="exp.card4.desc">Découvrez les cours collectifs XBandfit avec des coachs formés et vivez l'expérience avec un groupe.</p>
-        <a href="entrainement-club.html" class="concept-more">En savoir plus</a>
-      </div>
+      </a>
     </div>
   </div>
 </section>
